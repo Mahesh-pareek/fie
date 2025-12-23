@@ -1,0 +1,2 @@
+[console_scripts]
+fie = fie.cli:main
