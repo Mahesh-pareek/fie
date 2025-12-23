@@ -1,3 +1,4 @@
+README.md
 pyproject.toml
 fie/__init__.py
 fie/cli.py
@@ -5,6 +6,7 @@ fie.egg-info/PKG-INFO
 fie.egg-info/SOURCES.txt
 fie.egg-info/dependency_links.txt
 fie.egg-info/entry_points.txt
+fie.egg-info/requires.txt
 fie.egg-info/top_level.txt
 fie/analysis/__init__.py
 fie/analysis/summary.py
@@ -20,4 +22,6 @@ fie/storage/__init__.py
 fie/storage/base.py
 fie/storage/json_store.py
 fie/tagging/__init__.py
+fie/tagging/edit.py
+fie/tagging/edit_tag.py
 fie/tagging/review.py

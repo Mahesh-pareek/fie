@@ -10,6 +10,7 @@ from fie.analysis.summary import personal_expense_summary,scope_wise_summary
 from fie.report.printer import print_summary
 from fie.ingest.canara import parse_canara_pdf
 from fie.tagging.edit import edit_transactions
+from fie.tagging.edit_tag import edit_transaction_tag
 
 
 DATA_PATH = Path.home() / ".fie" / "transactions.json"
@@ -26,7 +27,6 @@ def main():
     subparsers.add_parser("ingest-pdf", help="Ingest Canara Bank PDF")
     subparsers.add_parser("ingest-demo", help="Ingest demo transactions")
     subparsers.add_parser("review", help="Review untagged transactions")
-    subparsers.add_parser("summary", help="Show personal expense summary")
     subparsers.add_parser("scope-summary", help="Show scope-wise net summary")
     list_parser = subparsers.add_parser("list", help="List transactions")
     list_parser.add_argument("--sort", choices=["date", "amount", "scope", "counterparty"], default="date")
@@ -37,6 +37,14 @@ def main():
     edit_parser.add_argument("--id", help="Edit transaction by ID")
     edit_parser.add_argument("--scope", help="Filter by scope")
     edit_parser.add_argument("--cat", help="Filter by category")
+    edit_tag_parser = subparsers.add_parser("edit-tag", help="Edit tag of a transaction")
+    edit_tag_parser.add_argument("--id", required=True, help="Transaction ID")
+    summary_parser = subparsers.add_parser("summary", help="Show summaries")
+    summary_parser.add_argument("-a", "--all", action="store_true")
+    summary_parser.add_argument("-p", "--personal", action="store_true")
+    summary_parser.add_argument("-f", "--family", action="store_true")
+    summary_parser.add_argument("-e", "--education", action="store_true")
+    summary_parser.add_argument("-s", "--shared", action="store_true")
 
     args = parser.parse_args()
 
@@ -87,8 +95,36 @@ def main():
 
     elif args.command == "summary":
         txns = engine.all()
-        summary = personal_expense_summary(txns)
-        print_summary("Personal Expenses", summary)
+
+        if args.all:
+            from fie.analysis.summary import personal_expense_summary, scope_wise_summary
+            print_summary("Personal Summary", personal_expense_summary(txns))
+            print_summary("Scope-wise Summary", scope_wise_summary(txns))
+            return
+
+        if args.personal:
+            from fie.analysis.summary import personal_expense_summary
+            print_summary("Personal Summary", personal_expense_summary(txns))
+            return
+
+        if args.family:
+            from fie.analysis.summary import scope_wise_summary
+            print_summary("Family Summary", {"family": scope_wise_summary(txns).get("family", 0)})
+            return
+
+        if args.education:
+            from fie.analysis.summary import scope_wise_summary
+            print_summary("Education Summary", {"education": scope_wise_summary(txns).get("education", 0)})
+            return
+
+        if args.shared:
+            from fie.analysis.summary import scope_wise_summary
+            print_summary("Shared Summary", {"shared": scope_wise_summary(txns).get("shared", 0)})
+            return
+
+        # default
+        from fie.analysis.summary import scope_wise_summary
+        print_summary("Scope-wise Summary", scope_wise_summary(txns))
 
     elif args.command == "list":
         txns = engine.all()
@@ -146,6 +182,18 @@ def main():
         edited = edit_transactions(txns)
         store.update(edited)
         print(f"Edited {len(edited)} transactions.")
+
+    elif args.command == "edit-tag":
+        txns = engine.all()
+        matches = [t for t in txns if t.id == args.id]
+
+        if not matches:
+            print("Transaction not found.")
+            return
+
+        updated = edit_transaction_tag(matches[0])
+        store.update([updated])
+        print("Tag updated.")
 
 
     else:

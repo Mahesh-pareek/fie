@@ -4,9 +4,11 @@ from fie.tagging.review import review_transactions
 
 
 def edit_transactions(txns: List[Transaction]) -> List[Transaction]:
-    """
-    Re-review already stored transactions.
-    Uses same UX as review.
-    """
-    print(f"Editing {len(txns)} transactions")
-    return review_transactions(txns)
+    eligible = [t for t in txns if t.amount >= 20]
+
+    if not eligible:
+        print("No editable transactions (micro-transactions skipped).")
+        return []
+
+    print(f"Editing {len(eligible)} transactions")
+    return review_transactions(eligible)

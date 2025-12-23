@@ -34,3 +34,6 @@ def scope_wise_summary(txns):
         summary[scope] += sign * txn.amount
 
     return summary
+
+def filter_by_scope(txns, scope):
+    return [t for t in txns if t.scope == scope]

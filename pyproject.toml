@@ -4,9 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fie"
-version = "0.1.0"
-description = "FIE — Financial Intelligence Engine"
+version = "1.0.0"
+description = "Financial Intelligence Engine"
 requires-python = ">=3.10"
+
+dependencies = [
+  "pdfplumber",
+]
 
 [project.scripts]
 fie = "fie.cli:main"
