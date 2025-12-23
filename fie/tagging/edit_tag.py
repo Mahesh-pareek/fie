@@ -1,17 +1,14 @@
 from fie.core.transaction import Transaction
+from fie import config
 
-CATEGORY_MAP = {
-    "f": "food",
-    "c": "coffee",
-    "o": "outing",
-    "t": "travel",
-    "n": "noise",
-}
+CATEGORY_MAP = config.get("tagging.category_map")
 
 
 def edit_transaction_tag(txn: Transaction) -> Transaction:
-    if txn.amount < 20:
-        print("Micro-transaction (<₹20). Tag editing is disabled.")
+    min_edit_amount = config.get("tagging.edit_min_amount")
+    
+    if txn.amount < min_edit_amount:
+        print(f"Micro-transaction (<₹{min_edit_amount}). Tag editing is disabled.")
         return txn
 
     print("\n-----------------------------")

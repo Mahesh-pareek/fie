@@ -6,84 +6,183 @@ import pdfplumber
 from fie.core.transaction import Transaction
 
 
-DATE_LINE_RE = re.compile(r"(\d{2}-\d{2}-\d{4})\s+([\d,]+\.\d{2})\s+([\d,]+\.\d{2})")
-TIME_RE = re.compile(r"\d{2}:\d{2}:\d{2}")
+DATE_RE = re.compile(r"\b\d{2}-\d{2}-\d{4}\b")
+MONEY_RE = re.compile(r"\b\d{1,3}(?:,\d{3})*\.\d{2}\b")
+TIME_RE = re.compile(r"\b\d{2}:\d{2}:\d{2}\b")
+CHQ_RE = re.compile(r"Chq:\s*(\d+)")
 
+SKIP_PREFIXES = (
+    "page ",
+    "date particulars",
+    "opening balance",
+    "closing balance",
+    "statement for",
+    "disclaimer",
+    "unless the constituent",
+    "beware of phishing",
+    "computer output",
+)
+
+
+def should_skip(line: str) -> bool:
+    l = line.lower().strip()
+    return not l or any(l.startswith(p) for p in SKIP_PREFIXES)
+
+
+def normalize_narration(lines: list[str]) -> str:
+    return " ".join(l.strip() for l in lines if l.strip())
+
+
+# ------------------ protocol extraction ------------------
+
+def extract_protocol_segment(narration: str) -> str | None:
+    patterns = [
+        r"(UPI/(?:DR|CR)/[^ ]+)",
+        r"(MOB-IMPS-(?:DR|CR)/[^ ]+)",
+        r"(CASH DEPOSIT[^ ]*(?: [^ ]*)*)",
+        r"(IITDSETTLEMENT[^ ]+)",
+    ]
+    for pat in patterns:
+        m = re.search(pat, narration, re.IGNORECASE)
+        if m:
+            return m.group(1)
+    return None
+
+
+def infer_mode_and_direction(narration: str) -> tuple[str, str]:
+    proto = extract_protocol_segment(narration)
+    if not proto:
+        return "UNKNOWN", "debit"
+
+    p = proto.upper()
+    if p.startswith("UPI/DR"):
+        return "UPI", "debit"
+    if p.startswith("UPI/CR"):
+        return "UPI", "credit"
+    if p.startswith("MOB-IMPS-DR"):
+        return "IMPS", "debit"
+    if p.startswith("MOB-IMPS-CR"):
+        return "IMPS", "credit"
+    if p.startswith("CASH DEPOSIT"):
+        return "CASH", "credit"
+    if "SETTLEMENT" in p:
+        return "SETTLEMENT", "credit"
+
+    return "UNKNOWN", "debit"
+
+
+def infer_counterparty(narration: str) -> str:
+    proto = extract_protocol_segment(narration)
+    if not proto:
+        return "UNKNOWN"
+
+    p = proto.strip()
+
+    if p.startswith("CASH DEPOSIT"):
+        return "SELF"
+    if "SETTLEMENT" in p:
+        return "IITD"
+
+    parts = [x.strip() for x in p.split("/") if x.strip()]
+
+    if parts and parts[0] == "UPI" and len(parts) >= 4:
+        return parts[3].title()
+
+    if parts and parts[0].startswith("MOB-IMPS") and len(parts) >= 2:
+        return parts[1].title()
+
+    return "UNKNOWN"
+
+
+# ------------------ main parser ------------------
 
 def parse_canara_pdf(path: str) -> List[Transaction]:
-    transactions: List[Transaction] = []
+    lines: List[str] = []
 
     with pdfplumber.open(path) as pdf:
-        lines: List[str] = []
         for page in pdf.pages:
             text = page.extract_text()
             if text:
-                lines.extend([l.strip() for l in text.splitlines()])
+                lines.extend(l.strip() for l in text.splitlines())
 
-    i = 0
-    while i < len(lines):
-        line = lines[i]
+    transactions: List[Transaction] = []
 
-        # Transaction header
-        if "UPI/DR" in line or "UPI/CR" in line:
-            direction = "debit" if "UPI/DR" in line else "credit"
-            header_lines = [line]
-            i += 1
+    current = {
+        "raw": [],
+        "money": [],
+        "date": None,
+        "time": None,
+        "chq": None,
+    }
 
-            # Collect until date line
-            while i < len(lines) and not DATE_LINE_RE.search(lines[i]):
-                header_lines.append(lines[i])
-                i += 1
+    def finalize():
+        if not current["date"] or len(current["money"]) < 2:
+            return None
 
-            if i >= len(lines):
-                break
+        amount = float(current["money"][-2].replace(",", ""))
+        time_str = current["time"] or "00:00:00"
 
-            # Date + amount line
-            date_line = lines[i]
-            m = DATE_LINE_RE.search(date_line)
-            if not m:
-                i += 1
-                continue
+        dt = datetime.strptime(
+            f"{current['date']} {time_str}",
+            "%d-%m-%Y %H:%M:%S"
+        )
 
-            date_str, amount_str, _balance = m.groups()
-            amount = float(amount_str.replace(",", ""))
+        narration = normalize_narration(current["raw"])
+        mode, direction = infer_mode_and_direction(narration)
+        counterparty = infer_counterparty(narration).upper()
 
-            # Look ahead for time
-            time_str = "00:00:00"
-            if i + 1 < len(lines) and TIME_RE.search(lines[i + 1]):
-                time_str = TIME_RE.search(lines[i + 1]).group()
+        txn_id = Transaction.compute_id(
+            datetime=dt,
+            amount=amount,
+            direction=direction,
+            counterparty=counterparty,
+            mode=mode,
+            reference=narration[:300],
+            source_file=path,
+        )
 
-            dt = datetime.strptime(
-                f"{date_str} {time_str}",
-                "%d-%m-%Y %H:%M:%S"
-            )
+        return Transaction(
+            id=txn_id,
+            datetime=dt,
+            amount=amount,
+            direction=direction,
+            counterparty=counterparty,
+            mode=mode,
+            reference=narration[:300],
+            upi_id=current["chq"],
+            source_file=path,
+        )
 
-            # Counterparty heuristic
-            parts = header_lines[0].split("/")
-            counterparty = parts[3] if len(parts) > 3 else "UNKNOWN"
+    for line in lines:
+        if should_skip(line):
+            continue
 
-            txn_id = Transaction.compute_id(
-                datetime=dt,
-                amount=amount,
-                direction=direction,
-                counterparty=counterparty,
-                reference=" ".join(header_lines)[:80],
-                source_file=path,
-            )
+        current["raw"].append(line)
+        current["money"].extend(MONEY_RE.findall(line))
 
-            transactions.append(
-                Transaction(
-                    id=txn_id,
-                    datetime=dt,
-                    amount=amount,
-                    direction=direction,
-                    counterparty=counterparty,
-                    reference=" ".join(header_lines)[:120],
-                    upi_id=None,
-                    source_file=path,
-                )
-            )
+        d = DATE_RE.search(line)
+        if d:
+            current["date"] = d.group()
 
-        i += 1
+        t = TIME_RE.search(line)
+        if t:
+            current["time"] = t.group()
+
+        chq = CHQ_RE.search(line)
+        if chq:
+            current["chq"] = chq.group(1)
+
+            txn = finalize()
+            if txn:
+                transactions.append(txn)
+
+            # reset AFTER Chq (true boundary)
+            current = {
+                "raw": [],
+                "money": [],
+                "date": None,
+                "time": None,
+                "chq": None,
+            }
 
     return transactions

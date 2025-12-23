@@ -2,6 +2,7 @@ README.md
 pyproject.toml
 fie/__init__.py
 fie/cli.py
+fie/config.py
 fie.egg-info/PKG-INFO
 fie.egg-info/SOURCES.txt
 fie.egg-info/dependency_links.txt

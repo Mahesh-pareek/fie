@@ -10,19 +10,37 @@ from fie.storage.base import TransactionStore
 class JsonTransactionStore(TransactionStore):
     def __init__(self, path: Path):
         self.path = path
+        self._init_store()
+
+    # ---------- lifecycle ----------
+
+    def _init_store(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
         if not self.path.exists():
             self._write({"transactions": []})
 
+    # ---------- core IO ----------
+
     def _read(self):
-        with open(self.path, "r") as f:
-            return json.load(f)
+        try:
+            with open(self.path, "r") as f:
+                return json.load(f)
+        except FileNotFoundError:
+            # File deleted mid-run → recreate
+            self._init_store()
+            return {"transactions": []}
+        except json.JSONDecodeError:
+            # Corrupted file → reset safely
+            self._write({"transactions": []})
+            return {"transactions": []}
 
     def _write(self, data):
         tmp = self.path.with_suffix(".tmp")
         with open(tmp, "w") as f:
             json.dump(data, f, indent=2)
         tmp.replace(self.path)
+
+    # ---------- public API ----------
 
     def add(self, txns: List[Transaction]) -> None:
         data = self._read()

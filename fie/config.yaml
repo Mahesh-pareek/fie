@@ -1,0 +1,29 @@
+# FIE Configuration
+
+# Storage
+storage:
+  # data_path: ~/.fie/transactions.json 
+  data_path: ~/projects/fie/fie/transactions.json  # for debugging we store in visible path
+  
+
+# Transaction Rules
+rules:
+  micro_transaction:
+    noise_max_amount: 10
+    coffee_min_amount: 11
+    coffee_max_amount: 20
+
+# Tagging
+tagging:
+  edit_min_amount: 20
+  scope_map:
+    p: personal
+    f: family
+    e: education
+    s: shared
+  category_map:
+    f: food
+    c: coffee
+    o: outing
+    t: travel
+    n: noise

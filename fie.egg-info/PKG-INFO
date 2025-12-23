@@ -4,3 +4,5 @@ Version: 1.0.0
 Summary: Financial Intelligence Engine
 Requires-Python: >=3.10
 Requires-Dist: pdfplumber
+Requires-Dist: argparse
+Requires-Dist: PyYAML

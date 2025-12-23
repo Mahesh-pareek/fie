@@ -9,8 +9,9 @@ class Transaction:
     id: str
     datetime: datetime
     amount: float
-    direction: str  # "credit" | "debit"
-    counterparty: str
+    direction: str         
+    counterparty: str       
+    mode: str              
     reference: Optional[str]
     upi_id: Optional[str]
     source_file: str
@@ -31,8 +32,17 @@ class Transaction:
         amount: float,
         direction: str,
         counterparty: str,
+        mode: str,
         reference: Optional[str],
         source_file: str,
     ) -> str:
-        raw = f"{datetime.isoformat()}|{amount}|{direction}|{counterparty}|{reference}|{source_file}"
+        raw = (
+            f"{datetime.isoformat()}|"
+            f"{amount}|"
+            f"{direction}|"
+            f"{counterparty}|"
+            f"{mode}|"
+            f"{reference}|"
+            f"{source_file}"
+        )
         return hashlib.sha256(raw.encode()).hexdigest()
