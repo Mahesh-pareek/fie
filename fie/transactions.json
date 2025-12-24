@@ -1,24 +1,1114 @@
 {
   "transactions": [
     {
-      "id": "de223a7c33ebdb6b9264fb66cf1e3d6d78f2d562a62ba9c56c0e6862bf601413",
-      "datetime": "2025-12-13T01:26:25",
-      "amount": 39997.0,
+      "id": "362255235cd1489e679cba33cd1e632ae5b25c163fa4939345590f35940c998d",
+      "datetime": "2025-11-22T19:32:57",
+      "amount": 20.0,
       "direction": "debit",
-      "counterparty": "IITDELHI",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 2643.54,
+        "chq_id": "585143720228",
+        "raw": "UPI/DR/585143720228/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //AXLFF343C45114647E08D253 CBFCEDB14A7/22/11/2025 19:32:57 585143720228",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "0d4cd469e8a082997559ee37014dca95e72f89a23d55ff8ef20a3e80f2847604",
+      "datetime": "2025-11-23T13:02:00",
+      "amount": 904.0,
+      "direction": "debit",
+      "counterparty": "JIORECHA",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "utilities",
+        "recharge"
+      ],
+      "extras": {
+        "balance": 1739.54,
+        "chq_id": "080417784091",
+        "raw": "UPI/DR/080417784091/JIO RECHA/YESB/**IRECT@YBL/P AYMENT //YBL4478E44CC1ED4E08867A 433BDF5022B7/23/11/2025 13:02:00 080417784091",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "c01389166c85cb2b77783b52e1a76a1ec10ef5b74c9c3e774f0c422cb6488b1f",
+      "datetime": "2025-11-24T00:04:27",
+      "amount": 20.0,
+      "direction": "debit",
+      "counterparty": "YULUBIKES",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 1719.54,
+        "chq_id": "422697011648",
+        "raw": "UPI/DR/422697011648/YULUBIK ES/UTIB/**9.RZP@AXISBANK/T OPUPBYU//AXL972BFCB87742 46198DB48DD3F3F112E1/24/11 /2025 00:04:27 422697011648",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "61f37e6ef453bfb59040c83a2672c5a5dddc70ead35428020cff98c1e9da9e3a",
+      "datetime": "2025-11-24T00:33:51",
+      "amount": 249.0,
+      "direction": "debit",
+      "counterparty": "REBELMAR",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "extras": {
+        "balance": 1470.54,
+        "chq_id": "669286687090",
+        "raw": "UPI/DR/669286687090/REBEL MAR/AIRP/**3.RZP@RXAIRTEL/ PAYMENT //YBL7E72BDB48C3F4FD9BD9C 725A76A7DD5E/24/11/2025 00:33:51 669286687090",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "1ac365f8b8aaae6d4e08ff29f2f9923771c6367edc7c9827bddb2006d59ef4ad",
+      "datetime": "2025-11-24T05:56:31",
+      "amount": 125.0,
+      "direction": "credit",
+      "counterparty": "VAIBHAVI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "extras": {
+        "balance": 1595.54,
+        "chq_id": "532803889745",
+        "raw": "UPI/CR/532803889745/VAIBHAV I /SBIN/**VI379@OKAXIS/UPI//AX I9BEC123AD5CA40229E8E698D 6E973CFF/24/11/2025 05:56:31 532803889745",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "796ab85b2a590c1dc837657144fc60a3166bdcf3abb1df6cd1f108624f297722",
+      "datetime": "2025-11-25T05:18:42",
+      "amount": 255.2,
+      "direction": "debit",
+      "counterparty": "ETERNALL",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "extras": {
+        "balance": 1340.34,
+        "chq_id": "622857769725",
+        "raw": "UPI/DR/622857769725/ETERNA L L/AIRP/**.PAYU@MAIRTEL/UPII NTENT//PPPL261538288422511 250518346924EED2/25/11/2025 05:18:42 622857769725",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "76f5599dfe2aa7e001d06c145ed403786b8236b7accc6f17c022a5d6057b2f6f",
+      "datetime": "2025-11-25T10:05:57",
+      "amount": 15.0,
+      "direction": "debit",
+      "counterparty": "SHEELUKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 1325.34,
+        "chq_id": "358850155868",
+        "raw": "UPI/DR/358850155868/SHEELU KU/PUNB/**902- 1@OKAXIS/PAYMENT //YBLF5DF8541BA9943E48FE7 BBFFA990E89A/25/11/2025 10:05:57 358850155868",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "0b00813d260d97515d02997678b74e560e8ee170b55e51f957ea3681c2324848",
+      "datetime": "2025-11-25T17:15:25",
+      "amount": 10.0,
+      "direction": "debit",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "extras": {
+        "balance": 1315.34,
+        "chq_id": "682076876389",
+        "raw": "UPI/DR/682076876389/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //IBL561E9F866370470D8141CA 2E9C323B43/25/11/2025 17:15:25 682076876389",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "bc0c2c25e11b3b8cb00138597ec52e603eaf670cf9d88c8f3005c28f31d5fe22",
+      "datetime": "2025-11-25T18:43:16",
+      "amount": 15.0,
+      "direction": "debit",
+      "counterparty": "ROHITKUM",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 1300.34,
+        "chq_id": "540264751200",
+        "raw": "UPI/DR/540264751200/ROHIT KUM/YESB/**720EJ@PTY/PAY MENT //YBLC5654661691B418B98BF1 8031E4DF963/25/11/2025 18:43:16 540264751200",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "c4e3a0dc3c46c61aa940d15bf579338547851564b4210c8567438eb572f5b703",
+      "datetime": "2025-11-26T07:56:06",
+      "amount": 15.0,
+      "direction": "debit",
+      "counterparty": "VINODKUM",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 1285.34,
+        "chq_id": "659731517016",
+        "raw": "UPI/DR/659731517016/VINOD KUM/YESB/**09384@YBL/PAY MENT //AXL670C051A83C94C2290E2A 30EC624D470/26/11/2025 07:56:06 659731517016",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "d618d4f458708f3eadc426ad5886a26bca9db70cd2d57a1309eb1d8b3eca2ade",
+      "datetime": "2025-11-26T07:56:36",
+      "amount": 5.0,
+      "direction": "debit",
+      "counterparty": "VINODKUM",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "extras": {
+        "balance": 1280.34,
+        "chq_id": "607630057581",
+        "raw": "UPI/DR/607630057581/VINOD KUM/YESB/**09384@YBL/PAY MENT //AXL8493B68C32094EFBB31F7 EE327392E4F/26/11/2025 07:56:36 607630057581",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "9bc637b365a3476f6d203585aca50efb93a9c0c51de221f8c059c495156e978b",
+      "datetime": "2025-11-26T08:43:32",
+      "amount": 30.0,
+      "direction": "debit",
+      "counterparty": "SHEELUKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 1250.34,
+        "chq_id": "994042195055",
+        "raw": "UPI/DR/994042195055/SHEELU KU/PUNB/**902- 1@OKAXIS/PAYMENT //YBL18CC1CF1F24B4172B9866 462763FD6FC/26/11/2025 08:43:32 994042195055",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "e2f82626f007bc76d0faef194b8ef1906e30ee02f2cd6b02aa29590663509102",
+      "datetime": "2025-11-26T08:50:03",
+      "amount": 70.0,
+      "direction": "credit",
+      "counterparty": "VAIBHAVI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 1320.34,
+        "chq_id": "569653418142",
+        "raw": "UPI/CR/569653418142/VAIBHAV I /SBIN/**VI379@OKAXIS/UPI//AX I8753E3B9F5E147A9B978DC63 8987E28D/26/11/2025 08:50:03 569653418142",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "60b9869a83f6305eb417156eaec62752d262ff27620de469bada7bfda24a9262",
+      "datetime": "2025-11-26T09:02:56",
+      "amount": 40.0,
+      "direction": "debit",
+      "counterparty": "DEEPAKGA",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 1280.34,
+        "chq_id": "393916061066",
+        "raw": "UPI/DR/393916061066/DEEPAK GA/YESB/**81546@YBL/PAYME NT //AXL8159F0BF0B874899951AD E867B5FEFAC/26/11/2025 09:02:56 393916061066",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "b447d0a659e70d983b449ce36a39c6af5232498fa09d96c06eae5ef22111f03a",
+      "datetime": "2025-11-26T14:14:13",
+      "amount": 40.0,
+      "direction": "debit",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 1240.34,
+        "chq_id": "382575020697",
+        "raw": "UPI/DR/382575020697/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //IBL45474F89778140E1BA696F F74F026143/26/11/2025 14:14:13 382575020697",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "f7f216b4db9b73258c3629fdc61d25d9740256addf1c975ac84baf67e9ce96b2",
+      "datetime": "2025-11-27T01:34:13",
+      "amount": 25.0,
+      "direction": "debit",
+      "counterparty": "BRAJNATH",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 1215.34,
+        "chq_id": "438123925811",
+        "raw": "UPI/DR/438123925811/BRAJNA TH/YESB/**T7Z1Y@PTY/PAYM ENT //YBL51FD500F22B9412A86915 C27E321D830/27/11/2025 01:34:13 438123925811",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "4a766b4fd35b64209460c0d2d30f2d17068df5421f541c82922796b8b218e7eb",
+      "datetime": "2025-11-27T01:45:27",
+      "amount": 200.0,
+      "direction": "debit",
+      "counterparty": "CHARANSI",
       "mode": "UPI",
       "reviewed": false,
       "scope": "unknown",
       "category": [],
       "extras": {
-        "balance": 20880.32,
-        "chq_id": "343586966461",
-        "raw": "UPI/DR/343586966461/IIT DELHI/YESB/**78475@PTYBL/P AYMENT //AXLD5FF0018D13E49C5BBA5 4B79ED76080D/13/12/2025 01:26:25 343586966461",
-        "source_file": "tests/canara.pdf"
+        "balance": 1015.34,
+        "chq_id": "585231620649",
+        "raw": "UPI/DR/585231620649/CHARAN SI/YESB/**Z1785@PTYS/PAYM ENT //YBLDDC2F56D8614412D82E5 BD672665D33D/27/11/2025 01:45:27 585231620649",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "bb5cdce0ba02c2f5ec3fbe2585813c6e3fe03b5e37790e59b786357f0169eb52",
+      "id": "d22f5721546d7aa63bd8d7232289082f6eef529c9b03c28cc45c012d07053b08",
+      "datetime": "2025-11-27T16:04:14",
+      "amount": 43.0,
+      "direction": "debit",
+      "counterparty": "DMRCLIMI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 972.34,
+        "chq_id": "743524217072",
+        "raw": "UPI/DR/743524217072/DMRC LIMI/ICIC/**C.ZKP@ICICI/PAYM ENT //YBLD1FCC02F2E854046A0681 0F130DF6786/27/11/2025 16:04:14 743524217072",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "2778b31bdd6034571c76eed102ee122522a02d750bd6b0d36e8e94442e68a402",
+      "datetime": "2025-11-27T18:00:54",
+      "amount": 500.0,
+      "direction": "debit",
+      "counterparty": "LAKSHYA",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "split"
+      ],
+      "extras": {
+        "balance": 472.34,
+        "chq_id": "689874762737",
+        "raw": "UPI/DR/689874762737/LAKSHY A /SBIN/**GAR01@OKSBI/PAYME NT //AXL0A39ADCABE8C415ABC7 D83262BABB227/27/11/2025 18:00:54 689874762737",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "7c7422997bb10b3df5cfbeb92fdaa5c77a5bb2f48cff75468bfaae47e9e6fd59",
+      "datetime": "2025-11-27T19:40:04",
+      "amount": 43.0,
+      "direction": "debit",
+      "counterparty": "DMRCLIMI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 429.34,
+        "chq_id": "018673060016",
+        "raw": "UPI/DR/018673060016/DMRC LIMI/ICIC/**C.ZKP@ICICI/PAYM ENT //YBL5B5B1C9AE99F4F9F95E8 32E92621AECC/27/11/2025 19:40:04 018673060016",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "cb59ebca4178b31f962c7e29897a61cd06e3454072ee46b8b85f774909e4b0b3",
+      "datetime": "2025-11-28T13:45:34",
+      "amount": 20.0,
+      "direction": "debit",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 409.34,
+        "chq_id": "581949848016",
+        "raw": "UPI/DR/581949848016/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //AXL9B48BBCBC3A742299998 F16E93E2F0BB/28/11/2025 13:45:34 581949848016",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "fe6f8e938cb266e8b83a9eb386f75db50c43b942d4ea2adf89c1503710b3e0d1",
+      "datetime": "2025-11-28T14:42:25",
+      "amount": 101.0,
+      "direction": "debit",
+      "counterparty": "YULUBIKES",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "commute",
+        "yulu"
+      ],
+      "extras": {
+        "balance": 308.34,
+        "chq_id": "105176141864",
+        "raw": "UPI/DR/105176141864/YULUBIK ES/UTIB/**9.RZP@AXISBANK/T OPUPBYU//YBL768349C99F0F4 27CB7459F15881DF605/28/11/2 025 14:42:25 105176141864",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "198ec763394d8ac2b8a17123d069acc6c2e48348bdd5a17b1cc13ea4950280ec",
+      "datetime": "2025-11-28T20:02:21",
+      "amount": 10.0,
+      "direction": "debit",
+      "counterparty": "ARJUN",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "extras": {
+        "balance": 298.34,
+        "chq_id": "544641346997",
+        "raw": "UPI/DR/544641346997/ARJUN/Y ESB/**71OEH@PTY/PAYMENT //AXL31A94C59376648559B178 CEC5349916A/28/11/2025 20:02:21 544641346997",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "57ef4b5c6f70a1e03082f31057e6abb7c722bdb7a785d769aad6d4e4706ac022",
+      "datetime": "2025-11-29T13:58:03",
+      "amount": 40.0,
+      "direction": "debit",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 258.34,
+        "chq_id": "597904408410",
+        "raw": "UPI/DR/597904408410/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //YBL00F779EAC3C04659A5E7 F53E73B28671/29/11/2025 13:58:03 597904408410",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "1b4995dc13e10ac4a39e9977124275c5a8ee913224a62dd1837297a84430924b",
+      "datetime": "2025-12-01T20:51:23",
+      "amount": 20.0,
+      "direction": "debit",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 238.34,
+        "chq_id": "833911261070",
+        "raw": "UPI/DR/833911261070/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //AXL46B4DFA1DC6246B8AC83 9C3968F59071/01/12/2025 20:51:23 833911261070",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "c887e39b24503915d8fd307674cb2b05eec12ec6de67c486143256c8dcc4494f",
+      "datetime": "2025-12-02T11:19:16",
+      "amount": 2000.0,
+      "direction": "credit",
+      "counterparty": "MANOJKUM",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "extras": {
+        "balance": 2238.34,
+        "chq_id": "225808317195",
+        "raw": "UPI/CR/225808317195/MANOJ KUM/PUNB/**93749@AXL/PAY MENT //AXL650D56CC5C304BF7BE21 06F953F7EAA5/02/12/2025 11:19:16 225808317195",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "653df2367c36ddc78d2fe8b835ae2a5adb8c308213767fde05f5e95025198e4c",
+      "datetime": "2025-12-02T11:20:37",
+      "amount": 10900.0,
+      "direction": "credit",
+      "counterparty": "MANOJKUM",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ],
+      "extras": {
+        "balance": 13138.34,
+        "chq_id": "990167215303",
+        "raw": "UPI/CR/990167215303/MANOJ KUM/PUNB/**93749@AXL/PAY MENT //AXLB2C914BFA663492C8D76 3ACBF1EE3428/02/12/2025 11:20:37 990167215303",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "a5bbd24346cdd4e2e4602b80022ad11f32a984f99423f18f12ca42b99079f358",
+      "datetime": "2025-12-02T14:09:54",
+      "amount": 5.0,
+      "direction": "debit",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "extras": {
+        "balance": 13133.34,
+        "chq_id": "502728350648",
+        "raw": "UPI/DR/502728350648/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //AXLBE1819EC188A49058F0D1 102157211F5/02/12/2025 14:09:54 502728350648",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "765f18e01f53b2d6ef7c153d3fbe46a044033c7f6a8a24bbdb45811821541a66",
+      "datetime": "2025-12-02T18:09:17",
+      "amount": 95.0,
+      "direction": "debit",
+      "counterparty": "UMESHKUM",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 13038.34,
+        "chq_id": "172778348583",
+        "raw": "UPI/DR/172778348583/UMESH KUM/YESB/**20YN6@PTYS/PA YMENT //YBL869CFBC567474C0090133 579A43976A8/02/12/2025 18:09:17 172778348583",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "0a4f83abefda929f45b79a4e06dff7d5d5b35d9c1d1b0c494e7b1227c38b0f25",
+      "datetime": "2025-12-03T01:08:52",
+      "amount": 125.0,
+      "direction": "debit",
+      "counterparty": "HOLISTIC",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "extras": {
+        "balance": 12913.34,
+        "chq_id": "677317741210",
+        "raw": "UPI/DR/677317741210/HOLISTI C /YESB/**VLCEZ@PTY/PAYMEN T //AXLDD202154F3C7420AB6A9 D104ABDE1D85/03/12/2025 01:08:52 677317741210",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "7f5820926b91bca97c20156e2e76fcf1e62030af14af9c08e9721c0565ce9e38",
+      "datetime": "2025-12-03T16:52:34",
+      "amount": 40.0,
+      "direction": "debit",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 12873.34,
+        "chq_id": "673303039514",
+        "raw": "UPI/DR/673303039514/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //YBLEBCC603986B34A7397749 E17DE384F08/03/12/2025 16:52:34 673303039514",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "cff1265f76a31f8000d027dfb1d4c2b4fd2661a95924dc1a292ca9e269c901a6",
+      "datetime": "2025-12-04T20:29:20",
+      "amount": 115.76,
+      "direction": "debit",
+      "counterparty": "YULUBIKES",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "commute",
+        "yulu"
+      ],
+      "extras": {
+        "balance": 12757.58,
+        "chq_id": "022348298067",
+        "raw": "UPI/DR/022348298067/YULUBIK ES/UTIB/**9.RZP@AXISBANK/T OPUPBYU//YBL3253E2E29A514 2E3A59B49F762A2FA94/04/12/2 025 20:29:20 022348298067",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "85a78932fcf01609a61c04b67792d7f36db6e397e078422ce19275ab39ba2283",
+      "datetime": "2025-12-04T20:35:15",
+      "amount": 35.16,
+      "direction": "debit",
+      "counterparty": "APO",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 12722.42,
+        "chq_id": "191218956674",
+        "raw": "UPI/DR/191218956674/11214 APO/YESB/**57762@PTYS/PAY MENT //YBLC38BFB2FECA140AB97C9 60F20FAE3EAA/04/12/2025 20:35:15 191218956674",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "0bb2019fe889412aa7c82d198d718e65b37ab43759930221e1742cebd541e57c",
+      "datetime": "2025-12-05T03:46:06",
+      "amount": 506.1,
+      "direction": "debit",
+      "counterparty": "DOMINOSPI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "extras": {
+        "balance": 12216.32,
+        "chq_id": "520143420965",
+        "raw": "UPI/DR/520143420965/DOMINO SPI/AIRP/**.PAYU@MAIRTEL/U PIINTENT//PPPL2628821791505 12250345586932081E/05/12/202 5 03:46:06 520143420965",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "4803c8a715dc5a8a1ad86239d2200981d2ddbaf18c98b22ffe46162d23607fae",
+      "datetime": "2025-12-05T14:31:24",
+      "amount": 30.0,
+      "direction": "debit",
+      "counterparty": "HOLISTIC",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "extras": {
+        "balance": 12186.32,
+        "chq_id": "441682421627",
+        "raw": "UPI/DR/441682421627/HOLISTI C /YESB/**KYL6C@PTY/PAYMEN T //AXLFD50389C180941578F755 F85E3F9C145/05/12/2025 14:31:24 441682421627",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "402f6fe3a7fd8f38bd358c3a00651f78cafc292015d81c89b3090bb95102b507",
+      "datetime": "2025-12-06T10:32:56",
+      "amount": 201.0,
+      "direction": "debit",
+      "counterparty": "BLINKIT",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "extras": {
+        "balance": 11985.32,
+        "chq_id": "632359540141",
+        "raw": "UPI/DR/632359540141/BLINKIT/ HDFC/**.PAYU@HDFCBANK/U PIINTENT//PPPL2630398548806 12251032496933B8F9/06/12/202 5 10:32:56 632359540141",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "9789d6cdd66e4bb54b5eb34081d5ff2b933cc8aec0e659dbe576201fa6dc785b",
+      "datetime": "2025-12-06T14:35:41",
+      "amount": 2000.0,
+      "direction": "credit",
+      "counterparty": "RAMLAL",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "extras": {
+        "balance": 13985.32,
+        "chq_id": "912732334902",
+        "raw": "UPI/CR/912732334902/RAM LAL/BARB/**15268@YBL/PAYM ENT //YBL6E73E61EF347478F980B9 5E90EE696BB/06/12/2025 14:35:41 912732334902",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "594f2a40bfee20fb3235789784e46598c7b1f83f0189d6c71d76ad216fb0eaed",
+      "datetime": "2025-12-08T04:11:10",
+      "amount": 200.0,
+      "direction": "debit",
+      "counterparty": "CHARANSI",
+      "mode": "UPI",
+      "reviewed": false,
+      "scope": "unknown",
+      "category": [],
+      "extras": {
+        "balance": 13785.32,
+        "chq_id": "563941802743",
+        "raw": "UPI/DR/563941802743/CHARAN SI/YESB/**Z1785@PTYS/PAYM ENT //YBLC5B5D0D40173487EA60C CD50DF06480E/08/12/2025 04:11:10 563941802743",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "478ef79ad37d9eaefc1b719ed6ebfb15f63f87231e570707beef3772300a6cab",
+      "datetime": "2025-12-08T04:12:56",
+      "amount": 100.0,
+      "direction": "credit",
+      "counterparty": "ADHEESHP",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 13885.32,
+        "chq_id": "393448454523",
+        "raw": "UPI/CR/393448454523/ADHEES H P/SBIN/**HEESH@PTYES/SEN T USI//PTMCD15D034EFF440E8A 98EDA44D9142EF2/08/12/2025 04:12:56 393448454523",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "33afc366a081631550457eaa51dc3f119b2d05451fee3279d8242b5069d8c844",
+      "datetime": "2025-12-08T14:24:01",
+      "amount": 100.0,
+      "direction": "debit",
+      "counterparty": "MDKONEN",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 13785.32,
+        "chq_id": "064027240520",
+        "raw": "UPI/DR/064027240520/MD KONEN/YESB/**LYDWM@PTY/ VERIFIED//YBL7AD893ABDC02 4AEF933C1773733BB607/08/12/ 2025 14:24:01 064027240520",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "90d8800a7d83f0cdb9c0586b95b07d84e4f59b842e39646a19bc1dd4bcf9296d",
+      "datetime": "2025-12-08T16:33:10",
+      "amount": 15.0,
+      "direction": "debit",
+      "counterparty": "ROHITKUM",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "extras": {
+        "balance": 13770.32,
+        "chq_id": "873177202941",
+        "raw": "UPI/DR/873177202941/ROHIT KUM/YESB/**720EJ@PTY/PAY MENT //YBLA9D16674A6704BE48756D E2CD7CFA6E8/08/12/2025 16:33:10 873177202941",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "7b7d3debcadd29d3fc533ad0c7d591a955e7e0ff213cd16e37f5cb51c25e350b",
+      "datetime": "2025-12-08T16:38:39",
+      "amount": 80.0,
+      "direction": "debit",
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 13690.32,
+        "chq_id": "671281351293",
+        "raw": "UPI/DR/671281351293/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //YBL07879CEF0A0144858232A 3C6A8F6C44B/08/12/2025 16:38:39 671281351293",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "7e08882b664fef91f0309e593ccf7b7f455339c779bcf78967ed34255d0568d1",
+      "datetime": "2025-12-08T20:19:15",
+      "amount": 20.0,
+      "direction": "debit",
+      "counterparty": "HOLISTIC",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "extras": {
+        "balance": 13670.32,
+        "chq_id": "554751719323",
+        "raw": "UPI/DR/554751719323/HOLISTI C /YESB/**KYL6C@PTY/PAYMEN T //YBLB80868B8D1E843D288DD 3446B9B665D5/08/12/2025 20:19:15 554751719323",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "c62a1c77d138609f2fde5cb60cb0d2f4b4e692c1d8b7449596a5429612f3fec8",
+      "datetime": "2025-12-09T12:43:31",
+      "amount": 32.0,
+      "direction": "debit",
+      "counterparty": "DMRCLIMI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 13638.32,
+        "chq_id": "685393501233",
+        "raw": "UPI/DR/685393501233/DMRC LIMI/ICIC/**C.ZKP@ICICI/PAYM ENT //YBL0447D85771C14F6FBB57B 54E5A3DE9CC/09/12/2025 12:43:31 685393501233",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "6e7677cc1fc9d9aaaccfe0cacac3f3bfdd7eeafca90a3200e356ddcc7e64b088",
+      "datetime": "2025-12-09T13:25:08",
+      "amount": 300.0,
+      "direction": "credit",
+      "counterparty": "ABHISHEK",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "extras": {
+        "balance": 13938.32,
+        "chq_id": "342307446069",
+        "raw": "UPI/CR/342307446069/ABHISH EK /PUNB/**57071@AXL/PAYMENT //AXL31535167319B49298DF81 5693C0A65AE/09/12/2025 13:25:08 342307446069",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "9dcda403756a9a9ce9945f0a19b458458e12055bb99c07ff1006c2b585e0265f",
+      "datetime": "2025-12-09T13:35:39",
+      "amount": 76.0,
+      "direction": "debit",
+      "counterparty": "HALDIRAM",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 13862.32,
+        "chq_id": "387871919081",
+        "raw": "UPI/DR/387871919081/HALDIRA M /YESB/**36641@PTYS/TRUE//A XL42E8952DA5A94763B949BEB 99D29554D/09/12/2025 13:35:39 387871919081",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "680f227b1f445206bd7308eedd41deae1ee98e951121789c8ca523e74ed2a1e5",
+      "datetime": "2025-12-09T00:00:00",
+      "amount": 49000.0,
+      "direction": "credit",
+      "counterparty": "DR",
+      "mode": "CASH",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ],
+      "extras": {
+        "balance": 62862.32,
+        "chq_id": null,
+        "raw": "CASHDEPOSITNOKHA UPI/DR/897610329556/DMRC",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "2649bbe90e898a798698b7ed47f8678942e049a9351edea85837cb96e8e7b1b8",
+      "datetime": "2025-12-09T14:13:07",
+      "amount": 32.0,
+      "direction": "debit",
+      "counterparty": "UNKNOWN",
+      "mode": "UNKNOWN",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 62830.32,
+        "chq_id": "897610329556",
+        "raw": "LIMI/ICIC/**C.ZKP@ICICI/PAYM ENT //YBL161E0EDEBAE74A908D56 3E60C647BB29/09/12/2025 14:13:07 897610329556",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "0a0599afa06f570b1aedec0dcfae1365b7b3e929c126ffa2e79847eb0d658098",
+      "datetime": "2025-12-09T18:10:10",
+      "amount": 200.0,
+      "direction": "debit",
+      "counterparty": "KRISHANTH",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "extras": {
+        "balance": 62630.32,
+        "chq_id": "294283393273",
+        "raw": "UPI/DR/294283393273/KRISHA NTH/SBIN/**90107@OKSBI/PAY MENT //AXL4C9A6B5186E44E0286337 39A5A1AB561/09/12/2025 18:10:10 294283393273",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "29e3c6bd1743cc92b2383540bd70e12864c6413b3b84f37910f57ee7f3418a78",
+      "datetime": "2025-12-09T20:46:39",
+      "amount": 60.0,
+      "direction": "debit",
+      "counterparty": "RAJDHANI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 62570.32,
+        "chq_id": "497899776560",
+        "raw": "UPI/DR/497899776560/RAJDHA NI /YESB/**RLJX6@PTYS/PAYME NT //AXLA14ED06CD2014A4E88EF EDE9C4233F54/09/12/2025 20:46:39 497899776560",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "29c533cb4ea6ca18a4c6efb4e9cd7f66231e6d45555e95acad64cd60ab508238",
+      "datetime": "2025-12-10T02:42:30",
+      "amount": 20.0,
+      "direction": "debit",
+      "counterparty": "HOLISTIC",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "extras": {
+        "balance": 62550.32,
+        "chq_id": "600833969952",
+        "raw": "UPI/DR/600833969952/HOLISTI C /YESB/**KYL6C@PTY/PAYMEN T //AXL21BB38E46F7D4A1994C4 CB393F370FF6/10/12/2025 02:42:30 600833969952",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "3739a170ce1ef8dd4f272482c8999f8c7b69a40361ff76643573a966b3dd6dba",
+      "datetime": "2025-12-10T10:37:53",
+      "amount": 625.0,
+      "direction": "debit",
+      "counterparty": "BLINKIT",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "extras": {
+        "balance": 61925.32,
+        "chq_id": "187703613547",
+        "raw": "UPI/DR/187703613547/BLINKIT/ HDFC/**T.RZP@HDFCBANK/PA YVIARA//AXL241E616B0BA740 EBB8B7F55312883619/10/12/20 25 10:37:53 187703613547",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "95b20800ee78206da64c1609f0aefd5b5f27dbaca8d9deaf90d225ec7ee7f47c",
+      "datetime": "2025-12-11T14:35:48",
+      "amount": 59.0,
+      "direction": "debit",
+      "counterparty": "SPOTIFYI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 61866.32,
+        "chq_id": "108739060641",
+        "raw": "UPI/DR/108739060641/SPOTIFY I/ICIC/**.BDSI@ICICI/MANDATE R//ICIFE2762B056654C489A896 96F082FB1E5/11/12/2025 14:35:48 108739060641",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "f21fad67a900f5c8cd67a998e2a83cf1fa7e16be61f1c0415eaed51aebe603d7",
+      "datetime": "2025-12-12T09:55:37",
+      "amount": 40.0,
+      "direction": "debit",
+      "counterparty": "KHUSHBUD",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 61826.32,
+        "chq_id": "964958752798",
+        "raw": "UPI/DR/964958752798/KHUSHB U D/IBKL/**198- 2@AXL/PAYMENT //AXLAE2B8F8265D547F1968C8 EF0E52AFDD5/12/12/2025 09:55:37 964958752798",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "5b5466932691e53b47501e6ab588a31a6410ad72065f68185075935bff63c629",
+      "datetime": "2025-12-12T13:00:41",
+      "amount": 799.0,
+      "direction": "debit",
+      "counterparty": "BBPUBLIC",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "misc"
+      ],
+      "extras": {
+        "balance": 61027.32,
+        "chq_id": "534600226002",
+        "raw": "UPI/DR/534600226002/BB PUBLIC/YESB/**EBUZZ@YPBIZ /COLLECT//EBZE2512120QL26 UIPORIEHYWVIEUEWDUCZ/12/ 12/2025 13:00:41 534600226002",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "b201999a0a9b3bbe7b26a6b3329c9fb1b01540d558b641133a7b4979791784a9",
+      "datetime": "2025-12-12T13:59:50",
+      "amount": 100.0,
+      "direction": "debit",
+      "counterparty": "SANIDHYA",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "extras": {
+        "balance": 60927.32,
+        "chq_id": "956172287552",
+        "raw": "UPI/DR/956172287552/SANIDH YA /SBIN/**A2404@OKSBI/PAYME NT //YBL06C72481CB0342C6B708F 238A745EA43/12/12/2025 13:59:50 956172287552",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "e5c5fdac8b2519a3d177a77e495acc6e6a749ed6104991bc4de1c8df6989f201",
+      "datetime": "2025-12-12T14:00:08",
+      "amount": 50.0,
+      "direction": "debit",
+      "counterparty": "MANASHVI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "extras": {
+        "balance": 60877.32,
+        "chq_id": "588521721095",
+        "raw": "UPI/DR/588521721095/MANASH VI /SBIN/**35110@AXL/PAYMENT //AXL12972086C92F43CDAADA F221466B2583/12/12/2025 14:00:08 588521721095",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "9589772aeafb581c4c12889a79739dce038f343f63f98ab87098042887ba280a",
+      "datetime": "2025-12-13T01:26:25",
+      "amount": 39997.0,
+      "direction": "debit",
+      "counterparty": "IITDELHI",
+      "mode": "UPI",
+      "reviewed": true,
+      "scope": "education",
+      "category": [
+        "IITD"
+      ],
+      "extras": {
+        "balance": 20880.32,
+        "chq_id": "343586966461",
+        "raw": "UPI/DR/343586966461/IIT DELHI/YESB/**78475@PTYBL/P AYMENT //AXLD5FF0018D13E49C5BBA5 4B79ED76080D/13/12/2025 01:26:25 343586966461",
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
+      }
+    },
+    {
+      "id": "c413a761fd2f0c25b705cf9abe2e9ad9299d54495d95cec47b0d9073dddfe9a2",
       "datetime": "2025-12-13T17:37:43",
       "amount": 250.0,
       "direction": "debit",
@@ -31,130 +1121,147 @@
         "balance": 20630.32,
         "chq_id": "192067257384",
         "raw": "UPI/DR/192067257384/SONAL SIN/YESB/**JZS0W@PAYTM/P AYMENT //YBL97AA65D0DDF64EF9AF7D 644625FEF5F2/13/12/2025 17:37:43 192067257384",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "a36227a920933fba692b0a859066169fe18e7c5194f8741185be550fa7b1a884",
+      "id": "df70f852ae7d1d9380652eafc5f41e5a318441b1d166a819b6d53078176b5917",
       "datetime": "2025-12-13T19:35:08",
       "amount": 2488.79,
       "direction": "debit",
       "counterparty": "ZOMATO",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
       "extras": {
         "balance": 18141.53,
         "chq_id": "193214735425",
         "raw": "UPI/DR/193214735425/ZOMATO /HDFC/**OMATO@HDFCBANK/ PAYMENT //AXL4E6A276F3B9E48D281E1 DE2E395D64FC/13/12/2025 19:35:08 193214735425",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "8a648099bb713adda9282fa1169706f5c0522ce11ec294ce0b426f4bc7f974f8",
+      "id": "2cab5d919cc8bc0b29eac5e88af09be59893e2ff1de507c71b60d7930b17081d",
       "datetime": "2025-12-13T19:37:17",
       "amount": 415.0,
       "direction": "credit",
       "counterparty": "SANIDHYA",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
       "extras": {
         "balance": 18556.53,
         "chq_id": "534776947665",
         "raw": "UPI/CR/534776947665/SANIDH YA /SBIN/**A2404@OKSBI/UPI//SBI 3EFFC45AA4F1445593F529FEB 0EAA555/13/12/2025 19:37:17 534776947665",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "d7fd9e11e74283639837bb5408ed7e66b1d724a57126c831801e82f851433de4",
+      "id": "30476b2f3c97a1b73ab7b36b99a4cea3e9716c0a41e6ef2533ac92c27d192ce2",
       "datetime": "2025-12-14T19:14:03",
       "amount": 882.0,
       "direction": "debit",
       "counterparty": "SUBWAY",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
       "extras": {
         "balance": 17674.53,
         "chq_id": "231561154887",
         "raw": "UPI/DR/231561154887/SUBWAY 1/YESB/**91142@PTY/PAYMEN T //YBL29DE765FA193464F81E22 5C91063D37F/14/12/2025 19:14:03 231561154887",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "d03f409c8bf13ec1eddc1cb660869bac0699e3d803accbdee3f36c08cb9ca89e",
+      "id": "cc77aa74aa4c45500d0f8e2ab658774c0084b775de167efdf62411fdefb3fe29",
       "datetime": "2025-12-14T19:24:03",
       "amount": 415.0,
       "direction": "credit",
       "counterparty": "NITYEGUP",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
       "extras": {
         "balance": 18089.53,
         "chq_id": "534819360963",
         "raw": "UPI/CR/534819360963/NITYE GUP/KKBK/**21711@KOTAK/M B UPI//KOT760001577KBC0ASTA XHKXG5K74D0FBGO/14/12/202 5 19:24:03 534819360963",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "a792ae9d0b790abd5fdd13aa80db34f89417ce7ab3922b9556937101b6953e77",
+      "id": "ae2a8ec189c6b23094fa1b4b6686edd7ae27501aca585d79a982e929022879ff",
       "datetime": "2025-12-14T19:34:58",
       "amount": 389.0,
       "direction": "debit",
       "counterparty": "BARISTAP",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
       "extras": {
         "balance": 17700.53,
         "chq_id": "307172451080",
         "raw": "UPI/DR/307172451080/BARISTA P/HDFC/**79862@HDFCBANK/ PAYMENT //YBL3B89A29B18894AAFA2561 BEB77F3746A/14/12/2025 19:34:58 307172451080",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "fb40c6c40a619f924f518e9a7a3e2193ab70cd9af62238364e59798e1381fafc",
+      "id": "dcbd6f3272a9a2323368da3a9c70f9d5fc24faba03198f193248981bca216d9e",
       "datetime": "2025-12-15T14:09:39",
       "amount": 444.15,
       "direction": "debit",
       "counterparty": "DOMINOS",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
       "extras": {
         "balance": 17256.38,
         "chq_id": "946209622564",
         "raw": "UPI/DR/946209622564/DOMINO S/INDB/**.PAYU@INDUS/UPIIN TENT//PPPL2643041154115122 5140929693FC941/15/12/2025 14:09:39 946209622564",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "fe94dabb9ee183f7a3af1952bb0fb0572fdd1221cce4e9465c51c953cb96ee01",
+      "id": "b2c694ec588ee985b167b8f7072e96d47cb546056de3d479b8403e262080612d",
       "datetime": "2025-12-15T14:46:43",
       "amount": 700.0,
       "direction": "credit",
       "counterparty": "MANASHVI",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
       "extras": {
         "balance": 17956.38,
         "chq_id": "166006584472",
         "raw": "UPI/CR/166006584472/MANASH VI /SBIN/**35110@YBL/PAYMENT //YBL2003833A9AB84E7BA2571 61BBD6E8F43/15/12/2025 14:46:43 166006584472",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "880687a1de67b92cbd78cc21d282787d906df1349b9a35a52bd447760ccd1289",
+      "id": "95169c0043b1f272a421c2428e83dc4cdfe6ff57b3c68f76e449a4996abf0027",
       "datetime": "2025-12-15T18:38:32",
       "amount": 20.0,
       "direction": "debit",
@@ -169,62 +1276,69 @@
         "balance": 17936.38,
         "chq_id": "604157708099",
         "raw": "UPI/DR/604157708099/VAIBHAV I /SBIN/**VI379@OKSBI/PAYMEN T //YBLD51B21006F0C494287924 77695FB94CD/15/12/2025 18:38:32 604157708099",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "4cb3093e555cb8019b4f51f16271b493adeb6fb8d55898a7c918dd6712c18b22",
+      "id": "606251b9289f09ce24e055b48f098cbb51beffe4cb26ae72054177fceb8c93af",
       "datetime": "2025-12-15T19:11:45",
       "amount": 60.0,
       "direction": "credit",
       "counterparty": "VAIBHAVI",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
       "extras": {
         "balance": 17996.38,
         "chq_id": "534970650342",
         "raw": "UPI/CR/534970650342/VAIBHAV I /SBIN/**VI379@OKSBI/UPI//SBI 73E0B9E91B734445A52C8C43A 7FCBA81/15/12/2025 19:11:45 534970650342",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "4c8a44cb6f5fddefa784af225807e79c8f02cbd13fc2b6b6e9c46cd0c973cdab",
+      "id": "baef722640cab4eb7bc89792fcda97d39c46c20ef81d7853c752307f5ac4702d",
       "datetime": "2025-12-15T19:14:12",
       "amount": 150.0,
       "direction": "credit",
       "counterparty": "VAIBHAVI",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
       "extras": {
         "balance": 18146.38,
         "chq_id": "534970832357",
         "raw": "UPI/CR/534970832357/VAIBHAV I /SBIN/**VI379@OKSBI/UPI//SBI 29E2E6493A60400A8B9E3E9C8 6C79067/15/12/2025 19:14:12 534970832357",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "966e096eb199d9d3016ba933af9648cca60180c978c43ed3ab5d72190981b8d4",
+      "id": "d0da70c74c89c63f5b82b72befaf5d49803c4da5c6916ae3506346152ea04f7d",
       "datetime": "2025-12-15T19:14:14",
       "amount": 305.0,
       "direction": "debit",
       "counterparty": "AMMYSAUN",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
       "extras": {
         "balance": 17841.38,
         "chq_id": "820114309205",
         "raw": "UPI/DR/820114309205/AMMYS AUN/HDFC/**91018@HDFCBAN K/GENERATI//PLUTUSDQR000 00000000000001014943072/15/ 12/2025 19:14:14 820114309205",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "25e02e42653bca76ff71edf3325e398a51c6bcdea0256b6bc59aa3a4d24c082f",
+      "id": "b51bfb9eaf2632488dc0e4cd3cc0854806704e6f136997a961e1877653328efb",
       "datetime": "2025-12-16T03:32:11",
       "amount": 20.0,
       "direction": "debit",
@@ -239,11 +1353,11 @@
         "balance": 17821.38,
         "chq_id": "980062909825",
         "raw": "UPI/DR/980062909825/UMESH KUM/YESB/**2J4TA@PAYTM/P AYMENT //YBL5C778454AE564930B81DA 6E0A503CE3B/16/12/2025 03:32:11 980062909825",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "7b6f30f14b3260ee4fa30366691cf55ff62468013a124388239e3355fadcf087",
+      "id": "f8bdeedcfe3da191cb3766719554a12654c9d468657d9d99067287240cceb92c",
       "datetime": "2025-12-16T15:06:55",
       "amount": 15.0,
       "direction": "debit",
@@ -258,11 +1372,11 @@
         "balance": 17806.38,
         "chq_id": "599807779020",
         "raw": "UPI/DR/599807779020/SHEELU KU/PUNB/**902- 1@OKAXIS/PAYMENT //AXL509D9A8441DD4BDE943A E90AEEECD5CD/16/12/2025 15:06:55 599807779020",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "be2da52cb1d8c5b73e7e3629842bc8398188bcb66c520a433f50697319e1e4c6",
+      "id": "36c2c8ac0078b83e922f0dd2739295407d2743c60c0b77a68708f7b8acafba9a",
       "datetime": "2025-12-16T17:53:58",
       "amount": 20.0,
       "direction": "debit",
@@ -277,45 +1391,49 @@
         "balance": 17786.38,
         "chq_id": "996764556482",
         "raw": "UPI/DR/996764556482/BANWA RI/YESB/**EWGSX@PTYS/PAY MENT //AXL5C02C746DC854E16B4DF 3A9BE4E85926/16/12/2025 17:53:58 996764556482",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "f830b9187b68c97429dcf3424229e0586fca5d16943f057b41ed3b73ef028b8c",
+      "id": "f9a9ce0daf9315ce6416753c70edeaf996c7bf1bae4f4616450b403cfc887c22",
       "datetime": "2025-12-16T17:55:24",
       "amount": 70.0,
       "direction": "debit",
       "counterparty": "SAJID",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
       "extras": {
         "balance": 17716.38,
         "chq_id": "585295924486",
         "raw": "UPI/DR/585295924486/SAJID/B ARB/**72317@PTHDFC/PAYME NT //YBL70E6D9D570144F8ABB05 C35A3976D70F/16/12/2025 17:55:24 585295924486",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "3d27097a8c209b493a52940df47156e5e71492d7859e2ecbafe19b3e110a809e",
+      "id": "50cf1cec1e1440f8286c8f257a5a184c7d67b7b2e5184e7c495ff5044d48cccb",
       "datetime": "2025-12-16T22:47:03",
       "amount": 369.0,
       "direction": "debit",
       "counterparty": "EATSUREF",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
       "extras": {
         "balance": 17347.38,
         "chq_id": "719434707029",
         "raw": "UPI/DR/719434707029/EATSUR E F/YESB/**24445@PTYBL/PAYM ENT //PYTM51216806248651831301 XXXXXXXXXXX/16/12/2025 22:47:03 719434707029",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "70105ae06100f5b4a45d66a3dea4347725c9ee7c957c39176f908c419420cf56",
+      "id": "780400db89d9f8a09be199d2d20275191af1bd16f8532c2f2b41c48223267b57",
       "datetime": "2025-12-17T02:57:02",
       "amount": 20.0,
       "direction": "debit",
@@ -330,96 +1448,107 @@
         "balance": 17327.38,
         "chq_id": "545657921092",
         "raw": "UPI/DR/545657921092/VAIBHAV I /SBIN/**VI379@OKSBI/PAYMEN T //YBLEA7C2741BA7844DD9290 FDBE18549F90/17/12/2025 02:57:02 545657921092",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "19c674504a8dc39ba37b166071e0a0948035dd760aadea603259e1a47620d12d",
+      "id": "c031bb52675b241778a93e0093aec70332a35aa8587caae9193dd243a3a21217",
       "datetime": "2025-12-17T13:38:19",
       "amount": 985.0,
       "direction": "debit",
       "counterparty": "PHONEPE",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "family",
+      "category": [
+        "recharge"
+      ],
       "extras": {
         "balance": 16342.38,
         "chq_id": "337582550544",
         "raw": "UPI/DR/337582550544/PHONEP E/YESB/**19611@YBL/PAYMEN T //AXLFF625B2C0B9845B2B42B7 BBD42C2A409/17/12/2025 13:38:19 337582550544",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "f48cdb88f97e9fc1862bfe9c0cd1ddf70a30e5ab38cf3fdc5e2ea8498837e252",
+      "id": "9a1b6bf169c9ae8a8a4cba70f4c1d16c6599dba4d8f79d13a3bac0c09be2bed7",
       "datetime": "2025-12-17T13:38:42",
       "amount": 414.0,
       "direction": "debit",
       "counterparty": "PHONEPE",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "family",
+      "category": [
+        "bills"
+      ],
       "extras": {
         "balance": 15928.38,
         "chq_id": "366624157403",
         "raw": "UPI/DR/366624157403/PHONEP E/UTIB/**19611@AXL/PAYMEN T //YBL411E1C76F1E545ED8C06 F4E51F5DAE37/17/12/2025 13:38:42 366624157403",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "27fbb50cfc6f4bb40e8e94f8b2d49894cd60aa3c57ec2fed5eae032f97c0c75c",
+      "id": "358f2973d8d971962d6474573f2c35bb91417d806b17882deac6de7301ffd5c4",
       "datetime": "2025-12-17T18:37:49",
       "amount": 152.0,
       "direction": "debit",
       "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snack"
+      ],
       "extras": {
         "balance": 15776.38,
         "chq_id": "943636644652",
         "raw": "UPI/DR/943636644652/RAJESH KU/YESB/**YHJDW@PAYTM/P AYMENT //YBL05A4A3D69B174BC6ACA8 12FD63C91306/17/12/2025 18:37:49 943636644652",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "e13e5ac5e68fdd7b9387d24cbb79abaef24087793a5ca7b1e2fa6d746bd98654",
+      "id": "d82b10920cc2086b13ca5d35cda1a3c6f571205bd9582e7259cc10b21535db7c",
       "datetime": "2025-12-17T19:04:20",
       "amount": 370.18,
       "direction": "debit",
       "counterparty": "YULICIOUS",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
       "extras": {
         "balance": 15406.2,
         "chq_id": "467657964718",
         "raw": "UPI/DR/467657964718/YULICIO US/UTIB/**5.RZP@RXAXIS/ONL INETR//YBL5B4FC9436CA1481 AA43D2F268BB12993/17/12/202 5 19:04:20 467657964718",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "1f221ffcca4886a4acbed68d920254aa19584422376609fd738e0fe52226df66",
+      "id": "619fea4bb1243eb3e08af52e4f02317d3343ef954ae84cd6ce59ace36e972ce4",
       "datetime": "2025-12-17T19:27:35",
       "amount": 190.0,
       "direction": "credit",
       "counterparty": "VAIBHAVI",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
       "extras": {
         "balance": 15596.2,
         "chq_id": "571742096749",
         "raw": "UPI/CR/571742096749/VAIBHAV I /SBIN/**VI379@OKAXIS/UPI//AX I8E3E8D19FCEE4543BECB276 AE9314CD8/17/12/2025 19:27:35 571742096749",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "8221c3736c5766e005e5856000b6e0371222c27afd48f557f6da56d74a75991e",
+      "id": "3582a31a1009c29700bef8262a5aef29c489238452c6d7fe9e5038103f3d466d",
       "datetime": "2025-12-17T20:13:20",
       "amount": 20.0,
       "direction": "debit",
@@ -434,11 +1563,11 @@
         "balance": 15576.2,
         "chq_id": "778091352543",
         "raw": "UPI/DR/778091352543/MOTHER DA/YESB/**USUFM@PTYS/PAY MENT //AXL016021686406462E920312 6CDF05BB8C/17/12/2025 20:13:20 778091352543",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "db803c1fdb5a0c94a0b14bdf6dfbfc395c6e86002e4510060eb270ef0dc6727c",
+      "id": "8ddf91656fc6394f6ff63f5f3c161c8e42301e46b9fc32efda503b1aeb636435",
       "datetime": "2025-12-17T23:10:07",
       "amount": 178.0,
       "direction": "debit",
@@ -451,11 +1580,11 @@
         "balance": 15398.2,
         "chq_id": "028221346815",
         "raw": "UPI/DR/028221346815/RAM KRISH/CNRB/**.RT- 5@OKHDFCBANK/PAYMENT //YBLE187EE64FA6449749F80B 3ADAB45EB9C/17/12/2025 23:10:07 028221346815",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "78075e6c47c1267eccdaace297abe13fb281973c304434d3c58ce5b5a82647f6",
+      "id": "e88b285c4f7d286996e37b9fac31d4ccc2010ad3880d71c7138dd3755ae28a03",
       "datetime": "2025-12-17T23:15:48",
       "amount": 15.0,
       "direction": "debit",
@@ -470,164 +1599,186 @@
         "balance": 15383.2,
         "chq_id": "682908971552",
         "raw": "UPI/DR/682908971552/MR ARJUN /YESB/**20771@YBL/PAYMENT //YBL570F48E649BA4B97B1BF C3830E219728/17/12/2025 23:15:48 682908971552",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "831dcb19dfce11ac0d78052a725193f85b938780235f620f2b128e5b7f23d108",
+      "id": "82db8f40793f31a136ac5d6025862b17a8d8a213fbc2ee6765d4a0dd6e2ea0b9",
       "datetime": "2025-12-18T07:56:43",
       "amount": 30.0,
       "direction": "debit",
       "counterparty": "ESHITAC",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
       "extras": {
         "balance": 15353.2,
         "chq_id": "332932820164",
         "raw": "UPI/DR/332932820164/ESHITA C/SBIN/**51045@AXL/PAYMEN T //YBL720CCA9015F049DFB4CA 9248D74C1DE2/18/12/2025 07:56:43 332932820164",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "ff591c78990d60724ffe5d1e1d602b4aa7f7288e810cb8e2c82c5dd62e8ebb1a",
+      "id": "b4dbdaab8b534cbb97275441edf6ceca29bd00ffbeeefe7a61c5c6651f938e87",
       "datetime": "2025-12-18T10:12:00",
       "amount": 150.0,
       "direction": "credit",
       "counterparty": "ESHITAC",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
       "extras": {
         "balance": 15503.2,
         "chq_id": "092351287447",
         "raw": "UPI/CR/092351287447/ESHITA C/SBIN/**51045@AXL/PAYMEN T //AXL7C62EF656CEA4D208CDD 6C09BFC808F8/18/12/2025 10:12:00 092351287447",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "b1af9bcab4f0cbc5ee4425a29cbb8a164bec017cf42e89b33a523e9c9cd6e113",
+      "id": "2198a568ceb409e3dcbbb736bba2bfde5a974e02330c04a544f51a1700660391",
       "datetime": "2025-12-18T21:55:29",
       "amount": 2379.95,
       "direction": "debit",
       "counterparty": "IRCTCRAI",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "family",
+      "category": [
+        "travel"
+      ],
       "extras": {
         "balance": 13123.25,
         "chq_id": "669444527165",
         "raw": "UPI/DR/669444527165/IRCTC RAI/UTIB/**ILWEB@AXL/PAYM ENT //AXL55AD4025F4FC4334A16B4 BD9197014B7/18/12/2025 21:55:29 669444527165",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "931837b27d5e432ca35bc72ec6de5eddb532f39a6be2606068f3fd3930dcb7bc",
+      "id": "c1e6a68ddf66e6b9e35cef9004725f5a6073020ee40632778351da9e1cb60250",
       "datetime": "2025-12-18T21:58:39",
       "amount": 2379.95,
       "direction": "debit",
       "counterparty": "IRCTCRAI",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "family",
+      "category": [
+        "travel"
+      ],
       "extras": {
         "balance": 10743.3,
         "chq_id": "887863327253",
         "raw": "UPI/DR/887863327253/IRCTC RAI/YESB/**ILWEB@YBL/PAYM ENT //YBL04C21C4B825349D1B620A 1F6FC5BE8BE/18/12/2025 21:58:39 887863327253",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "8315847431f5585db99b327c34073e04fa42ba192b8654e83ba271e030cb35e6",
+      "id": "ae4c7518a270f1fce520c21f2c74ff2de3589aa7a83310cb4319635df6dd41e0",
       "datetime": "2025-12-19T22:15:09",
       "amount": 50000.0,
       "direction": "credit",
       "counterparty": "MAHESHPAR",
       "mode": "IMPS",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ],
       "extras": {
         "balance": 60743.3,
         "chq_id": "535322599193",
         "raw": "MOB-IMPS-CR/MAHESH PAR/THE STATE /42079542429/TRANSFER T/7062585537/19/12/2025 22:15:09/535322599193 535322599193",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "ce509e402d72296e8c8960364227193d9ef57ecae9946f013881e07389a4c319",
+      "id": "2b1f50359b2e9e04e9ae777519cfef65394e12e999c6e73df8ce6e0ab838fb8d",
       "datetime": "2025-12-19T22:17:00",
       "amount": 50000.0,
       "direction": "credit",
       "counterparty": "MAHESHPAR",
       "mode": "IMPS",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ],
       "extras": {
         "balance": 110743.3,
         "chq_id": "535322599833",
         "raw": "MOB-IMPS-CR/MAHESH PAR/THE STATE /42079542429/TRANSFER T/7062585537/19/12/2025 22:17:00/535322599833 535322599833",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "64fb378a6305331f2cdd0a2e091e5e0208c58f2cbfd69920fd8e954b66cf7de5",
+      "id": "03dba0120f83463b77abfc3e9fe3cfbe1309125c9f2f9b2ebf76cabb68e2a8cc",
       "datetime": "2025-12-19T22:17:39",
       "amount": 15000.0,
       "direction": "credit",
       "counterparty": "MAHESHPAR",
       "mode": "IMPS",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ],
       "extras": {
         "balance": 125743.3,
         "chq_id": "535322599935",
         "raw": "MOB-IMPS-CR/MAHESH PAR/THE STATE /42079542429/TRANSFER T/7062585537/19/12/2025 22:17:39/535322599935 535322599935",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "02de8f3f667e3067b2585e1551e37aed862e8e3b5b3d632beec14cb30f07d93e",
+      "id": "0f4109bc6fe01cae4f72464d71a67b1203f39c84239bb9792fe9bfd2eaed43e4",
       "datetime": "2025-12-19T22:18:58",
       "amount": 114350.0,
       "direction": "debit",
       "counterparty": "IITDSETTLEMENTACCOUNDEL HIDLIN-",
       "mode": "INTERNAL",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "education",
+      "category": [
+        "IITD"
+      ],
       "extras": {
         "balance": 11393.3,
         "chq_id": "535367078085",
         "raw": "IITDSETTLEMENTACCOUNDEL HIDLIN-19/12/25 22:18:58/5223 535367078085",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "3f96c03c50db8d57e3d0b12f0e98c7153631e950fd97a28d9633a1b33e2a19e7",
+      "id": "bd497bc4cdadda310a0785ff74136e446a41132a4e52c31e52c385484ba5160b",
       "datetime": "2025-12-20T13:39:06",
       "amount": 3600.0,
       "direction": "debit",
       "counterparty": "KAMLAMED",
       "mode": "UPI",
-      "reviewed": false,
-      "scope": "unknown",
-      "category": [],
+      "reviewed": true,
+      "scope": "family",
+      "category": [
+        "medicine"
+      ],
       "extras": {
         "balance": 7793.3,
         "chq_id": "511594095224",
         "raw": "UPI/DR/511594095224/KAMLA MED/HDFC/**68353@HDFCBAN K/PAYMENT //AXL4BA68D4BF02E4179BE41 7ECA3128D3DB/20/12/2025 13:39:06 511594095224",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     },
     {
-      "id": "31314dd8bd4faff40f85cd009992439b7885dad9b64e299b169471fddfb09865",
+      "id": "aa66cc697e3bd43455bb8223802a247c5b19bc4bbd966323411648a87e100d20",
       "datetime": "2025-12-23T12:16:05",
       "amount": 1.0,
       "direction": "debit",
@@ -642,7 +1793,7 @@
         "balance": 7792.3,
         "chq_id": "535782237541",
         "raw": "UPI/DR/535782237541/TANISH R/SBIN/**123- 2@YBL/UPI//ICI7F9B1615BD7D 42D4BBC5BA54662232AD/23/12 /2025 12:16:05 535782237541",
-        "source_file": "tests/canara.pdf"
+        "source_file": "/tmp/fie_upload_qnjojrg_/canara1m.pdf"
       }
     }
   ]

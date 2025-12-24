@@ -40,11 +40,22 @@ def normalize_name_spacing(s: str) -> str:
 def apply_micro_rules(txn: Transaction) -> Transaction:
     """
     Deterministic micro-transaction rules + final normalization.
+    Auto-categorizes small transactions:
+      0-10  → noise
+      11-25 → coffee
+      26-50 → snacks
+      51-100 → daily
     """
     rules = config.get("rules.micro_transaction")
-    noise_max = rules["noise_max_amount"]
-    coffee_min = rules["coffee_min_amount"]
-    coffee_max = rules["coffee_max_amount"]
+    
+    # Thresholds from config
+    noise_max = rules.get("noise_max", 10)
+    coffee_min = rules.get("coffee_min", 11)
+    coffee_max = rules.get("coffee_max", 25)
+    snacks_min = rules.get("snacks_min", 26)
+    snacks_max = rules.get("snacks_max", 50)
+    daily_min = rules.get("daily_min", 51)
+    daily_max = rules.get("daily_max", 100)
 
     amount = txn.amount
 
@@ -62,33 +73,36 @@ def apply_micro_rules(txn: Transaction) -> Transaction:
         "source_file": extras.get("source_file"),
     }
 
-    # ---- noise ----
+    # Helper to create auto-tagged transaction
+    def auto_tag(category: str) -> Transaction:
+        return Transaction(
+            **{
+                **txn.__dict__,
+                "counterparty": normalized_counterparty,
+                "scope": "personal",
+                "category": [category],
+                "reviewed": True,
+                "extras": extras,
+            }
+        )
+
+    # ---- noise (0-10) ----
     if amount <= noise_max:
-        return Transaction(
-            **{
-                **txn.__dict__,
-                "counterparty": normalized_counterparty,
-                "scope": "personal",
-                "category": ["noise"],
-                "reviewed": True,
-                "extras": extras,
-            }
-        )
+        return auto_tag("noise")
 
-    # ---- coffee ----
+    # ---- coffee (11-25) ----
     if coffee_min <= amount <= coffee_max:
-        return Transaction(
-            **{
-                **txn.__dict__,
-                "counterparty": normalized_counterparty,
-                "scope": "personal",
-                "category": ["coffee"],
-                "reviewed": True,
-                "extras": extras,
-            }
-        )
+        return auto_tag("coffee")
 
-    # ---- default ----
+    # ---- snacks (26-50) ----
+    if snacks_min <= amount <= snacks_max:
+        return auto_tag("snacks")
+
+    # ---- daily (51-100) ----
+    if daily_min <= amount <= daily_max:
+        return auto_tag("daily")
+
+    # ---- default (>100) - no auto-tagging ----
     return Transaction(
         **{
             **txn.__dict__,

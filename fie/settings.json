@@ -1,0 +1,29 @@
+{
+  "monthly_budget": 10000.0,
+  "currency": "\u20b9",
+  "categories": [
+    "food",
+    "coffee",
+    "travel",
+    "shopping",
+    "bills",
+    "entertainment",
+    "health",
+    "education",
+    "other"
+  ],
+  "scopes": [
+    "personal",
+    "family",
+    "education",
+    "shared"
+  ],
+  "alerts": {
+    "large_transaction": 5000,
+    "over_budget": true
+  },
+  "theme": "dark",
+  "budget_scopes": [
+    "personal"
+  ]
+}

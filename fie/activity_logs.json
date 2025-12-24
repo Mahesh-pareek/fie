@@ -1,0 +1,611 @@
+[
+  {
+    "id": "log_a3c2044e",
+    "timestamp": "2025-12-24T22:06:34.567008",
+    "action": "edit",
+    "details": {
+      "transaction_id": "0a0599afa06f570b1aedec0dcfae1365b7b3e929c126ffa2e79847eb0d658098",
+      "counterparty": "KRISHANTH",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "personal",
+        "category": [
+          "food"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_a7b87434",
+    "timestamp": "2025-12-24T22:06:25.105753",
+    "action": "edit",
+    "details": {
+      "transaction_id": "d82b10920cc2086b13ca5d35cda1a3c6f571205bd9582e7259cc10b21535db7c",
+      "counterparty": "YULICIOUS",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "personal",
+        "category": [
+          "food"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_33d7cd2c",
+    "timestamp": "2025-12-24T22:06:07.869626",
+    "action": "edit",
+    "details": {
+      "transaction_id": "5b5466932691e53b47501e6ab588a31a6410ad72065f68185075935bff63c629",
+      "counterparty": "BBPUBLIC",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "personal",
+        "category": [
+          "misc"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_247c28d7",
+    "timestamp": "2025-12-24T22:05:58.126310",
+    "action": "edit",
+    "details": {
+      "transaction_id": "2778b31bdd6034571c76eed102ee122522a02d750bd6b0d36e8e94442e68a402",
+      "counterparty": "LAKSHYA",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "personal",
+        "category": [
+          "split"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_450af436",
+    "timestamp": "2025-12-24T22:05:50.062913",
+    "action": "edit",
+    "details": {
+      "transaction_id": "61f37e6ef453bfb59040c83a2672c5a5dddc70ead35428020cff98c1e9da9e3a",
+      "counterparty": "REBELMAR",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "personal",
+        "category": [
+          "food"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_ba64c357",
+    "timestamp": "2025-12-24T22:05:19.375177",
+    "action": "auto_tag",
+    "details": {
+      "updated": 1,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_a7e6b3fe",
+    "timestamp": "2025-12-24T22:04:15.608078",
+    "action": "auto_tag",
+    "details": {
+      "updated": 2,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_5e26e6e8",
+    "timestamp": "2025-12-24T22:03:33.236594",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_848b7c41",
+    "timestamp": "2025-12-24T22:02:36.959194",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_18c78690",
+    "timestamp": "2025-12-24T22:02:05.102449",
+    "action": "edit",
+    "details": {
+      "transaction_id": "50cf1cec1e1440f8286c8f257a5a184c7d67b7b2e5184e7c495ff5044d48cccb",
+      "counterparty": "EATSUREF",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "personal",
+        "category": [
+          "food"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_3cdd9aa7",
+    "timestamp": "2025-12-24T22:01:58.663869",
+    "action": "edit",
+    "details": {
+      "transaction_id": "9a1b6bf169c9ae8a8a4cba70f4c1d16c6599dba4d8f79d13a3bac0c09be2bed7",
+      "counterparty": "PHONEPE",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "family",
+        "category": [
+          "bills"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_10537e0b",
+    "timestamp": "2025-12-24T22:01:42.913776",
+    "action": "edit",
+    "details": {
+      "transaction_id": "c031bb52675b241778a93e0093aec70332a35aa8587caae9193dd243a3a21217",
+      "counterparty": "PHONEPE",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "family",
+        "category": [
+          "recharge"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_032ecbf0",
+    "timestamp": "2025-12-24T22:01:30.532909",
+    "action": "edit",
+    "details": {
+      "transaction_id": "358f2973d8d971962d6474573f2c35bb91417d806b17882deac6de7301ffd5c4",
+      "counterparty": "RAJESHKU",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "personal",
+        "category": [
+          "snack"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_1fd04e3c",
+    "timestamp": "2025-12-24T22:01:15.083626",
+    "action": "edit",
+    "details": {
+      "transaction_id": "bd497bc4cdadda310a0785ff74136e446a41132a4e52c31e52c385484ba5160b",
+      "counterparty": "KAMLAMED",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "family",
+        "category": [
+          "medicine"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_4fba11b4",
+    "timestamp": "2025-12-24T22:00:52.742914",
+    "action": "auto_tag",
+    "details": {
+      "updated": 4,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_01012ea4",
+    "timestamp": "2025-12-24T21:58:27.383100",
+    "action": "auto_tag",
+    "details": {
+      "updated": 4,
+      "total": 94,
+      "only_unreviewed": false
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_245e5eb0",
+    "timestamp": "2025-12-24T21:58:17.071317",
+    "action": "auto_tag",
+    "details": {
+      "updated": 1,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_6edd2716",
+    "timestamp": "2025-12-24T21:57:32.216231",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_b893e459",
+    "timestamp": "2025-12-24T21:55:34.152483",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_dd4255d2",
+    "timestamp": "2025-12-24T21:55:22.433827",
+    "action": "upload",
+    "details": {
+      "filename": "canara1m.pdf",
+      "transactions_added": 94,
+      "auto_tagged": 24
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_9fa178b8",
+    "timestamp": "2025-12-24T21:55:14.689995",
+    "action": "bulk_delete",
+    "details": {
+      "count": 94,
+      "transactions": [
+        {
+          "id": "71c7c74f770f5061b6e32bd1c5d6c3c645aa20692dde11913b95cc9db302c8f0",
+          "counterparty": "TANISHR"
+        },
+        {
+          "id": "903bcc7879208e73f602ed8d4050bf3d899de42ceda3345333ee58b2500d5a1b",
+          "counterparty": "KAMLAMED"
+        },
+        {
+          "id": "db376c38612bf49af0162ddd8378902803337cfa6ec73fa8a0147f437ea338fb",
+          "counterparty": "IITDSETTLEMENTACCOUNDEL HIDLIN-"
+        },
+        {
+          "id": "1b94d976e25c4db4437773be3dbad945166bf98c94a43469493de06ed84b4a44",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "4cf34b1c8892a08314b2748615ed78447a3b1e58835695f2022f5613710910c7",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "ba9f1595929d2bff61d88a5f42d1234949881c1c6fbff5a880959ca2fe1e3298",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "6a345c2d991c0f7ed018112d971e3c6ea0629eb69941585292961fca9721246b",
+          "counterparty": "IRCTCRAI"
+        },
+        {
+          "id": "41e169ed7eabd572190415ead44b4eb2ca2c58496733facd97e66255adf9c4e0",
+          "counterparty": "IRCTCRAI"
+        },
+        {
+          "id": "7fb9adc04446619b6391e919d298412b0fb36b89a9759452c6a474dcc04adfca",
+          "counterparty": "ESHITAC"
+        },
+        {
+          "id": "97f40efad452c5db01a6a50f18663b2e3a04530c9252302ba9f9964eb5d7c641",
+          "counterparty": "ESHITAC"
+        }
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_656b6d02",
+    "timestamp": "2025-12-24T21:47:49.086499",
+    "action": "upload",
+    "details": {
+      "filename": "canara1m.pdf",
+      "transactions_added": 94
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_61db721f",
+    "timestamp": "2025-12-24T21:47:27.100183",
+    "action": "bulk_delete",
+    "details": {
+      "count": 105,
+      "transactions": [
+        {
+          "id": "cb68683caf258c31f264224f367391d0ccd13539ebef81ffa850fe3be63a1da3",
+          "counterparty": "TANISHR"
+        },
+        {
+          "id": "1ed211a39d4b0faa1b33509b64b52df83fd57135e0e11583e6d73a3379c9c316",
+          "counterparty": "KAMLAMED"
+        },
+        {
+          "id": "60ce27d1846dd35cdeabd760343d24cc201c48786edee9b62cfee8b6ae05248e",
+          "counterparty": "IITDSETTLEMENTACCOUNDEL HIDLIN-"
+        },
+        {
+          "id": "4a0cb00edcce38c00e100b671f7215af8f473d92f8f1b054a69a03ff5585e6cc",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "12a007d06a4448ec9c2f0009170ccebe307be3becc81abe8957a6b97d5b5d8de",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "38fdc0b6ce2542651f340d3ce20dfb991cd619ebe7ddd24a0b9b39f952e0cd25",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "6a8a09afdf19ed3587c4f172ea11c8692833dfdd9eda9af2483a147be7c85ae0",
+          "counterparty": "IRCTCRAI"
+        },
+        {
+          "id": "11745bdd7cd553cd6ede296354d3c444b1a811290ada3ea47190e2714795d79c",
+          "counterparty": "IRCTCRAI"
+        },
+        {
+          "id": "2ec7e5379e5b179bd8add29632567e19e585de0795d1184053f032ce7c5bcddf",
+          "counterparty": "ESHITAC"
+        },
+        {
+          "id": "01cebf67615c37d996fbe6871d765e82de3a4fd2315b9a5b4440846abeaabbf0",
+          "counterparty": "ESHITAC"
+        }
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_1e2dc9b7",
+    "timestamp": "2025-12-24T21:45:06.264094",
+    "action": "auto_tag",
+    "details": {
+      "updated": 4,
+      "total": 105,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_e5036fc0",
+    "timestamp": "2025-12-24T21:43:21.464316",
+    "action": "upload",
+    "details": {
+      "filename": "canara2.pdf",
+      "transactions_added": 11
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_c4c6ff8e",
+    "timestamp": "2025-12-24T21:34:13.581209",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 94,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_daa34d0f",
+    "timestamp": "2025-12-24T21:20:46.942897",
+    "action": "edit",
+    "details": {
+      "transaction_id": "ba9b5634b4f6728af6f50b40db6e468923be732ecbc2c8a5380be06828db3433",
+      "counterparty": "ZOMATO",
+      "old": {
+        "scope": "personal",
+        "category": [
+          "food",
+          "delivery"
+        ]
+      },
+      "new": {
+        "scope": "shared",
+        "category": [
+          "food",
+          "delivery"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_e204bde9",
+    "timestamp": "2025-12-24T21:18:04.698250",
+    "action": "edit",
+    "details": {
+      "transaction_id": "4a0cb00edcce38c00e100b671f7215af8f473d92f8f1b054a69a03ff5585e6cc",
+      "counterparty": "MAHESHPAR",
+      "old": {
+        "scope": "personal",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      },
+      "new": {
+        "scope": "education",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_74407ada",
+    "timestamp": "2025-12-24T21:17:58.764936",
+    "action": "edit",
+    "details": {
+      "transaction_id": "8aa0b639a8e87942b04b411d367e81696b12e705749718cebc1845a36fe45720",
+      "counterparty": "DR",
+      "old": {
+        "scope": "education",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      },
+      "new": {
+        "scope": "personal",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_2c97ffd7",
+    "timestamp": "2025-12-24T21:17:48.265704",
+    "action": "edit",
+    "details": {
+      "transaction_id": "8aa0b639a8e87942b04b411d367e81696b12e705749718cebc1845a36fe45720",
+      "counterparty": "DR",
+      "old": {
+        "scope": "personal",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      },
+      "new": {
+        "scope": "education",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_c8e9a3f1",
+    "timestamp": "2025-12-24T21:17:42.605143",
+    "action": "edit",
+    "details": {
+      "transaction_id": "12a007d06a4448ec9c2f0009170ccebe307be3becc81abe8957a6b97d5b5d8de",
+      "counterparty": "MAHESHPAR",
+      "old": {
+        "scope": "personal",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      },
+      "new": {
+        "scope": "education",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_5efb163f",
+    "timestamp": "2025-12-24T21:17:37.288642",
+    "action": "edit",
+    "details": {
+      "transaction_id": "38fdc0b6ce2542651f340d3ce20dfb991cd619ebe7ddd24a0b9b39f952e0cd25",
+      "counterparty": "MAHESHPAR",
+      "old": {
+        "scope": "personal",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      },
+      "new": {
+        "scope": "education",
+        "category": [
+          "deposit",
+          "income"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_056ac13e",
+    "timestamp": "2025-12-24T21:15:26.616957",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 94,
+      "only_unreviewed": false
+    },
+    "user": "admin"
+  }
+]

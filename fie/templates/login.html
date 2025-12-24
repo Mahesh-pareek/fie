@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FIE — Login</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <div class="login-box">
+      <div class="login-logo">FIE</div>
+      <h2>Financial Intelligence Engine</h2>
+      <form id="loginForm">
+        <label>
+          Username
+          <input type="text" id="username" name="username" placeholder="admin" autocomplete="username" autofocus>
+        </label>
+        <label>
+          Password
+          <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password">
+        </label>
+        <div id="loginError" class="error-msg"></div>
+        <button type="submit" class="btn-primary">Sign In</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const errorEl = document.getElementById('loginError');
+      errorEl.textContent = '';
+      
+      const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username, password})
+      });
+      const data = await res.json();
+      if (data.ok) {
+        window.location.href = '/';
+      } else {
+        errorEl.textContent = data.error || 'Login failed';
+      }
+    });
+  </script>
+</body>
+</html>

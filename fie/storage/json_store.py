@@ -70,6 +70,13 @@ class JsonTransactionStore(TransactionStore):
         data = self._read()
         return [self._deserialize(t) for t in data["transactions"]]
 
+    def delete(self, ids: List[str]) -> None:
+        """Delete transactions by IDs."""
+        data = self._read()
+        id_set = set(ids)
+        data["transactions"] = [t for t in data["transactions"] if t["id"] not in id_set]
+        self._write(data)
+
     # ---------- helpers ----------
 
     def _serialize(self, txn: Transaction) -> dict:

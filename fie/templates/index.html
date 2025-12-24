@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FIE — Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-root">
+    <aside class="sidebar">
+      <div class="logo">FIE</div>
+      <nav>
+        <ul>
+          <li><a href="#" class="active" data-view="dashboard">Dashboard</a></li>
+          <li><a href="#" data-view="transactions">Transactions</a></li>
+          <li><a href="#" data-view="stats">Analytics</a></li>
+          <li><a href="#" data-view="rules">Auto-Tagging</a></li>
+          <li><a href="#" data-view="settings">Settings</a></li>
+          <li><a href="#" data-view="logs">Activity Log</a></li>
+          <li><a href="#" data-view="help">Help</a></li>
+        </ul>
+      </nav>
+      <div class="filters" id="filtersPanel">
+        <h4>Filters</h4>
+        <label>Scope
+          <select id="filterScope"><option value="">All</option></select>
+        </label>
+        <label>Category
+          <select id="filterCategory"><option value="">All</option></select>
+        </label>
+        <label>Direction
+          <select id="filterDirection">
+            <option value="">All</option>
+            <option value="debit">Debit</option>
+            <option value="credit">Credit</option>
+          </select>
+        </label>
+        <label>Search
+          <input id="filterSearch" placeholder="payee or amount" />
+        </label>
+        <button id="applyFilters" class="btn-sm">Apply</button>
+        <button id="clearFilters" class="btn-sm btn-outline">Clear</button>
+        <button id="saveFilterBtn" class="btn-sm btn-outline" title="Save current filters">💾 Save</button>
+        
+        <!-- Saved Filters -->
+        <div class="saved-filters" id="savedFiltersSection">
+          <h5>Saved Filters</h5>
+          <div id="savedFiltersList"></div>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <button id="logoutBtn" class="btn-sm btn-outline">Logout</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="brand">Financial Intelligence Engine</div>
+        <div class="actions">
+          <button id="showUploadModal" class="btn-accent">Upload PDF</button>
+          <button id="exportCsvBtn" class="btn-outline">Export CSV</button>
+          <button id="showShortcuts" class="btn-outline">?</button>
+        </div>
+      </header>
+
+      <main class="container">
+        <!-- Upload Drop Zone -->
+        <div id="uploadZone" class="upload-zone" style="display:none;">
+          <div class="upload-content">
+            <span class="upload-icon">📄</span>
+            <p>Drag & drop PDF here or click to browse</p>
+            <input type="file" id="fileInput" name="file" accept=".pdf">
+            <div id="uploadProgress" class="upload-progress" style="display:none;">
+              <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+              <span class="progress-text" id="progressText">Uploading...</span>
+            </div>
+          </div>
+          <button id="closeUpload" class="btn-close">✕</button>
+        </div>
+
+        <!-- DASHBOARD VIEW -->
+        <div id="viewDashboard" class="view">
+          <!-- Loading overlay -->
+          <div id="dashboardLoading" class="loading-overlay" style="display:none;">
+            <div class="loading-spinner"></div>
+            <span>Loading...</span>
+          </div>
+          
+          <!-- Quick Insights Banner -->
+          <section class="insights-banner" id="insightsBanner">
+            <div class="insight-item" id="insightVsLastMonth">
+              <span class="insight-icon">📈</span>
+              <span class="insight-text">Loading insights...</span>
+            </div>
+            <div class="insight-item" id="insightSavings">
+              <span class="insight-icon">💎</span>
+              <span class="insight-text" id="savingsRate">—</span>
+            </div>
+            <div class="insight-item" id="insightMonthTxns">
+              <span class="insight-icon">📊</span>
+              <span class="insight-text" id="monthTxnsCount">—</span>
+            </div>
+          </section>
+
+          <!-- Data Health Banner -->
+          <section class="health-banner" id="healthBanner">
+            <div class="health-item" id="healthReviewed">
+              <span class="health-icon">✓</span>
+              <span class="health-label">Reviewed</span>
+              <span class="health-value" id="healthReviewedPct">—</span>
+            </div>
+            <div class="health-item" id="healthUncategorized">
+              <span class="health-icon">❓</span>
+              <span class="health-label">Uncategorized</span>
+              <span class="health-value" id="healthUncategorizedCount">—</span>
+            </div>
+            <div class="health-item clickable" id="healthDuplicates" onclick="checkDuplicates()">
+              <span class="health-icon">🔄</span>
+              <span class="health-label">Check Duplicates</span>
+              <span class="health-value">→</span>
+            </div>
+            <div class="health-item" id="healthTopMerchant">
+              <span class="health-icon">🏪</span>
+              <span class="health-label">Top Untagged</span>
+              <span class="health-value" id="healthTopMerchantName">—</span>
+            </div>
+          </section>
+          
+          <!-- Summary Row -->
+          <section class="summary-row">
+            <div class="chart-box glass-card">
+              <div class="chart-title">Spending by Category</div>
+              <canvas id="catChart"></canvas>
+            </div>
+            <div class="cards">
+              <div class="card card-gradient-blue">
+                <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                <div class="card-content">
+                  <span class="card-label">Transactions</span>
+                  <span class="card-value" id="card-total">—</span>
+                  <span class="card-sub" id="card-total-sub">this month</span>
+                </div>
+              </div>
+              <div class="card card-gradient-red">
+                <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
+                <div class="card-content">
+                  <span class="card-label">Money Out</span>
+                  <span class="card-value" id="card-spent">—</span>
+                  <span class="card-sub" id="card-spent-trend"></span>
+                </div>
+              </div>
+              <div class="card card-gradient-green">
+                <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></div>
+                <div class="card-content">
+                  <span class="card-label">Money In</span>
+                  <span class="card-value" id="card-income">—</span>
+                  <span class="card-sub" id="card-income-breakdown">deposits & splits</span>
+                </div>
+              </div>
+              <div class="card card-gradient-purple">
+                <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                <div class="card-content">
+                  <span class="card-label">Budget Left</span>
+                  <span class="card-value" id="card-budget">—</span>
+                  <span class="card-sub" id="card-budget-days"></span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Budget Progress -->
+          <section id="budgetSection" class="budget-section glass-card" style="display:none;">
+            <div class="budget-header">
+              <h3>Monthly Budget</h3>
+              <span class="budget-amount"><span id="budgetSpent">₹0</span> / <span id="budgetTotal">₹10,000</span></span>
+            </div>
+            <div class="budget-bar">
+              <div class="budget-fill" id="budgetFill"></div>
+            </div>
+            <div class="budget-footer">
+              <span id="budgetPercent">0%</span> used
+              <span id="budgetDaysLeft"></span>
+            </div>
+          </section>
+
+          <!-- Two Column Layout -->
+          <div class="dashboard-grid">
+            <!-- Trend Charts -->
+            <section class="trend-section glass-card">
+              <div class="trend-header">
+                <h3>📈 Spending Trends</h3>
+                <div class="trend-toggle">
+                  <button class="btn-sm active" data-period="monthly">Monthly</button>
+                  <button class="btn-sm" data-period="weekly">Weekly</button>
+                </div>
+              </div>
+              <div class="trend-chart-box">
+                <canvas id="trendChart"></canvas>
+              </div>
+            </section>
+
+            <!-- Recent Transactions -->
+            <section class="recent-section glass-card">
+              <div class="recent-header">
+                <h3>🕐 Recent Activity</h3>
+                <a href="#" onclick="switchView('transactions'); return false;" class="view-all-link">View All →</a>
+              </div>
+              <div class="recent-list" id="recentTransactions">
+                <!-- Populated by JS -->
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- TRANSACTIONS VIEW -->
+        <div id="viewTransactions" class="view" style="display:none;">
+          <section class="txns">
+            <div class="txns-header">
+              <h2>Transactions</h2>
+              <div class="txns-actions">
+                <button id="bulkDeleteBtn" class="btn-sm btn-danger" style="display:none;">🗑️ Delete Selected</button>
+                <div class="active-filters" id="activeFilters"></div>
+              </div>
+            </div>
+            <table id="txTable">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" id="selectAll"></th>
+                  <th class="sortable" data-sort="datetime">Date ↕</th>
+                  <th class="sortable" data-sort="amount">Amount ↕</th>
+                  <th class="sortable" data-sort="scope">Scope ↕</th>
+                  <th>Category</th>
+                  <th class="sortable" data-sort="counterparty">Counterparty ↕</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div class="table-footer">
+              <span id="rowCount">0 transactions</span>
+            </div>
+          </section>
+        </div>
+
+        <!-- ANALYTICS VIEW -->
+        <div id="viewStats" class="view" style="display:none;">
+          <!-- Loading overlay -->
+          <div id="statsLoading" class="loading-overlay" style="display:none;">
+            <div class="loading-spinner"></div>
+            <span>Loading analytics...</span>
+          </div>
+          
+          <!-- PERSONAL EXPENSES - Main Section -->
+          <section class="analytics-section" id="analyticsPersonal">
+            <div class="section-header">
+              <h3>💰 Personal Expenses</h3>
+              <span class="section-badge personal">Primary</span>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <h4>📊 Overview</h4>
+                <div class="stat-row"><span>Transactions</span><span id="personalTxns">—</span></div>
+                <div class="stat-row"><span>Total Spent</span><span id="personalSpent">—</span></div>
+                <div class="stat-row"><span>This Month</span><span id="personalThisMonth">—</span></div>
+              </div>
+              <div class="stat-card">
+                <h4>🏆 Top Categories</h4>
+                <div id="personalTopCats"></div>
+              </div>
+              <div class="stat-card">
+                <h4>🏪 Top Merchants</h4>
+                <div id="personalTopMerchants"></div>
+              </div>
+            </div>
+            <div class="charts-row">
+              <div class="chart-container">
+                <div class="chart-header">
+                  <h4>📅 Daily Spending</h4>
+                  <div class="date-range-picker">
+                    <div class="quick-ranges">
+                      <button class="range-btn active" data-range="30">30 Days</button>
+                      <button class="range-btn" data-range="60">60 Days</button>
+                      <button class="range-btn" data-range="90">90 Days</button>
+                      <button class="range-btn" data-range="custom">Custom</button>
+                    </div>
+                    <div class="custom-range" style="display:none;">
+                      <input type="date" id="dailyStartDate" class="date-input">
+                      <span>to</span>
+                      <input type="date" id="dailyEndDate" class="date-input">
+                      <button class="btn-sm btn-accent" onclick="applyCustomDateRange()">Apply</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="chart-type-toggle">
+                  <button class="chart-type-btn active" data-type="bar">Bar</button>
+                  <button class="chart-type-btn" data-type="line">Line Flow</button>
+                  <button class="chart-type-btn" data-type="cumulative">Cumulative</button>
+                </div>
+                <div class="chart-scroll-container" id="dailyChartContainer">
+                  <canvas id="personalDailyChart"></canvas>
+                </div>
+                <div class="chart-info" id="dailyChartInfo"></div>
+              </div>
+            </div>
+            <div class="charts-row">
+              <div class="chart-container half">
+                <h4>Weekly Trend</h4>
+                <canvas id="personalWeeklyChart"></canvas>
+              </div>
+              <div class="chart-container half">
+                <h4>Monthly Trend</h4>
+                <canvas id="personalMonthlyChart"></canvas>
+              </div>
+            </div>
+          </section>
+
+          <!-- EDUCATION EXPENSES -->
+          <section class="analytics-section collapsible" id="analyticsEducation">
+            <div class="section-header" onclick="toggleSection('analyticsEducation')">
+              <h3>🎓 Education Expenses</h3>
+              <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+              <div class="stats-grid compact">
+                <div class="stat-card mini">
+                  <div class="stat-row"><span>Total Spent</span><span id="educationSpent">—</span></div>
+                  <div class="stat-row"><span>This Month</span><span id="educationThisMonth">—</span></div>
+                </div>
+                <div class="stat-card mini">
+                  <div class="stat-row"><span>Transactions</span><span id="educationTxns">—</span></div>
+                </div>
+              </div>
+              <div class="chart-container">
+                <h4>Monthly Trend</h4>
+                <canvas id="educationMonthlyChart"></canvas>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAMILY EXPENSES -->
+          <section class="analytics-section collapsible" id="analyticsFamily">
+            <div class="section-header" onclick="toggleSection('analyticsFamily')">
+              <h3>👨‍👩‍👧 Family Expenses</h3>
+              <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+              <div class="stats-grid compact">
+                <div class="stat-card mini">
+                  <div class="stat-row"><span>Total Spent</span><span id="familySpent">—</span></div>
+                  <div class="stat-row"><span>This Month</span><span id="familyThisMonth">—</span></div>
+                </div>
+                <div class="stat-card mini">
+                  <div class="stat-row"><span>Transactions</span><span id="familyTxns">—</span></div>
+                </div>
+              </div>
+              <div class="chart-container">
+                <h4>Monthly Trend</h4>
+                <canvas id="familyMonthlyChart"></canvas>
+              </div>
+            </div>
+          </section>
+
+          <!-- SHARED EXPENSES -->
+          <section class="analytics-section collapsible" id="analyticsShared">
+            <div class="section-header" onclick="toggleSection('analyticsShared')">
+              <h3>🤝 Shared Expenses</h3>
+              <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+              <div class="stats-grid compact">
+                <div class="stat-card mini">
+                  <div class="stat-row"><span>Total Spent</span><span id="sharedSpent">—</span></div>
+                  <div class="stat-row"><span>This Month</span><span id="sharedThisMonth">—</span></div>
+                </div>
+                <div class="stat-card mini">
+                  <div class="stat-row"><span>Transactions</span><span id="sharedTxns">—</span></div>
+                </div>
+              </div>
+              <div class="chart-container">
+                <h4>Monthly Trend</h4>
+                <canvas id="sharedMonthlyChart"></canvas>
+              </div>
+            </div>
+          </section>
+
+          <!-- COMPARISON SECTION -->
+          <section class="analytics-section" id="analyticsComparison">
+            <div class="section-header">
+              <h3>📊 Scope Comparison</h3>
+            </div>
+            <div class="charts-row">
+              <div class="chart-container half">
+                <h4>Monthly Comparison (All Scopes)</h4>
+                <canvas id="comparisonMonthlyChart"></canvas>
+              </div>
+              <div class="chart-container half">
+                <h4>Overall Distribution</h4>
+                <canvas id="comparisonPieChart"></canvas>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- SETTINGS VIEW -->
+        <div id="viewSettings" class="view" style="display:none;">
+          <section class="settings-section">
+            <h2>Settings</h2>
+            
+            <div class="settings-group">
+              <h3>Budget</h3>
+              <label>Monthly Budget (Pocket Money)
+                <input type="number" id="settingBudget" placeholder="10000">
+              </label>
+              <label>Currency Symbol
+                <select id="settingCurrency">
+                  <option value="₹">₹ (INR)</option>
+                  <option value="$">$ (USD)</option>
+                  <option value="€">€ (EUR)</option>
+                  <option value="£">£ (GBP)</option>
+                </select>
+              </label>
+              <div class="budget-scopes-section">
+                <label>Count these scopes in budget:</label>
+                <div id="budgetScopesCheckboxes" class="scopes-checkboxes">
+                  <!-- Populated by JS -->
+                </div>
+                <p class="hint">Only selected scopes will be counted towards your monthly budget.</p>
+              </div>
+            </div>
+
+            <div class="settings-group">
+              <h3>Categories</h3>
+              <div id="categoryTags" class="tags-list"></div>
+              <div class="add-tag-row">
+                <input type="text" id="newCategoryInput" placeholder="Add category">
+                <button id="addCategoryBtn" class="btn-sm">Add</button>
+              </div>
+            </div>
+
+            <div class="settings-group">
+              <h3>Alerts</h3>
+              <label class="checkbox-label">
+                <input type="checkbox" id="alertOverBudget">
+                Alert when over budget
+              </label>
+              <label>Alert at (% of budget)
+                <input type="number" id="settingAlertPct" placeholder="80" value="80">
+              </label>
+            </div>
+
+            <div class="settings-group">
+              <h3>Data Management</h3>
+              <div class="settings-buttons">
+                <button id="exportAllBtn" class="btn-outline" onclick="window.location='/api/export.csv'">Export All Data (CSV)</button>
+                <button id="viewTrashBtn" class="btn-outline" onclick="showTrashModal()">View Trash</button>
+                <button id="clearAllDataBtn" class="btn-danger">Clear All Transactions</button>
+              </div>
+            </div>
+
+            <div class="settings-actions">
+              <button id="saveSettingsBtn" class="btn-accent">Save Settings</button>
+            </div>
+          </section>
+        </div>
+
+        <!-- AUTO-TAGGING RULES VIEW -->
+        <div id="viewRules" class="view" style="display:none;">
+          <section class="rules-section-full">
+            <div class="section-header">
+              <h2>Auto-Tagging Rules</h2>
+              <div class="header-actions">
+                <button id="addRuleBtn" class="btn-accent">+ Add Rule</button>
+                <button id="previewRulesBtn" class="btn-outline">Preview</button>
+                <button id="applyRulesBtn" class="btn-accent">Apply Rules</button>
+              </div>
+            </div>
+            <p class="hint">Rules are applied in priority order. First matching rule wins.</p>
+            
+            <!-- Apply Options -->
+            <div class="apply-options">
+              <label class="checkbox-label">
+                <input type="checkbox" id="skipManuallyEdited" checked>
+                <span>Skip manually edited transactions</span>
+              </label>
+              <span class="hint">(Checked: preserves your manual edits. Uncheck to overwrite all)</span>
+            </div>
+            
+            <!-- Rules List -->
+            <div id="rulesList" class="rules-list">
+              <!-- Populated by JS -->
+            </div>
+
+            <!-- Rule Tester -->
+            <div class="rule-tester-section">
+              <h3>🧪 Rule Tester</h3>
+              <p class="hint">Test which rule would match a transaction before applying.</p>
+              <div class="rule-tester-inputs">
+                <div class="input-row">
+                  <div class="input-group">
+                    <label>Merchant / Counterparty</label>
+                    <input type="text" id="testMerchant" placeholder="e.g., Swiggy, Amazon">
+                  </div>
+                  <div class="input-group">
+                    <label>Amount (₹)</label>
+                    <input type="number" id="testAmount" placeholder="e.g., 250">
+                  </div>
+                  <div class="input-group">
+                    <label>Direction</label>
+                    <select id="testDirection">
+                      <option value="debit">Debit (Expense)</option>
+                      <option value="credit">Credit (Income)</option>
+                    </select>
+                  </div>
+                  <button class="btn-accent" onclick="testRule()">Test</button>
+                </div>
+              </div>
+              <div id="ruleTesterResult" class="rule-tester-result"></div>
+            </div>
+
+            <!-- Defaults Section -->
+            <div class="rules-defaults-section">
+              <h3>Default Rules</h3>
+              <p class="hint">Reset rules to smart defaults (Food delivery, Commute, Shopping, etc.)</p>
+              <div class="defaults-actions">
+                <button class="btn-outline" onclick="resetRulesToDefaults('replace')">Reset All</button>
+                <button class="btn-outline" onclick="resetRulesToDefaults('merge')">Add Missing</button>
+              </div>
+            </div>
+
+            <!-- Quick Add -->
+            <div class="quick-add-section">
+              <h3>Quick Add Merchant Rule</h3>
+              <p class="hint">Select a merchant to create an auto-tagging rule.</p>
+              <div class="merchant-autocomplete">
+                <input type="text" id="merchantSearch" placeholder="Search merchants..." autocomplete="off">
+                <div id="merchantSuggestions" class="suggestions-dropdown"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ACTIVITY LOGS VIEW -->
+        <div id="viewLogs" class="view" style="display:none;">
+          <section class="logs-section">
+            <div class="section-header">
+              <h2>Activity Log</h2>
+              <div class="header-actions">
+                <select id="logActionFilter">
+                  <option value="">All Actions</option>
+                  <option value="upload">Uploads</option>
+                  <option value="edit">Edits</option>
+                  <option value="delete">Deletes</option>
+                  <option value="auto_tag">Auto-Tags</option>
+                  <option value="restore">Restores</option>
+                </select>
+                <input type="text" id="logSearchInput" placeholder="Search logs...">
+                <button class="btn-outline" onclick="loadLogs()">Refresh</button>
+                <button class="btn-danger btn-sm" onclick="clearLogs()">Clear Logs</button>
+              </div>
+            </div>
+            
+            <div id="logsList" class="logs-list">
+              <!-- Populated by JS -->
+            </div>
+          </section>
+        </div>
+
+        <!-- HELP VIEW -->
+        <div id="viewHelp" class="view" style="display:none;">
+          <section class="help-section">
+            <div class="section-header">
+              <h2>Help & Documentation</h2>
+            </div>
+            
+            <!-- Quick Start -->
+            <div class="help-card">
+              <h3>Quick Start</h3>
+              <ol class="help-steps">
+                <li><strong>Upload PDF</strong> — Click "Upload PDF" to import your bank statement (Canara Bank supported)</li>
+                <li><strong>Review Transactions</strong> — Check the Transactions tab to see all imported entries</li>
+                <li><strong>Set Up Rules</strong> — Go to Auto-Tagging to create rules that categorize transactions automatically</li>
+                <li><strong>Track Spending</strong> — Use Dashboard to monitor your money flow and budget</li>
+              </ol>
+            </div>
+
+            <!-- Dashboard Metrics -->
+            <div class="help-card">
+              <h3>Dashboard Metrics Explained</h3>
+              
+              <div class="metric-explain">
+                <div class="metric-name">Transactions</div>
+                <div class="metric-desc">Total number of transactions in the selected scope (default: personal)</div>
+              </div>
+              
+              <div class="metric-explain highlight-red">
+                <div class="metric-name">Money Out</div>
+                <div class="metric-desc">
+                  <p>Total of all <strong>expenses</strong> (debits) in the selected scope.</p>
+                  <div class="formula-box">
+                    <code>Money Out = Σ (all debit transactions)</code>
+                  </div>
+                  <p class="note">This shows your gross spending. If you have splits (friend paybacks), the subtitle shows your <em>net spending</em> after those are accounted for.</p>
+                </div>
+              </div>
+              
+              <div class="metric-explain highlight-green">
+                <div class="metric-name">Money In</div>
+                <div class="metric-desc">
+                  <p>Total of all <strong>credits</strong> (deposits + splits) in the selected scope.</p>
+                  <div class="formula-box">
+                    <code>Money In = Deposits + Splits</code>
+                  </div>
+                  <ul class="metric-list">
+                    <li><strong>Deposits:</strong> True income (salary, parents, refunds from stores)</li>
+                    <li><strong>Splits:</strong> Friend paybacks (categorized as "split" or "friends")</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="metric-explain highlight-purple">
+                <div class="metric-name">Budget Left</div>
+                <div class="metric-desc">
+                  <p>Remaining budget for the current month.</p>
+                  <div class="formula-box">
+                    <code>Budget Left = Monthly Budget − This Month's Spending</code>
+                  </div>
+                  <p class="note">Set your monthly budget in Settings. Only transactions in "budget scopes" (default: personal) count against budget.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Insights Explained -->
+            <div class="help-card">
+              <h3>Insights Banner</h3>
+              
+              <div class="metric-explain">
+                <div class="metric-name">vs Last Month</div>
+                <div class="metric-desc">
+                  <p>Compares your spending this month to last month.</p>
+                  <div class="formula-box">
+                    <code>Change % = ((This Month − Last Month) / Last Month) × 100</code>
+                  </div>
+                  <p><span class="badge-up">↑ Green</span> = spending less (good!) &nbsp; <span class="badge-down">↓ Red</span> = spending more</p>
+                </div>
+              </div>
+              
+              <div class="metric-explain">
+                <div class="metric-name">Savings Rate</div>
+                <div class="metric-desc">
+                  <p>Percentage of income saved (not spent).</p>
+                  <div class="formula-box">
+                    <code>Savings Rate = ((Total Income − Total Spent) / Total Income) × 100</code>
+                  </div>
+                  <p class="note">A positive rate means you're saving money. Negative means you're spending more than you earn.</p>
+                </div>
+              </div>
+              
+              <div class="metric-explain">
+                <div class="metric-name">Transactions This Month</div>
+                <div class="metric-desc">Count of all transactions in the current calendar month.</div>
+              </div>
+            </div>
+
+            <!-- Scopes & Categories -->
+            <div class="help-card">
+              <h3>Scopes & Categories</h3>
+              
+              <div class="two-col">
+                <div>
+                  <h4>Scopes</h4>
+                  <p>Scopes separate different "accounts" or purposes:</p>
+                  <ul class="metric-list">
+                    <li><strong>personal</strong> — Your personal expenses (food, transport, shopping)</li>
+                    <li><strong>family</strong> — Family-related transactions</li>
+                    <li><strong>education</strong> — Tuition, books, courses</li>
+                    <li><strong>shared</strong> — Shared expenses with roommates/friends</li>
+                  </ul>
+                  <p class="note">Only "personal" scope counts toward your budget by default.</p>
+                </div>
+                <div>
+                  <h4>Categories</h4>
+                  <p>Categories describe what the money was for:</p>
+                  <ul class="metric-list">
+                    <li><strong>food</strong> — Restaurants, groceries, delivery</li>
+                    <li><strong>transport</strong> — Uber, metro, fuel</li>
+                    <li><strong>shopping</strong> — Amazon, clothes, electronics</li>
+                    <li><strong>split</strong> — Friend paybacks (offsets your spending)</li>
+                    <li><strong>deposit</strong> — True income (salary, parents)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Auto-Tagging -->
+            <div class="help-card">
+              <h3>Auto-Tagging Rules</h3>
+              <p>Rules automatically categorize transactions based on conditions. They're applied in priority order — first match wins. <strong>New transactions are auto-tagged when uploaded.</strong></p>
+              
+              <div class="rule-types">
+                <div class="rule-type">
+                  <h4>Merchant-Based Rules (Recommended)</h4>
+                  <p>Match by counterparty/merchant name. Each rule assigns exactly one category.</p>
+                  <div class="example-box">
+                    <strong>Default rules include:</strong><br>
+                    • Food Delivery (Swiggy, Zomato) → food<br>
+                    • Online Shopping (Amazon, Flipkart, Blinkit, Myntra) → shopping<br>
+                    • Cabs (Uber, Ola, Rapido) → cab<br>
+                    • Yulu Bikes → commute<br>
+                    • Groceries (BigBasket, Zepto) → groceries
+                  </div>
+                </div>
+                
+                <div class="rule-type">
+                  <h4>Amount-Based Rules</h4>
+                  <p>Match by transaction amount range.</p>
+                  <div class="example-box">
+                    <strong>Example:</strong> Amount ₹0-50 → Category: "small"<br>
+                    <em>Tags all transactions under ₹50 as "small" purchases</em>
+                  </div>
+                </div>
+                
+                <div class="rule-type">
+                  <h4>Combined Rules</h4>
+                  <p>Match both amount AND merchant conditions.</p>
+                  <div class="example-box">
+                    <strong>Example:</strong> Amount ₹200+ AND Merchant "uber" → Category: "cab", Scope: "personal"
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tip-box">
+                <strong>Tip:</strong> Enable "Skip manually edited" when applying rules to preserve your manual categorizations. Each transaction gets exactly one category — no duplicates!
+              </div>
+            </div>
+
+            <!-- Spending Chart -->
+            <div class="help-card">
+              <h3>Spending Trends Chart</h3>
+              <p>The bar chart shows your net cash flow over time:</p>
+              <ul class="metric-list">
+                <li><span class="badge-green">Green bars</span> = Net positive (more income than expenses)</li>
+                <li><span class="badge-red">Red bars</span> = Net negative (more expenses than income)</li>
+                <li><span class="badge-striped">Striped bars</span> = Outliers (unusually large values, capped for display)</li>
+              </ul>
+              <div class="formula-box">
+                <code>Net Flow = Credits − Debits (for each period)</code>
+              </div>
+              <p class="note">Toggle between Monthly and Weekly views to see different time granularities.</p>
+            </div>
+
+            <!-- Daily Spending Chart -->
+            <div class="help-card">
+              <h3>📅 Daily Spending Chart</h3>
+              <p>Visualize your daily spending patterns with multiple views and date ranges.</p>
+              
+              <div class="rule-types">
+                <div class="rule-type">
+                  <h4>Date Range Selection</h4>
+                  <p>Control the time period displayed:</p>
+                  <ul class="metric-list">
+                    <li><strong>30/60/90 Days</strong> — Quick presets for recent spending</li>
+                    <li><strong>Custom</strong> — Pick any start and end date</li>
+                  </ul>
+                  <p class="note">Charts auto-scroll horizontally when showing more than 30 days.</p>
+                </div>
+                
+                <div class="rule-type">
+                  <h4>Chart Types</h4>
+                  <p>Switch between visualization styles:</p>
+                  <ul class="metric-list">
+                    <li><strong>Bar</strong> — Stacked bars by category (default)</li>
+                    <li><strong>Line Flow</strong> — Area chart showing spending trends per category</li>
+                    <li><strong>Cumulative</strong> — Running total of spending over time</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="tip-box">
+                <strong>Tip:</strong> Use the cumulative view to see how your total spending grows over a period. Great for tracking monthly burn rate!
+              </div>
+            </div>
+
+            <!-- Tips -->
+            <div class="help-card highlight-tip">
+              <h3>Pro Tips</h3>
+              <ul class="tip-list">
+                <li><strong>Keyboard shortcut:</strong> Press <kbd>?</kbd> anywhere to see keyboard shortcuts</li>
+                <li><strong>Bulk delete:</strong> Select multiple transactions and delete them at once</li>
+                <li><strong>Soft delete:</strong> Deleted items go to Trash first — you can restore them</li>
+                <li><strong>Export data:</strong> Click "Export CSV" to download all transactions</li>
+                <li><strong>Split tracking:</strong> Categorize friend paybacks as "split" to see true net spending</li>
+                <li><strong>Activity log:</strong> All changes are logged — track what was modified and when</li>
+              </ul>
+            </div>
+
+            <!-- Glossary -->
+            <div class="help-card">
+              <h3>Glossary</h3>
+              <dl class="glossary">
+                <dt>Debit</dt>
+                <dd>Money going out of your account (expenses, payments)</dd>
+                
+                <dt>Credit</dt>
+                <dd>Money coming into your account (deposits, refunds, splits)</dd>
+                
+                <dt>Counterparty</dt>
+                <dd>The other party in a transaction (merchant, person, or service)</dd>
+                
+                <dt>Scope</dt>
+                <dd>High-level classification of transaction purpose (personal, family, etc.)</dd>
+                
+                <dt>Category</dt>
+                <dd>Specific type of expense or income (food, transport, deposit, etc.)</dd>
+                
+                <dt>Reviewed</dt>
+                <dd>A transaction marked as manually verified — auto-tagging can skip these</dd>
+                
+                <dt>Net Spending</dt>
+                <dd>Gross spending minus splits (your true out-of-pocket expense)</dd>
+              </dl>
+            </div>
+
+          </section>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Trash Modal -->
+  <div id="trashModal" class="modal" style="display:none;">
+    <div class="modal-content modal-wide">
+      <h3>Trash</h3>
+      <p class="hint">Deleted transactions are kept for 30 days. You can restore them here.</p>
+      <div id="trashList" class="trash-list">
+        <!-- Populated by JS -->
+      </div>
+      <div class="modal-actions">
+        <button class="btn-danger" onclick="emptyTrash()">Empty Trash</button>
+        <button class="btn-outline" onclick="closeTrashModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Edit Transaction</h3>
+      <div id="modalTxnInfo" class="modal-txn-info"></div>
+      <input id="modalId" type="hidden">
+      <div class="modal-row">
+        <label>Scope
+          <select id="modalScope"></select>
+        </label>
+      </div>
+      <div class="modal-row">
+        <label>Categories (comma separated)
+          <input id="modalCategories" placeholder="food, coffee">
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button id="modalSave" class="btn-accent">Save</button>
+        <button id="modalCancel" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>🗑️ Delete Transaction</h3>
+      <p>Are you sure you want to delete <span id="deleteCount">this transaction</span>?</p>
+      <div class="modal-actions">
+        <button id="confirmDelete" class="btn-danger">Delete</button>
+        <button id="cancelDelete" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rule Editor Modal -->
+  <div id="ruleModal" class="modal" style="display:none;">
+    <div class="modal-content modal-wide">
+      <h3 id="ruleModalTitle">🤖 Add Auto-Tagging Rule</h3>
+      <input id="ruleId" type="hidden">
+      
+      <div class="modal-row">
+        <label>Rule Name
+          <input id="ruleName" placeholder="e.g., Coffee shops, Groceries, etc.">
+        </label>
+      </div>
+      
+      <div class="modal-row">
+        <label>Rule Type
+          <select id="ruleType" onchange="toggleRuleConditions()">
+            <option value="amount">Amount Range</option>
+            <option value="merchant">Merchant/Counterparty</option>
+            <option value="combined">Combined (Amount + Merchant)</option>
+          </select>
+        </label>
+      </div>
+      
+      <div class="rule-conditions">
+        <h4>📋 Conditions</h4>
+        
+        <div id="amountConditions" class="condition-group">
+          <label>Amount Range (₹)
+            <div class="range-inputs">
+              <input type="number" id="ruleAmountMin" placeholder="Min" min="0">
+              <span>to</span>
+              <input type="number" id="ruleAmountMax" placeholder="Max" min="0">
+            </div>
+          </label>
+        </div>
+        
+        <div id="merchantConditions" class="condition-group" style="display:none;">
+          <label>Merchant Contains (comma-separated)
+            <input id="ruleMerchantContains" placeholder="e.g., swiggy, zomato, uber eats">
+          </label>
+          <label>Or Exact Match (comma-separated)
+            <input id="ruleMerchantExact" placeholder="Exact counterparty names">
+          </label>
+          <p class="hint">💡 Multiple merchants: separate with commas. Matches if ANY keyword matches (case-insensitive)</p>
+        </div>
+        
+        <div class="condition-group">
+          <label>Direction (optional)
+            <select id="ruleDirection">
+              <option value="">Any</option>
+              <option value="debit">Debit (Expense)</option>
+              <option value="credit">Credit (Income)</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      
+      <div class="rule-actions-section">
+        <h4>🎯 Actions (What to auto-tag)</h4>
+        
+        <div class="modal-row">
+          <label>Scope
+            <select id="ruleScope">
+              <option value="personal">Personal</option>
+              <option value="family">Family</option>
+              <option value="education">Education</option>
+              <option value="shared">Shared</option>
+            </select>
+          </label>
+        </div>
+        
+        <div class="modal-row">
+          <label>Category
+            <input id="ruleCategory" placeholder="e.g., coffee, food, shopping">
+          </label>
+        </div>
+      </div>
+      
+      <div class="modal-row">
+        <label class="checkbox-label">
+          <input type="checkbox" id="ruleEnabled" checked>
+          Rule Enabled
+        </label>
+      </div>
+      
+      <div class="modal-actions">
+        <button id="ruleSave" class="btn-accent">💾 Save Rule</button>
+        <button id="ruleCancel" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview Rules Modal -->
+  <div id="previewModal" class="modal" style="display:none;">
+    <div class="modal-content modal-wide">
+      <h3>👁️ Preview Rule Changes</h3>
+      <p>The following transactions will be affected:</p>
+      <div id="previewContent" class="preview-list"></div>
+      <div class="modal-actions">
+        <button id="previewApply" class="btn-accent">✅ Apply Changes</button>
+        <button id="previewCancel" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Duplicates Modal -->
+  <div id="duplicatesModal" class="modal" style="display:none;">
+    <div class="modal-content modal-wide">
+      <h3>🔄 Potential Duplicates</h3>
+      <p class="hint">These transactions look similar. Review and merge if needed.</p>
+      <div id="duplicatesContent" class="duplicates-list"></div>
+      <div class="modal-actions">
+        <button onclick="closeDuplicatesModal()" class="btn-outline">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Drilldown Drawer -->
+  <div id="drilldownDrawer" class="drawer" style="display:none;">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3 id="drilldownTitle">Category Details</h3>
+        <button onclick="closeDrilldown()" class="btn-close">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="drilldown-summary">
+          <div class="drilldown-stat">
+            <span class="stat-value" id="drilldownTotal">₹0</span>
+            <span class="stat-label">Total Spent</span>
+          </div>
+          <div class="drilldown-stat">
+            <span class="stat-value" id="drilldownCount">0</span>
+            <span class="stat-label">Transactions</span>
+          </div>
+        </div>
+        <div class="drilldown-section">
+          <h4>Top Merchants</h4>
+          <div id="drilldownMerchants" class="merchant-breakdown"></div>
+        </div>
+        <div class="drilldown-section">
+          <h4>Recent Transactions</h4>
+          <div id="drilldownRecent" class="recent-list-mini"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Save Filter Modal -->
+  <div id="saveFilterModal" class="modal" style="display:none;">
+    <div class="modal-content modal-sm">
+      <h3>💾 Save Filter</h3>
+      <label>Filter Name
+        <input type="text" id="filterNameInput" placeholder="e.g., This month food">
+      </label>
+      <div class="modal-actions">
+        <button onclick="confirmSaveFilter()" class="btn-accent">Save</button>
+        <button onclick="document.getElementById('saveFilterModal').style.display='none'" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard Shortcuts Help -->
+  <div id="shortcutsHelp" class="shortcuts-panel" style="display:none;">
+    <h4>⌨️ Keyboard Shortcuts</h4>
+    <ul>
+      <li><kbd>/</kbd> Focus search</li>
+      <li><kbd>U</kbd> Upload PDF</li>
+      <li><kbd>E</kbd> Export CSV</li>
+      <li><kbd>D</kbd> Dashboard</li>
+      <li><kbd>T</kbd> Transactions</li>
+      <li><kbd>S</kbd> Settings</li>
+      <li><kbd>↑↓</kbd> Navigate table</li>
+      <li><kbd>Enter</kbd> Edit selected</li>
+      <li><kbd>Del</kbd> Delete selected</li>
+      <li><kbd>Esc</kbd> Close modal</li>
+      <li><kbd>?</kbd> Toggle this help</li>
+    </ul>
+    <button id="closeShortcuts" class="btn-sm">Close</button>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

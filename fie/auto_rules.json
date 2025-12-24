@@ -1,0 +1,320 @@
+[
+  {
+    "id": "rule_noise",
+    "name": "Noise (\u20b90-10)",
+    "type": "amount",
+    "enabled": true,
+    "priority": 1,
+    "conditions": {
+      "amount_min": 0,
+      "amount_max": 10
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "noise"
+      ]
+    }
+  },
+  {
+    "id": "rule_food_delivery",
+    "name": "\ud83c\udf55 Food Delivery",
+    "description": "Swiggy, Zomato, Uber Eats, Dunzo",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 1,
+    "conditions": {
+      "merchant_contains": "swiggy, zomato, uber eats, EATSURE, HOLISTIC"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "food"
+      ]
+    }
+  },
+  {
+    "id": "rule_coffee",
+    "name": "Coffee (\u20b911-25)",
+    "type": "amount",
+    "enabled": true,
+    "priority": 2,
+    "conditions": {
+      "amount_min": 11,
+      "amount_max": 25
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ]
+    }
+  },
+  {
+    "id": "rule_yulu",
+    "name": "\ud83d\udeb2 Yulu Bikes",
+    "description": "Yulu bike rentals",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 2,
+    "conditions": {
+      "merchant_contains": "yulu"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "commute",
+        "yulu"
+      ]
+    }
+  },
+  {
+    "id": "rule_snacks",
+    "name": "Snacks (\u20b926-50)",
+    "type": "amount",
+    "enabled": true,
+    "priority": 3,
+    "conditions": {
+      "amount_min": 26,
+      "amount_max": 50
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ]
+    }
+  },
+  {
+    "id": "rule_rapido_ola_uber",
+    "name": "\ud83d\ude97 Cab/Auto Apps",
+    "description": "Rapido, Ola, Uber, Namma Yatri",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 3,
+    "conditions": {
+      "merchant_contains": "rapido, ola, uber, namma yatri"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "commute",
+        "cab"
+      ]
+    }
+  },
+  {
+    "id": "rule_daily",
+    "name": "Daily (\u20b951-100)",
+    "type": "amount",
+    "enabled": true,
+    "priority": 4,
+    "conditions": {
+      "amount_min": 51,
+      "amount_max": 100
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "daily"
+      ]
+    }
+  },
+  {
+    "id": "rule_auto_amount",
+    "name": "\ud83d\udefa Auto Rickshaw",
+    "description": "Small debit transactions \u20b915-25",
+    "type": "combined",
+    "enabled": true,
+    "priority": 4,
+    "conditions": {
+      "amount_min": 15,
+      "amount_max": 25,
+      "direction": "debit"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "commute",
+        "auto"
+      ]
+    }
+  },
+  {
+    "id": "rule_2e5b408b",
+    "name": "Food",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 5,
+    "conditions": {
+      "merchant_contains": "Eternal, Dominos, zomato, eatsure, EATSUREF, Barista, BARISTAP, SUBWAy, subway, AMMYSAUN, Ammy",
+      "direction": "debit"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "food"
+      ]
+    }
+  },
+  {
+    "id": "rule_amazon",
+    "name": "\ud83d\udce6 Amazon",
+    "description": "Amazon shopping",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 5,
+    "conditions": {
+      "merchant_contains": "amazon, amzn"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping",
+        "amazon"
+      ]
+    }
+  },
+  {
+    "id": "rule_flipkart",
+    "name": "\ud83d\uded2 Flipkart",
+    "description": "Flipkart shopping",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 6,
+    "conditions": {
+      "merchant_contains": "flipkart"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping",
+        "flipkart"
+      ]
+    }
+  },
+  {
+    "id": "rule_groceries",
+    "name": "\ud83e\udd66 Groceries",
+    "description": "BigBasket, Zepto, Blinkit, Instamart, JioMart",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 7,
+    "conditions": {
+      "merchant_contains": "bigbasket, zepto, blinkit, instamart, jiomart"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ]
+    }
+  },
+  {
+    "id": "rule_electricity",
+    "name": "\u26a1 Electricity",
+    "description": "Electricity bills (BESCOM, etc.)",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 8,
+    "conditions": {
+      "merchant_contains": "bescom, electricity, power"
+    },
+    "actions": {
+      "scope": "family",
+      "category": [
+        "utilities",
+        "electricity"
+      ]
+    }
+  },
+  {
+    "id": "rule_mobile_recharge",
+    "name": "\ud83d\udcf1 Mobile Recharge",
+    "description": "Airtel, Jio, Vi, BSNL recharges",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 9,
+    "conditions": {
+      "merchant_contains": "airtel, jio, vodafone, bsnl, recharge"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "utilities",
+        "recharge"
+      ]
+    }
+  },
+  {
+    "id": "rule_split_refund",
+    "name": "\ud83d\udcb0 Split/Refund",
+    "description": "Small credits from friends (\u20b91-2000)",
+    "type": "combined",
+    "enabled": true,
+    "priority": 10,
+    "conditions": {
+      "amount_min": 1,
+      "amount_max": 2000,
+      "direction": "credit"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ]
+    }
+  },
+  {
+    "id": "rule_deposit",
+    "name": "\ud83c\udfe6 Deposit/Income",
+    "description": "Large credits (\u20b92001+) - parents, salary",
+    "type": "combined",
+    "enabled": true,
+    "priority": 11,
+    "conditions": {
+      "amount_min": 2001,
+      "direction": "credit"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ]
+    }
+  },
+  {
+    "id": "rule_a9e20b0d",
+    "name": "IITD",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 17,
+    "conditions": {
+      "merchant_contains": "IITD, IIT Delhi"
+    },
+    "actions": {
+      "scope": "education",
+      "category": [
+        "IITD"
+      ]
+    }
+  },
+  {
+    "id": "rule_cbe0e063",
+    "name": "Railway",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 18,
+    "conditions": {
+      "merchant_contains": "irctcrai, irctc, metro"
+    },
+    "actions": {
+      "scope": "family",
+      "category": [
+        "travel"
+      ]
+    }
+  }
+]

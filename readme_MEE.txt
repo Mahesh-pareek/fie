@@ -58,3 +58,28 @@ TO DO LATEERRRRRRRRRRRRRRRRRR:
 
 
 - why do we have fie edit ??
+
+
+- DAILY AVG SHOULD BE FIXED ON WEBSITE!!
+- spending chart has issues, montly and weekly shows the same.. needs to be fixed!!
+- now the edited button does not work in the transaction
+also deleteing transaction should not be accessible this easily.. they can only be delted after ( what's te standard practice for such system?)
+- use that practice only
+
+
+
+
+
+
+
+
+
+###############################
+- Use a better theme, yellow for dashboard/transaction etx naming ( looks good on black/blaue)
+pick a great theme from internet which actually looks good and then make with that!!)
+- daily avg ,demove that filed it's misleading 
+
+- also one good feature the updates currently have a clash, if i update something manuallly it should not be obverwrriten by the auto tagging
+also give a option (like overwrite all (updates the trsaction which are required to be updated!!)
+
+- also the money out is not correctly showing the expenses of the time ,, it should tell all the expenes ( sum of everything +/- in the personal section!!)

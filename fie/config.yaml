@@ -9,9 +9,14 @@ storage:
 # Transaction Rules
 rules:
   micro_transaction:
-    noise_max_amount: 10
-    coffee_min_amount: 11
-    coffee_max_amount: 20
+    # 0-10 → noise, 11-25 → coffee, 26-50 → snacks, 51-100 → daily
+    noise_max: 10
+    coffee_min: 11
+    coffee_max: 25
+    snacks_min: 26
+    snacks_max: 50
+    daily_min: 51
+    daily_max: 100
 
 # Tagging
 tagging:
@@ -27,3 +32,5 @@ tagging:
     o: outing
     t: travel
     n: noise
+    s: snacks
+    d: daily
