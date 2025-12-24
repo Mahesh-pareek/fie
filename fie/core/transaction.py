@@ -1,24 +1,28 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import List, Optional
+from typing import Dict, List
 import hashlib
 
 
 @dataclass(frozen=True)
 class Transaction:
+    # ---------------- KEY FIELDS ----------------
     id: str
     datetime: datetime
     amount: float
-    direction: str         
-    counterparty: str       
-    mode: str              
-    reference: Optional[str]
-    upi_id: Optional[str]
-    source_file: str
+    direction: str              # "credit" | "debit"
+    counterparty: str
+    mode: str                   # UPI | IMPS | CASH | INTERNAL | UNKNOWN
 
+    # ---------------- WORKFLOW STATE ----------------
+    reviewed: bool = False
+
+    # ---------------- CLASSIFICATION ----------------
     scope: str = "unknown"
     category: List[str] = field(default_factory=list)
-    reviewed: bool = False
+
+    # ---------------- EXTRA METADATA ----------------
+    extras: Dict = field(default_factory=dict)
 
     def __post_init__(self):
         if self.amount <= 0:
@@ -33,7 +37,7 @@ class Transaction:
         direction: str,
         counterparty: str,
         mode: str,
-        reference: Optional[str],
+        raw_txn: str,
         source_file: str,
     ) -> str:
         raw = (
@@ -42,7 +46,21 @@ class Transaction:
             f"{direction}|"
             f"{counterparty}|"
             f"{mode}|"
-            f"{reference}|"
+            f"{raw_txn}|"
             f"{source_file}"
         )
         return hashlib.sha256(raw.encode()).hexdigest()
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "datetime": self.datetime.isoformat(),
+            "amount": self.amount,
+            "direction": self.direction,
+            "counterparty": self.counterparty,
+            "mode": self.mode,
+            "reviewed": self.reviewed,
+            "scope": self.scope,
+            "category": self.category,
+            "extras": self.extras,
+        }

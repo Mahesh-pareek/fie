@@ -26,5 +26,35 @@ the inputs and other commadns can be made more easier to run from the CLI effort
 
 ##############################
 
-TO DO:
+
+- summary prints only the personal and full sumamry rn... lets also print the individual breakdown when summary is assked everything is printed
+- print less or dedicted only when it's asked~~
+
+
+
+
+
+
+
+######################
+
+
+
+TO DO LATEERRRRRRRRRRRRRRRRRR:
 - Add an instruction to not add duplicate files/ overlapping files  else the transactions will be doubled
+
+- Should i add a visulaizer???? ( for parsed PDF)
+    
+
+
+- we can also parse time from the raw text... it's pretty easy.. 
+-  just look for hh:mm:ss , we don't need to show it , we keep it only for puting it for ease later ( end to end)
+- also now is the time we fix the naming issues
+- remove all the spaces generate a full string and then extract importnat info from it, like time and correct name ( no weird spacing, cutting)
+
+#################
+- fie ls -h 
+-fie show <id>
+
+
+- why do we have fie edit ??
