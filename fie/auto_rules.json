@@ -24,7 +24,7 @@
     "enabled": true,
     "priority": 1,
     "conditions": {
-      "merchant_contains": "swiggy, zomato, uber eats, EATSURE, HOLISTIC"
+      "merchant_contains": "swiggy, zomato, uber eats, EATSURE, LAPINOZ"
     },
     "actions": {
       "scope": "personal",
@@ -195,13 +195,13 @@
   },
   {
     "id": "rule_groceries",
-    "name": "\ud83e\udd66 Groceries",
+    "name": "Zepto",
     "description": "BigBasket, Zepto, Blinkit, Instamart, JioMart",
     "type": "merchant",
     "enabled": true,
     "priority": 7,
     "conditions": {
-      "merchant_contains": "bigbasket, zepto, blinkit, instamart, jiomart"
+      "merchant_contains": "bigbasket,GROFERSI, zepto, blinkit, instamart, jiomart, MYNTRADE"
     },
     "actions": {
       "scope": "personal",
@@ -314,6 +314,628 @@
       "scope": "family",
       "category": [
         "travel"
+      ]
+    }
+  },
+  {
+    "id": "rule_9c66c225",
+    "name": "Campus Canteens",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 19,
+    "conditions": {
+      "merchant_contains": "HOLISTIC, CHARANSI, NAIVEDYAM"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "food"
+      ]
+    }
+  },
+  {
+    "id": "rule_8c3abaff",
+    "name": "AutoPay",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 20,
+    "conditions": {
+      "merchant_contains": "NETFLIXC, NETFLIX , SPOTIFY"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "autopay"
+      ]
+    }
+  },
+  {
+    "id": "rule_indianrail",
+    "name": "\ud83d\ude82 Indian Railways",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 21,
+    "conditions": {
+      "merchant_contains": "indianra"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "travel",
+        "railways"
+      ]
+    }
+  },
+  {
+    "id": "rule_phonepe_ignore",
+    "name": "\ud83d\udcf1 PhonePe (ignore)",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 22,
+    "conditions": {
+      "merchant_contains": "phonepe"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": []
+    }
+  },
+  {
+    "id": "rule_hexacom",
+    "name": "\ud83d\udcf6 Hexacom Recharge",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 23,
+    "conditions": {
+      "merchant_contains": "hexacom"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": [
+        "bills",
+        "recharge"
+      ]
+    }
+  },
+  {
+    "id": "rule_bhartihe",
+    "name": "\ud83d\udcf6 Airtel/Bharti Recharge",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 24,
+    "conditions": {
+      "merchant_contains": "bhartihe"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": [
+        "bills",
+        "recharge"
+      ]
+    }
+  },
+  {
+    "id": "rule_blusmart",
+    "name": "\ud83d\ude97 BluSmart Ride",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 25,
+    "conditions": {
+      "merchant_contains": "blusmart"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "travel",
+        "ride"
+      ]
+    }
+  },
+  {
+    "id": "rule_lenskart",
+    "name": "\ud83d\udc53 Lenskart",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 26,
+    "conditions": {
+      "merchant_contains": "lenskart"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping"
+      ]
+    }
+  },
+  {
+    "id": "rule_pantaloons",
+    "name": "\ud83d\udc54 Pantaloons",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 27,
+    "conditions": {
+      "merchant_contains": "pantaloons"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping"
+      ]
+    }
+  },
+  {
+    "id": "rule_miniso",
+    "name": "\ud83d\udecd\ufe0f Miniso",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 28,
+    "conditions": {
+      "merchant_contains": "miniso"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping"
+      ]
+    }
+  },
+  {
+    "id": "rule_redbus",
+    "name": "\ud83d\ude8c RedBus",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 29,
+    "conditions": {
+      "merchant_contains": "redbus"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "travel",
+        "bus"
+      ]
+    }
+  },
+  {
+    "id": "rule_delhivery",
+    "name": "\ud83d\udce6 Delhivery",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 30,
+    "conditions": {
+      "merchant_contains": "delhivery"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping"
+      ]
+    }
+  },
+  {
+    "id": "rule_icaiexam",
+    "name": "\ud83d\udcda ICAI Exam",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 31,
+    "conditions": {
+      "merchant_contains": "icaiexam"
+    },
+    "actions": {
+      "scope": "family",
+      "category": [
+        "education",
+        "exam"
+      ]
+    }
+  },
+  {
+    "id": "rule_pvr",
+    "name": "\ud83c\udfac PVR/Inox",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 32,
+    "conditions": {
+      "merchant_contains": "pvr"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "entertainment",
+        "movies"
+      ]
+    }
+  },
+  {
+    "id": "rule_bookmyshow",
+    "name": "\ud83c\udfab BookMyShow",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 33,
+    "conditions": {
+      "merchant_contains": "bookmyshow"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "entertainment"
+      ]
+    }
+  },
+  {
+    "id": "rule_haldiram",
+    "name": "\ud83c\udf5b Haldiram",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 34,
+    "conditions": {
+      "merchant_contains": "haldiram"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "food"
+      ]
+    }
+  },
+  {
+    "id": "rule_groww",
+    "name": "\ud83d\udcc8 Groww Investment",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 35,
+    "conditions": {
+      "merchant_contains": "groww"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "investment"
+      ]
+    }
+  },
+  {
+    "id": "rule_vi_mobile",
+    "name": "\ud83d\udcf1 VI Mobile",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 36,
+    "conditions": {
+      "merchant_exact": "vi"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": [
+        "bills",
+        "mobile"
+      ]
+    }
+  },
+  {
+    "id": "rule_airtel_web",
+    "name": "\ud83d\udcf1 Airtel Website",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 37,
+    "conditions": {
+      "merchant_contains": "wwwairte"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": [
+        "bills",
+        "mobile"
+      ]
+    }
+  },
+  {
+    "id": "rule_indianrail",
+    "name": "\ud83d\ude82 Indian Railways",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 38,
+    "conditions": {
+      "merchant_contains": "indianra"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "travel",
+        "railways"
+      ]
+    }
+  },
+  {
+    "id": "rule_phonepe_ignore",
+    "name": "\ud83d\udcf1 PhonePe (ignore)",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 39,
+    "conditions": {
+      "merchant_contains": "phonepe"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": []
+    }
+  },
+  {
+    "id": "rule_hexacom",
+    "name": "\ud83d\udcf6 Hexacom Recharge",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 40,
+    "conditions": {
+      "merchant_contains": "hexacom"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": [
+        "bills",
+        "recharge"
+      ]
+    }
+  },
+  {
+    "id": "rule_bhartihe",
+    "name": "\ud83d\udcf6 Airtel/Bharti Recharge",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 41,
+    "conditions": {
+      "merchant_contains": "bhartihe"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": [
+        "bills",
+        "recharge"
+      ]
+    }
+  },
+  {
+    "id": "rule_blusmart",
+    "name": "\ud83d\ude97 BluSmart Ride",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 42,
+    "conditions": {
+      "merchant_contains": "blusmart"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "travel",
+        "ride"
+      ]
+    }
+  },
+  {
+    "id": "rule_lenskart",
+    "name": "\ud83d\udc53 Lenskart",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 43,
+    "conditions": {
+      "merchant_contains": "lenskart"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping"
+      ]
+    }
+  },
+  {
+    "id": "rule_pantaloons",
+    "name": "\ud83d\udc54 Pantaloons",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 44,
+    "conditions": {
+      "merchant_contains": "pantaloons"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping"
+      ]
+    }
+  },
+  {
+    "id": "rule_miniso",
+    "name": "\ud83d\udecd\ufe0f Miniso",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 45,
+    "conditions": {
+      "merchant_contains": "miniso"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping"
+      ]
+    }
+  },
+  {
+    "id": "rule_redbus",
+    "name": "\ud83d\ude8c RedBus",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 46,
+    "conditions": {
+      "merchant_contains": "redbus"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "travel",
+        "bus"
+      ]
+    }
+  },
+  {
+    "id": "rule_delhivery",
+    "name": "\ud83d\udce6 Delhivery",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 47,
+    "conditions": {
+      "merchant_contains": "delhivery"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "shopping"
+      ]
+    }
+  },
+  {
+    "id": "rule_icaiexam",
+    "name": "\ud83d\udcda ICAI Exam",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 48,
+    "conditions": {
+      "merchant_contains": "icaiexam"
+    },
+    "actions": {
+      "scope": "family",
+      "category": [
+        "education",
+        "exam"
+      ]
+    }
+  },
+  {
+    "id": "rule_pvr",
+    "name": "\ud83c\udfac PVR/Inox",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 49,
+    "conditions": {
+      "merchant_contains": "pvr"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "entertainment",
+        "movies"
+      ]
+    }
+  },
+  {
+    "id": "rule_bookmyshow",
+    "name": "\ud83c\udfab BookMyShow",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 50,
+    "conditions": {
+      "merchant_contains": "bookmyshow"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "entertainment"
+      ]
+    }
+  },
+  {
+    "id": "rule_haldiram",
+    "name": "\ud83c\udf5b Haldiram",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 51,
+    "conditions": {
+      "merchant_contains": "haldiram"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "food"
+      ]
+    }
+  },
+  {
+    "id": "rule_groww",
+    "name": "\ud83d\udcc8 Groww Investment",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 52,
+    "conditions": {
+      "merchant_contains": "groww"
+    },
+    "actions": {
+      "scope": "personal",
+      "category": [
+        "investment"
+      ]
+    }
+  },
+  {
+    "id": "rule_vi_mobile",
+    "name": "\ud83d\udcf1 VI Mobile",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 53,
+    "conditions": {
+      "merchant_exact": "vi"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": [
+        "bills",
+        "mobile"
+      ]
+    }
+  },
+  {
+    "id": "rule_airtel_web",
+    "name": "\ud83d\udcf1 Airtel Website",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 54,
+    "conditions": {
+      "merchant_contains": "wwwairte"
+    },
+    "actions": {
+      "scope": "ignore",
+      "category": [
+        "bills",
+        "mobile"
+      ]
+    }
+  },
+  {
+    "id": "rule_25a99dca",
+    "name": "POOJAJOS transactions",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 55,
+    "conditions": {
+      "merchant_contains": "poojajos"
+    },
+    "actions": {
+      "scope": "family",
+      "category": [
+        "mom"
+      ]
+    }
+  },
+  {
+    "id": "rule_b9916c7f",
+    "name": "POOJAJOS transactions",
+    "type": "merchant",
+    "enabled": true,
+    "priority": 56,
+    "conditions": {
+      "merchant_contains": "poojajos"
+    },
+    "actions": {
+      "scope": "family",
+      "category": [
+        "fitness"
       ]
     }
   }

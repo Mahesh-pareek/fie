@@ -1,5 +1,708 @@
 [
   {
+    "id": "log_62a23a7a",
+    "timestamp": "2025-12-25T17:07:01.260213",
+    "action": "auto_tag",
+    "details": {
+      "updated": 4,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_bcc88ed3",
+    "timestamp": "2025-12-25T17:05:16.365847",
+    "action": "edit",
+    "details": {
+      "transaction_id": "b431a7f6975ea196fe25f882d5e08299d54e4f28f7e0dd24c8b7401b8b40777f",
+      "counterparty": "UNKNOWN",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "family",
+        "category": [
+          "lic"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_9585d3f4",
+    "timestamp": "2025-12-25T00:38:44.547203",
+    "action": "edit",
+    "details": {
+      "transaction_id": "9302d336753c3d5abcb83a31764362d05be9f7b18b3d3d6d0116946c19bb5469",
+      "counterparty": "PREETISO",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "family",
+        "category": [
+          "rent"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_9d9a92a8",
+    "timestamp": "2025-12-25T00:38:21.340272",
+    "action": "edit",
+    "details": {
+      "transaction_id": "e42e009498c5bf5774c75b47329bb3627acc46f4639e054ed6535e678f6bcea3",
+      "counterparty": "PREETISO",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "family",
+        "category": [
+          "piku"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_08b81901",
+    "timestamp": "2025-12-25T00:37:55.627370",
+    "action": "edit",
+    "details": {
+      "transaction_id": "8ff8c825d1946d4bb272319e5fc99873c6eafde466eb91f1e0b511fbf8d24a48",
+      "counterparty": "PREETISO",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "family",
+        "category": [
+          "mom"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_2a03b762",
+    "timestamp": "2025-12-25T00:36:34.563782",
+    "action": "auto_tag",
+    "details": {
+      "updated": 54,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_9b38c415",
+    "timestamp": "2025-12-25T00:26:23.483045",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_b24b6a4e",
+    "timestamp": "2025-12-25T00:25:59.969954",
+    "action": "auto_tag",
+    "details": {
+      "updated": 2,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_28acf3f4",
+    "timestamp": "2025-12-25T00:23:58.065623",
+    "action": "auto_tag",
+    "details": {
+      "updated": 4,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_61656775",
+    "timestamp": "2025-12-25T00:23:10.479337",
+    "action": "auto_tag",
+    "details": {
+      "updated": 1,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_6f4b141d",
+    "timestamp": "2025-12-25T00:21:54.747218",
+    "action": "auto_tag",
+    "details": {
+      "updated": 2,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_bfb29d95",
+    "timestamp": "2025-12-25T00:20:09.456342",
+    "action": "auto_tag",
+    "details": {
+      "updated": 16,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_c1660a23",
+    "timestamp": "2025-12-25T00:08:14.551673",
+    "action": "auto_tag",
+    "details": {
+      "updated": 1,
+      "total": 1132,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_cb5d4a5a",
+    "timestamp": "2025-12-25T00:07:36.240577",
+    "action": "edit",
+    "details": {
+      "transaction_id": "a2946c63bfbc3ad3aeb1947e12b86b1244f84984b7c4b89da8758b6c2c17b7f2",
+      "counterparty": "KAMLAMED",
+      "old": {
+        "scope": "unknown",
+        "category": []
+      },
+      "new": {
+        "scope": "family",
+        "category": [
+          "medicine"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_bf746816",
+    "timestamp": "2025-12-24T23:48:36.560752",
+    "action": "upload",
+    "details": {
+      "filename": "canara11.pdf",
+      "transactions_added": 120,
+      "auto_tagged": 25
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_b7263f3e",
+    "timestamp": "2025-12-24T23:48:29.223631",
+    "action": "upload",
+    "details": {
+      "filename": "canara12.pdf",
+      "transactions_added": 73,
+      "auto_tagged": 31
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_9015f850",
+    "timestamp": "2025-12-24T23:48:11.309318",
+    "action": "upload",
+    "details": {
+      "filename": "canara1to10.pdf",
+      "transactions_added": 939,
+      "auto_tagged": 235
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_3a545610",
+    "timestamp": "2025-12-24T23:47:30.445273",
+    "action": "bulk_delete",
+    "details": {
+      "count": 247,
+      "transactions": [
+        {
+          "id": "93a36e58f56ff72fc1d1b780f3c2ccd7ce5dc43c8a1cba5e797e71fb8cd0f024",
+          "counterparty": "VODAFONEI"
+        },
+        {
+          "id": "13749249db4c369eea6430dd225c6efa2e7c5a33d7d2046753ed529e2084e4bc",
+          "counterparty": "VODAFONEI"
+        },
+        {
+          "id": "6dce38dd322f5e0cddb04c9c8af15088369633a94615c6b8886793e6b9296921",
+          "counterparty": "IRCTCRAI"
+        },
+        {
+          "id": "699f26db21393c72a87b2b5fb169911f7f584acde4f8573fbf0226cf6efb7a91",
+          "counterparty": "IRCTCRAI"
+        },
+        {
+          "id": "bd87f3ad107478ac8832ddee2bdc628f16b44c94a96865be798b6dc2c358c672",
+          "counterparty": "BAJRANGL"
+        },
+        {
+          "id": "20eb93ec80844ea78ad6f2d995b4878af47884bf9128b6444e4cffc7e1e03cfd",
+          "counterparty": "BAJRANGL"
+        },
+        {
+          "id": "f5597e1b34c276c59e43c3f268ba5b87ace8166dea29a35599f6c0846bc22f15",
+          "counterparty": "TANISHR"
+        },
+        {
+          "id": "00bcc2d1c04278b7438cd8c3de9023d14b9de1a1de3de68ec7d5be7ff8099595",
+          "counterparty": "TANISHR"
+        },
+        {
+          "id": "df3c766eaa93d9c2d3926cb80b383cf98de5c34d2cba907cbe59d26f48ab3c45",
+          "counterparty": "KAMLAMED"
+        },
+        {
+          "id": "3e4d4712054e3a2b3d708db693df6646a82af78e284596c1c77048690de4d6bf",
+          "counterparty": "KAMLAMED"
+        }
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_f771892c",
+    "timestamp": "2025-12-24T23:46:40.995114",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "f96c5e0102f24bd8c591c2ff483f6b21c2664aed9e157d3a08222f45364a7c23",
+      "deleted": [
+        "f1f6beaacdbc24a2790b290d459cba01673628a9c0647e43edad3ec7846ca403"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_1148ae3d",
+    "timestamp": "2025-12-24T23:46:39.930328",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "b71593484492d420683cf68215427c85091face1b2bbe3dc99cfa9ada2ca909f",
+      "deleted": [
+        "61e2eac232abccf2b49ddc0b79f771cc8774310051c257a4e63b9f8ec2ca71ef"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_3222d7ed",
+    "timestamp": "2025-12-24T23:46:38.983073",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "cdbd8c24f95e0dc20198913cc2d4aa7f856d5268812624306904ef42901c1113",
+      "deleted": [
+        "3975562a3e8702641e49b96600d5c52b51a23266de242121c2f6817fedbd58df"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_d6f53d78",
+    "timestamp": "2025-12-24T23:46:38.634575",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "0cfb240f81dfa5272e5e6824e79844f92022704d93feb4eb125b1b01130ca201",
+      "deleted": [
+        "f2e18ceafee3c580d7e80ee3e1bb504151b60a6d91c425fda1783d2a2a924579"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_f50b8d7f",
+    "timestamp": "2025-12-24T23:46:38.087976",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "d3a9dc841fb8f8546180e3e76686f5d9fde28fb9f2b48c760b05d339d74722f1",
+      "deleted": [
+        "042b38928067627f96fe64a23205eaa04c2370a4dea7e722dd7bf09214760528"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_d1103b70",
+    "timestamp": "2025-12-24T23:46:37.518266",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "6f755d0e2723a370088022b2ba21bf451e77fa9e112b6e9b83da4158d7ce4605",
+      "deleted": [
+        "eb08caa32aa04814b120b53f7ab78682f8a6f2f586f674d29d42ce11e66a9e77"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_de6fe009",
+    "timestamp": "2025-12-24T23:46:36.819512",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "e70d040a3831b488427f2b73ff3d41a238286678cab8e4ed55bd8fbdbc5c5eb0",
+      "deleted": [
+        "860bf68fb4077a5663ec8592c15c7cbf130da67f3511f306efd00ce98fd40485"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_b218f1ef",
+    "timestamp": "2025-12-24T23:46:36.092090",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "4c78b847e3e8b70210e301400829beaa6f012e69b0d1c09c803fb78340a86a30",
+      "deleted": [
+        "e43043efb6c748b188fbcac9c0fa6d8e827801561f1ae6f778c663448ac11151"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_2b418ffe",
+    "timestamp": "2025-12-24T23:46:35.197353",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "e256cb934ec6a090e9c1985942405ddfe4641b80147cb0c73dc43ffc0fdb3ea4",
+      "deleted": [
+        "5497042307d613133ead61c3a5583dbebdfd7348a98f2e3d6cc3a228f169b309"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_faacbd94",
+    "timestamp": "2025-12-24T23:46:34.360494",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "15ceac86fee6cf63bebb56408a0eefdc798881781a9d9c9af7ddb679e9624e6c",
+      "deleted": [
+        "031dcf13d281f6570f1d3dbac758e2d1590f9da70982f65669d6a088438ff4d6"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_af9e72ab",
+    "timestamp": "2025-12-24T23:46:33.500307",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "21bdd8c4cf91616597e1f5d7c5baa9218448164477bd863cdcf6d6d0a9bf66b0",
+      "deleted": [
+        "52197fa60d05f4febc42f7c7d59455b32fdb19dc05f9cd51d36a8f795f2e0bee"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_b79b8317",
+    "timestamp": "2025-12-24T23:46:32.144951",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "759efce3bf8d65d66fb72a57bdeabb1ae47b15b48844c8f8a3566d18e37add22",
+      "deleted": [
+        "09e4181120ffe0ea509d7a603e1a0d7efce1a23fa4f6d252ed2a15e2b6a2213c"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_5cac4517",
+    "timestamp": "2025-12-24T23:46:31.214954",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "1cf03a0474ff8d059080bd4127aed48d07c6fddf6d1201ff8c37b3e1a0464b55",
+      "deleted": [
+        "d4844946dc86763501918e5efa8e21dc067489666b4a0f43a5d8bafec600085f"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_debbc5a1",
+    "timestamp": "2025-12-24T23:46:30.327557",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "373e2957a68a7f65cd6f341749d525c1f3bbe42a48564a32ab35c9a242e4ad4e",
+      "deleted": [
+        "a5ffa868f368d5250a2910abe0da680edf7f5388aef9f98b91e1cee51fbca609"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_6caaf947",
+    "timestamp": "2025-12-24T23:46:29.140038",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "ce654a17963068fda1ea400d6f3614be14b8abccc4012cb406b55ccc2622865f",
+      "deleted": [
+        "68599045624e782741c36f30b2be4049ba7dd730dfa7ee5a35c4f4c94e506265"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_f2930fa7",
+    "timestamp": "2025-12-24T23:46:27.675682",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "7a66e89285b7bca314bf0146b64a49b9593c401346d0818a6d47fbc4a8f5d8a8",
+      "deleted": [
+        "e3ffc3429b972b8bb95ada761c27a586ccea95c4b092beddc4cdcba5180b5aee"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_2824b068",
+    "timestamp": "2025-12-24T23:46:26.252088",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "7dcc6c992c77c1ba2d2dd6da8eedd60de2ac68304eab3ca26fa1c7b1fd9676d1",
+      "deleted": [
+        "86752acb2d87b403754494542f53a502a6c88cea69af584d2df5cf49f3d9cad5"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_b9dd3b59",
+    "timestamp": "2025-12-24T23:46:22.491573",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "9a543ebf4617730edbc66b9f110393662361de2b58b0e0f36e255e77a0e7fcf8",
+      "deleted": [
+        "6afc51688d729b5cd34c8317878819e7210fc37dbd3afdf5a912d80fb7f79459"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_4fbbd8e9",
+    "timestamp": "2025-12-24T23:46:12.010775",
+    "action": "merge_duplicates",
+    "details": {
+      "kept": "9de321be6680f87ed3761e5e26ca58743a6cd3adea26d89ab40f3083484fc9f7",
+      "deleted": [
+        "4849607aa340a2f91a733d5e061639120f205b1704b39b682a9f9b2e6f8bae36"
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_edf9e680",
+    "timestamp": "2025-12-24T23:37:40.153308",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 266,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_e04a2d84",
+    "timestamp": "2025-12-24T23:37:35.458660",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 266,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_f9ea4d0a",
+    "timestamp": "2025-12-24T23:24:44.319611",
+    "action": "edit",
+    "details": {
+      "transaction_id": "93a36e58f56ff72fc1d1b780f3c2ccd7ce5dc43c8a1cba5e797e71fb8cd0f024",
+      "counterparty": "VODAFONEI",
+      "old": {
+        "category": [
+          "utilities",
+          "recharge"
+        ]
+      },
+      "new": {
+        "category": [
+          "utilities",
+          "recharge"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_bfdd72aa",
+    "timestamp": "2025-12-24T23:18:39.322875",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 266,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_dc968e5f",
+    "timestamp": "2025-12-24T23:18:38.331553",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 266,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_cb58efa1",
+    "timestamp": "2025-12-24T23:18:03.588670",
+    "action": "upload",
+    "details": {
+      "filename": "canara12.pdf",
+      "transactions_added": 73,
+      "auto_tagged": 31
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_51d41ad5",
+    "timestamp": "2025-12-24T23:05:36.416360",
+    "action": "auto_tag",
+    "details": {
+      "updated": 6,
+      "total": 193,
+      "only_unreviewed": false
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_ab19b857",
+    "timestamp": "2025-12-24T23:05:29.094195",
+    "action": "auto_tag",
+    "details": {
+      "updated": 0,
+      "total": 193,
+      "only_unreviewed": true
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_11d64fc0",
+    "timestamp": "2025-12-24T23:05:04.282118",
+    "action": "upload",
+    "details": {
+      "filename": "canara12.pdf",
+      "transactions_added": 73,
+      "auto_tagged": 31
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_53642233",
+    "timestamp": "2025-12-24T23:04:54.094309",
+    "action": "upload",
+    "details": {
+      "filename": "canara11.pdf",
+      "transactions_added": 120,
+      "auto_tagged": 25
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_8d6f1871",
+    "timestamp": "2025-12-24T23:04:41.245472",
+    "action": "bulk_delete",
+    "details": {
+      "count": 94,
+      "transactions": [
+        {
+          "id": "aa66cc697e3bd43455bb8223802a247c5b19bc4bbd966323411648a87e100d20",
+          "counterparty": "TANISHR"
+        },
+        {
+          "id": "bd497bc4cdadda310a0785ff74136e446a41132a4e52c31e52c385484ba5160b",
+          "counterparty": "KAMLAMED"
+        },
+        {
+          "id": "0f4109bc6fe01cae4f72464d71a67b1203f39c84239bb9792fe9bfd2eaed43e4",
+          "counterparty": "IITDSETTLEMENTACCOUNDEL HIDLIN-"
+        },
+        {
+          "id": "03dba0120f83463b77abfc3e9fe3cfbe1309125c9f2f9b2ebf76cabb68e2a8cc",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "2b1f50359b2e9e04e9ae777519cfef65394e12e999c6e73df8ce6e0ab838fb8d",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "ae4c7518a270f1fce520c21f2c74ff2de3589aa7a83310cb4319635df6dd41e0",
+          "counterparty": "MAHESHPAR"
+        },
+        {
+          "id": "c1e6a68ddf66e6b9e35cef9004725f5a6073020ee40632778351da9e1cb60250",
+          "counterparty": "IRCTCRAI"
+        },
+        {
+          "id": "2198a568ceb409e3dcbbb736bba2bfde5a974e02330c04a544f51a1700660391",
+          "counterparty": "IRCTCRAI"
+        },
+        {
+          "id": "b4dbdaab8b534cbb97275441edf6ceca29bd00ffbeeefe7a61c5c6651f938e87",
+          "counterparty": "ESHITAC"
+        },
+        {
+          "id": "82db8f40793f31a136ac5d6025862b17a8d8a213fbc2ee6765d4a0dd6e2ea0b9",
+          "counterparty": "ESHITAC"
+        }
+      ]
+    },
+    "user": "admin"
+  },
+  {
+    "id": "log_a25b06de",
+    "timestamp": "2025-12-24T23:01:48.669182",
+    "action": "edit",
+    "details": {
+      "transaction_id": "aa66cc697e3bd43455bb8223802a247c5b19bc4bbd966323411648a87e100d20",
+      "counterparty": "TANISHR",
+      "old": {
+        "category": [
+          "noise"
+        ]
+      },
+      "new": {
+        "category": [
+          "noise"
+        ]
+      }
+    },
+    "user": "admin"
+  },
+  {
     "id": "log_a3c2044e",
     "timestamp": "2025-12-24T22:06:34.567008",
     "action": "edit",

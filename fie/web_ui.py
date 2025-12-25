@@ -2,7 +2,7 @@ from pathlib import Path
 import tempfile
 import os
 import functools
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import Flask, render_template, jsonify, request, session, redirect, url_for
 
 from fie.core.engine import FIEEngine
@@ -50,6 +50,8 @@ def txn_to_dict(t):
         "counterparty": t.counterparty,
         "mode": t.mode,
         "reviewed": t.reviewed,
+        "notes": t.extras.get("notes", ""),
+        "is_manual": t.extras.get("is_manual", False),
     }
 
 
@@ -111,6 +113,18 @@ def api_transactions():
     reverse = args.get("order", "desc") == "desc"
     txns.sort(key=lambda t: getattr(t, sort), reverse=reverse)
 
+    # Store total count before pagination
+    total_count = len(txns)
+    
+    # Pagination: offset and limit
+    offset = args.get("offset")
+    if offset:
+        try:
+            offset = int(offset)
+            txns = txns[offset:]
+        except ValueError:
+            pass
+    
     limit = args.get("limit")
     if limit:
         try:
@@ -120,19 +134,35 @@ def api_transactions():
             pass
 
     data = [txn_to_dict(t) for t in txns]
+    
+    # Return with total count if requested
+    if args.get("count") == "true":
+        return jsonify({"transactions": data, "total": total_count})
     return jsonify(data)
 
 
 @app.route("/api/summary")
 @login_required
 def api_summary():
-    """Summary with optional scope filter. Default: personal only for dashboard."""
+    """Summary with optional scope and time period filters."""
     scope_filter = request.args.get("scope", "personal")  # Default to personal
+    period = request.args.get("period", "month")  # month, quarter, year, all
     txns = engine.all()
     
     # Filter by scope if specified (use "all" for no filter)
     if scope_filter != "all":
         txns = [t for t in txns if t.scope == scope_filter]
+    
+    # Filter by time period
+    now = datetime.now()
+    if period == "month":
+        txns = [t for t in txns if t.datetime.year == now.year and t.datetime.month == now.month]
+    elif period == "quarter":
+        three_months_ago = now - timedelta(days=90)
+        txns = [t for t in txns if t.datetime >= three_months_ago]
+    elif period == "year":
+        txns = [t for t in txns if t.datetime.year == now.year]
+    # "all" means no date filter
 
     # category aggregation
     cat_counts = {}
@@ -185,6 +215,7 @@ def api_summary():
             "deposits": deposits_total,  # True income
         },
         "by_scope": {"counts": scope_counts, "totals": scope_totals},
+        "period": period,
     })
 
 
@@ -461,7 +492,7 @@ def auto_tag_new_transactions():
 @login_required
 def api_tag():
     """Update tags/scope for a transaction.
-    Expects JSON: {"id": "...", "scope": "personal", "category": ["food"]}
+    Expects JSON: {"id": "...", "scope": "personal", "category": ["food"], "notes": "..."}
     """
     from dataclasses import replace
 
@@ -485,6 +516,13 @@ def api_tag():
     if "category" in data:
         old_values["category"] = t.category
         updates["category"] = data["category"]
+    
+    # Handle notes update
+    new_extras = None
+    if "notes" in data:
+        new_extras = dict(t.extras)
+        new_extras["notes"] = data["notes"]
+        updates["extras"] = new_extras
 
     if updates:
         updates["reviewed"] = True
@@ -496,7 +534,7 @@ def api_tag():
                 "transaction_id": tid,
                 "counterparty": t.counterparty,
                 "old": old_values,
-                "new": {k: v for k, v in updates.items() if k != "reviewed"}
+                "new": {k: v for k, v in updates.items() if k not in ("reviewed", "extras")}
             })
         except Exception as e:
             return jsonify({"error": str(e)}), 500
@@ -968,14 +1006,27 @@ def api_bulk_delete():
 @app.route("/api/stats")
 @login_required
 def api_stats():
-    """Return detailed statistics."""
+    """Return detailed statistics with optional time period filter."""
     from collections import defaultdict
     from datetime import timedelta
     
-    txns = engine.all()
+    period = request.args.get("period", "month")  # month, quarter, year, all
+    all_txns = engine.all()
     settings = load_settings()
     monthly_budget = settings.get("monthly_budget", 10000)
     budget_scopes = settings.get("budget_scopes", ["personal"])
+    
+    # Filter by time period for display stats
+    now = datetime.now()
+    if period == "month":
+        txns = [t for t in all_txns if t.datetime.year == now.year and t.datetime.month == now.month]
+    elif period == "quarter":
+        three_months_ago = now - timedelta(days=90)
+        txns = [t for t in all_txns if t.datetime >= three_months_ago]
+    elif period == "year":
+        txns = [t for t in all_txns if t.datetime.year == now.year]
+    else:
+        txns = all_txns
     
     if not txns:
         return jsonify({
@@ -1185,6 +1236,60 @@ def api_get_trash():
     return jsonify(load_trash())
 
 
+@app.route("/api/trash/restore", methods=["POST"])
+@login_required
+def api_restore_transactions():
+    """Restore multiple transactions from trash."""
+    data = request.get_json() or {}
+    ids = data.get("ids", [])
+    
+    if not ids:
+        return jsonify({"error": "No IDs provided"}), 400
+    
+    trash = load_trash()
+    id_set = set(ids)
+    
+    to_restore = []
+    new_trash = []
+    for item in trash:
+        if item["id"] in id_set:
+            to_restore.append(item)
+        else:
+            new_trash.append(item)
+    
+    if not to_restore:
+        return jsonify({"error": "None found in trash"}), 404
+    
+    # Restore to main store
+    from fie.core.transaction import Transaction
+    restored_count = 0
+    
+    for item in to_restore:
+        txn_data = item["transaction"]
+        try:
+            txn = Transaction(
+                id=txn_data["id"],
+                datetime=datetime.fromisoformat(txn_data["datetime"]),
+                amount=txn_data["amount"],
+                direction=txn_data["direction"],
+                counterparty=txn_data["counterparty"],
+                category=txn_data.get("category", []),
+                scope=txn_data.get("scope", "personal"),
+                reviewed=txn_data.get("reviewed", False),
+                mode=txn_data.get("mode", "UNKNOWN"),
+                extras={"notes": txn_data.get("notes", ""), "is_manual": txn_data.get("is_manual", False)}
+            )
+            store.add([txn])
+            restored_count += 1
+        except Exception as e:
+            print(f"Error restoring {txn_data.get('id')}: {e}")
+    
+    save_trash(new_trash)
+    save_log("restore_bulk", {"count": restored_count, "ids": ids})
+    
+    return jsonify({"ok": True, "restored": restored_count})
+
+
 @app.route("/api/trash/restore/<txn_id>", methods=["POST"])
 @login_required
 def api_restore_transaction(txn_id):
@@ -1333,10 +1438,12 @@ def api_merge_duplicates():
     
     # Move duplicates to trash
     trash = load_trash()
+    txns = engine.all()
+    txn_map = {t.id: t for t in txns}
     deleted_count = 0
     
     for txn_id in delete_ids:
-        txn = store.get(txn_id)
+        txn = txn_map.get(txn_id)
         if txn:
             trash.append({
                 "id": txn.id,
@@ -1344,10 +1451,13 @@ def api_merge_duplicates():
                 "reason": "duplicate_merge",
                 "transaction": txn_to_dict(txn)
             })
-            store.remove(txn_id)
             deleted_count += 1
     
-    save_trash(trash)
+    # Delete all at once
+    if deleted_count > 0:
+        store.delete(delete_ids)
+        save_trash(trash)
+    
     save_log("merge_duplicates", {"kept": keep_id, "deleted": delete_ids})
     
     return jsonify({"ok": True, "deleted": deleted_count})
@@ -1483,6 +1593,331 @@ def api_delete_filter(filter_id):
     saved = [f for f in saved if f["id"] != filter_id]
     save_filters_to_file(saved)
     return jsonify({"ok": True})
+
+
+# ============ Manual Transaction Entry ============
+
+@app.route("/api/transactions/manual", methods=["POST"])
+@login_required
+def api_create_manual_transaction():
+    """Create a manual transaction entry (for cash expenses, etc.)."""
+    from fie.core.transaction import Transaction
+    import uuid
+    
+    data = request.get_json() or {}
+    
+    # Required fields
+    required = ["amount", "direction", "counterparty", "datetime"]
+    for f in required:
+        if not data.get(f):
+            return jsonify({"error": f"{f} is required"}), 400
+    
+    try:
+        amount = float(data["amount"])
+        if amount <= 0:
+            return jsonify({"error": "Amount must be positive"}), 400
+    except ValueError:
+        return jsonify({"error": "Invalid amount"}), 400
+    
+    direction = data["direction"]
+    if direction not in ("credit", "debit"):
+        return jsonify({"error": "Direction must be credit or debit"}), 400
+    
+    try:
+        dt = datetime.fromisoformat(data["datetime"])
+    except ValueError:
+        return jsonify({"error": "Invalid datetime format"}), 400
+    
+    counterparty = data["counterparty"].strip()
+    mode = data.get("mode", "CASH")
+    scope = data.get("scope", "personal")
+    category = data.get("category", [])
+    if isinstance(category, str):
+        category = [c.strip() for c in category.split(",") if c.strip()]
+    notes = data.get("notes", "")
+    
+    # Generate unique ID for manual transaction
+    manual_id = f"manual_{uuid.uuid4().hex[:12]}"
+    
+    # Create transaction
+    txn = Transaction(
+        id=manual_id,
+        datetime=dt,
+        amount=amount,
+        direction=direction,
+        counterparty=counterparty,
+        mode=mode,
+        reviewed=True,
+        scope=scope,
+        category=category,
+        extras={"is_manual": True, "notes": notes}
+    )
+    
+    # Save it
+    store.add([txn])
+    
+    # Log the creation
+    save_log("manual_add", {
+        "transaction_id": manual_id,
+        "amount": amount,
+        "counterparty": counterparty,
+        "notes": notes
+    })
+    
+    return jsonify({"ok": True, "transaction": txn_to_dict(txn)})
+
+
+@app.route("/api/transactions/<txn_id>/notes", methods=["PUT"])
+@login_required
+def api_update_notes(txn_id):
+    """Update notes for a transaction."""
+    from dataclasses import replace
+    
+    data = request.get_json() or {}
+    notes = data.get("notes", "")
+    
+    txns = engine.all()
+    match = [t for t in txns if t.id == txn_id]
+    if not match:
+        return jsonify({"error": "Transaction not found"}), 404
+    
+    t = match[0]
+    new_extras = dict(t.extras)
+    new_extras["notes"] = notes
+    
+    new_t = replace(t, extras=new_extras)
+    store.update([new_t])
+    
+    save_log("notes_update", {
+        "transaction_id": txn_id,
+        "notes": notes[:50] + "..." if len(notes) > 50 else notes
+    })
+    
+    return jsonify({"ok": True})
+
+
+# ============ Recurring Transaction Detection ============
+
+@app.route("/api/recurring")
+@login_required
+def api_recurring():
+    """Detect recurring transactions based on merchant patterns."""
+    from collections import defaultdict
+    
+    txns = engine.all()
+    
+    # Group transactions by merchant (normalized)
+    merchant_txns = defaultdict(list)
+    for t in txns:
+        if t.direction == "debit":  # Only track debits (expenses)
+            key = t.counterparty.lower().strip()
+            merchant_txns[key].append(t)
+    
+    recurring = []
+    
+    for merchant, txn_list in merchant_txns.items():
+        if len(txn_list) < 3:
+            continue  # Need at least 3 occurrences
+        
+        # Sort by date
+        txn_list.sort(key=lambda x: x.datetime)
+        
+        # Calculate intervals between transactions
+        intervals = []
+        amounts = []
+        for i in range(1, len(txn_list)):
+            days = (txn_list[i].datetime - txn_list[i-1].datetime).days
+            if days > 0:
+                intervals.append(days)
+            amounts.append(txn_list[i].amount)
+        amounts.append(txn_list[0].amount)
+        
+        if not intervals:
+            continue
+        
+        # Calculate average interval and check consistency
+        avg_interval = sum(intervals) / len(intervals)
+        interval_variance = sum((x - avg_interval) ** 2 for x in intervals) / len(intervals)
+        
+        # Check amount consistency
+        avg_amount = sum(amounts) / len(amounts)
+        amount_variance = sum((x - avg_amount) ** 2 for x in amounts) / len(amounts)
+        amount_cv = (amount_variance ** 0.5) / avg_amount if avg_amount > 0 else float('inf')
+        
+        # Determine pattern type
+        pattern = None
+        confidence = 0
+        
+        if 5 <= avg_interval <= 8:  # Weekly (~7 days)
+            pattern = "weekly"
+            confidence = max(0, 100 - interval_variance * 2)
+        elif 13 <= avg_interval <= 16:  # Bi-weekly (~14 days)
+            pattern = "bi-weekly"
+            confidence = max(0, 100 - interval_variance)
+        elif 26 <= avg_interval <= 34:  # Monthly (~30 days)
+            pattern = "monthly"
+            confidence = max(0, 100 - interval_variance * 0.5)
+        elif 56 <= avg_interval <= 70:  # Bi-monthly (~60 days)
+            pattern = "bi-monthly"
+            confidence = max(0, 100 - interval_variance * 0.3)
+        elif 85 <= avg_interval <= 100:  # Quarterly (~90 days)
+            pattern = "quarterly"
+            confidence = max(0, 100 - interval_variance * 0.2)
+        
+        # Lower confidence if amounts vary too much
+        if amount_cv > 0.2:  # More than 20% coefficient of variation
+            confidence *= 0.7
+        
+        if pattern and confidence >= 50:
+            # Calculate next expected date
+            last_date = txn_list[-1].datetime
+            expected_intervals = {"weekly": 7, "bi-weekly": 14, "monthly": 30, "bi-monthly": 60, "quarterly": 90}
+            next_date = last_date + timedelta(days=expected_intervals[pattern])
+            
+            recurring.append({
+                "merchant": txn_list[0].counterparty,  # Original case
+                "pattern": pattern,
+                "confidence": round(confidence),
+                "avg_amount": round(avg_amount, 2),
+                "occurrences": len(txn_list),
+                "last_date": last_date.isoformat(),
+                "next_expected": next_date.isoformat(),
+                "category": txn_list[-1].category,
+                "recent_transactions": [txn_to_dict(t) for t in txn_list[-3:]]
+            })
+    
+    # Sort by confidence
+    recurring.sort(key=lambda x: x["confidence"], reverse=True)
+    
+    return jsonify(recurring)
+
+
+# ============ Month-over-Month Comparison ============
+
+@app.route("/api/compare/months")
+@login_required
+def api_compare_months():
+    """Compare spending between two months."""
+    from collections import defaultdict
+    
+    # Get optional month params (defaults to this month vs last month)
+    month1 = request.args.get("month1")  # Format: YYYY-MM
+    month2 = request.args.get("month2")  # Format: YYYY-MM
+    
+    now = datetime.now()
+    
+    if month1:
+        try:
+            year1, m1 = map(int, month1.split("-"))
+            month1_start = datetime(year1, m1, 1)
+        except:
+            return jsonify({"error": "Invalid month1 format"}), 400
+    else:
+        # Current month
+        month1_start = datetime(now.year, now.month, 1)
+    
+    if month2:
+        try:
+            year2, m2 = map(int, month2.split("-"))
+            month2_start = datetime(year2, m2, 1)
+        except:
+            return jsonify({"error": "Invalid month2 format"}), 400
+    else:
+        # Previous month
+        if now.month == 1:
+            month2_start = datetime(now.year - 1, 12, 1)
+        else:
+            month2_start = datetime(now.year, now.month - 1, 1)
+    
+    # Calculate month ends
+    def month_end(dt):
+        if dt.month == 12:
+            return datetime(dt.year + 1, 1, 1) - timedelta(seconds=1)
+        return datetime(dt.year, dt.month + 1, 1) - timedelta(seconds=1)
+    
+    month1_end = month_end(month1_start)
+    month2_end = month_end(month2_start)
+    
+    txns = engine.all()
+    
+    # Separate transactions by month
+    def categorize_spending(start, end):
+        spending = defaultdict(float)
+        income = 0
+        total_expense = 0
+        count = 0
+        
+        for t in txns:
+            if start <= t.datetime <= end:
+                if t.direction == "debit" and t.scope != "ignored":
+                    cat = t.category[0] if t.category else "uncategorized"
+                    spending[cat] += t.amount
+                    total_expense += t.amount
+                    count += 1
+                elif t.direction == "credit" and t.scope != "ignored":
+                    income += t.amount
+        
+        return {
+            "by_category": dict(spending),
+            "total_expense": round(total_expense, 2),
+            "income": round(income, 2),
+            "transaction_count": count
+        }
+    
+    month1_data = categorize_spending(month1_start, month1_end)
+    month2_data = categorize_spending(month2_start, month2_end)
+    
+    # Calculate changes
+    all_categories = set(month1_data["by_category"].keys()) | set(month2_data["by_category"].keys())
+    
+    comparison = []
+    for cat in all_categories:
+        m1_val = month1_data["by_category"].get(cat, 0)
+        m2_val = month2_data["by_category"].get(cat, 0)
+        
+        if m2_val > 0:
+            change_pct = ((m1_val - m2_val) / m2_val) * 100
+        elif m1_val > 0:
+            change_pct = 100  # New category
+        else:
+            change_pct = 0
+        
+        comparison.append({
+            "category": cat,
+            "month1_amount": round(m1_val, 2),
+            "month2_amount": round(m2_val, 2),
+            "change": round(m1_val - m2_val, 2),
+            "change_percent": round(change_pct, 1)
+        })
+    
+    # Sort by absolute change
+    comparison.sort(key=lambda x: abs(x["change"]), reverse=True)
+    
+    # Overall summary
+    total_change = month1_data["total_expense"] - month2_data["total_expense"]
+    if month2_data["total_expense"] > 0:
+        total_change_pct = (total_change / month2_data["total_expense"]) * 100
+    else:
+        total_change_pct = 0
+    
+    return jsonify({
+        "month1": {
+            "label": month1_start.strftime("%B %Y"),
+            "start": month1_start.isoformat(),
+            **month1_data
+        },
+        "month2": {
+            "label": month2_start.strftime("%B %Y"),
+            "start": month2_start.isoformat(),
+            **month2_data
+        },
+        "comparison": comparison,
+        "summary": {
+            "total_change": round(total_change, 2),
+            "total_change_percent": round(total_change_pct, 1),
+            "more_expensive_month": month1_start.strftime("%B") if total_change > 0 else month2_start.strftime("%B")
+        }
+    })
 
 
 if __name__ == "__main__":

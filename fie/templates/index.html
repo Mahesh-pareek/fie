@@ -51,6 +51,10 @@
         </div>
       </div>
       <div class="sidebar-footer">
+        <div class="version-info">
+          <span class="version-tag">v1.0.0</span>
+          <a href="https://github.com/yourusername/fie" target="_blank" class="github-link" title="View on GitHub">GitHub</a>
+        </div>
         <button id="logoutBtn" class="btn-sm btn-outline">Logout</button>
       </div>
     </aside>
@@ -59,6 +63,7 @@
       <header class="topbar">
         <div class="brand">Financial Intelligence Engine</div>
         <div class="actions">
+          <button id="showManualEntry" class="btn-outline" title="Add manual transaction">➕ Add</button>
           <button id="showUploadModal" class="btn-accent">Upload PDF</button>
           <button id="exportCsvBtn" class="btn-outline">Export CSV</button>
           <button id="showShortcuts" class="btn-outline">?</button>
@@ -88,46 +93,25 @@
             <span>Loading...</span>
           </div>
           
-          <!-- Quick Insights Banner -->
-          <section class="insights-banner" id="insightsBanner">
-            <div class="insight-item" id="insightVsLastMonth">
-              <span class="insight-icon">📈</span>
-              <span class="insight-text">Loading insights...</span>
+          <!-- Compact Header with Period & Key Insight -->
+          <section class="dashboard-header">
+            <div class="header-left">
+              <div class="period-toggle compact">
+                <button class="period-btn active" data-period="month">Month</button>
+                <button class="period-btn" data-period="quarter">3M</button>
+                <button class="period-btn" data-period="year">Year</button>
+                <button class="period-btn" data-period="all">All</button>
+              </div>
             </div>
-            <div class="insight-item" id="insightSavings">
-              <span class="insight-icon">💎</span>
-              <span class="insight-text" id="savingsRate">—</span>
-            </div>
-            <div class="insight-item" id="insightMonthTxns">
-              <span class="insight-icon">📊</span>
-              <span class="insight-text" id="monthTxnsCount">—</span>
+            <div class="header-right">
+              <div class="mini-compare" id="miniCompare"></div>
+              <div class="quick-insight" id="insightVsLastMonth">
+                <span class="insight-text">Loading...</span>
+              </div>
+              <button class="btn-sm" onclick="showShortcutsHelp()" title="Keyboard shortcuts">⌨️</button>
             </div>
           </section>
 
-          <!-- Data Health Banner -->
-          <section class="health-banner" id="healthBanner">
-            <div class="health-item" id="healthReviewed">
-              <span class="health-icon">✓</span>
-              <span class="health-label">Reviewed</span>
-              <span class="health-value" id="healthReviewedPct">—</span>
-            </div>
-            <div class="health-item" id="healthUncategorized">
-              <span class="health-icon">❓</span>
-              <span class="health-label">Uncategorized</span>
-              <span class="health-value" id="healthUncategorizedCount">—</span>
-            </div>
-            <div class="health-item clickable" id="healthDuplicates" onclick="checkDuplicates()">
-              <span class="health-icon">🔄</span>
-              <span class="health-label">Check Duplicates</span>
-              <span class="health-value">→</span>
-            </div>
-            <div class="health-item" id="healthTopMerchant">
-              <span class="health-icon">🏪</span>
-              <span class="health-label">Top Untagged</span>
-              <span class="health-value" id="healthTopMerchantName">—</span>
-            </div>
-          </section>
-          
           <!-- Summary Row -->
           <section class="summary-row">
             <div class="chart-box glass-card">
@@ -146,7 +130,7 @@
               <div class="card card-gradient-red">
                 <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></div>
                 <div class="card-content">
-                  <span class="card-label">Money Out</span>
+                  <span class="card-label" id="card-spent-label">Money Out</span>
                   <span class="card-value" id="card-spent">—</span>
                   <span class="card-sub" id="card-spent-trend"></span>
                 </div>
@@ -154,7 +138,7 @@
               <div class="card card-gradient-green">
                 <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg></div>
                 <div class="card-content">
-                  <span class="card-label">Money In</span>
+                  <span class="card-label" id="card-income-label">Money In</span>
                   <span class="card-value" id="card-income">—</span>
                   <span class="card-sub" id="card-income-breakdown">deposits & splits</span>
                 </div>
@@ -216,6 +200,25 @@
 
         <!-- TRANSACTIONS VIEW -->
         <div id="viewTransactions" class="view" style="display:none;">
+          <!-- Data Health Bar -->
+          <section class="data-health-bar" id="healthBanner">
+            <div class="health-stat" id="healthReviewed">
+              <span class="health-icon good">✓</span>
+              <span class="health-label">Reviewed <strong id="healthReviewedPct">—</strong></span>
+            </div>
+            <div class="health-stat warning" id="healthUncategorized">
+              <span class="health-icon">?</span>
+              <span class="health-label">Uncategorized <strong id="healthUncategorizedCount">—</strong></span>
+            </div>
+            <button class="health-action" onclick="checkDuplicates()">
+              <span class="health-icon">🔄</span> Check Duplicates
+            </button>
+            <div class="health-stat" id="healthTopMerchant">
+              <span class="health-icon">🏪</span>
+              <span class="health-label">Top Untagged: <strong id="healthTopMerchantName">—</strong></span>
+            </div>
+          </section>
+          
           <section class="txns">
             <div class="txns-header">
               <h2>Transactions</h2>
@@ -227,19 +230,20 @@
             <table id="txTable">
               <thead>
                 <tr>
-                  <th><input type="checkbox" id="selectAll"></th>
-                  <th class="sortable" data-sort="datetime">Date ↕</th>
-                  <th class="sortable" data-sort="amount">Amount ↕</th>
-                  <th class="sortable" data-sort="scope">Scope ↕</th>
-                  <th>Category</th>
+                  <th style="width:40px"><input type="checkbox" id="selectAll"></th>
+                  <th class="sortable" data-sort="datetime" style="width:100px">Date ↕</th>
+                  <th class="sortable" data-sort="amount" style="width:100px">Amount ↕</th>
+                  <th class="sortable" data-sort="scope" style="width:90px">Scope ↕</th>
+                  <th style="width:120px">Category</th>
                   <th class="sortable" data-sort="counterparty">Counterparty ↕</th>
-                  <th>Actions</th>
+                  <th style="width:180px;text-align:right">Actions</th>
                 </tr>
               </thead>
               <tbody></tbody>
             </table>
             <div class="table-footer">
               <span id="rowCount">0 transactions</span>
+              <button id="loadMoreBtn" class="btn-outline" style="display:none;" onclick="loadMoreTransactions()">Load More</button>
             </div>
           </section>
         </div>
@@ -399,6 +403,40 @@
                 <h4>Overall Distribution</h4>
                 <canvas id="comparisonPieChart"></canvas>
               </div>
+            </div>
+          </section>
+
+          <!-- MONTH-OVER-MONTH COMPARISON -->
+          <section class="analytics-section" id="analyticsMoM">
+            <div class="section-header">
+              <h3>📈 Month-over-Month Comparison</h3>
+              <div class="mom-controls">
+                <select id="momMonth1">
+                  <!-- Populated by JS -->
+                </select>
+                <span>vs</span>
+                <select id="momMonth2">
+                  <!-- Populated by JS -->
+                </select>
+                <button id="momRefresh" class="btn-sm">Compare</button>
+              </div>
+            </div>
+            <div class="mom-summary" id="momSummary" style="display:none;">
+              <!-- Populated by JS -->
+            </div>
+            <div class="mom-grid" id="momGrid">
+              <!-- Populated by JS -->
+            </div>
+          </section>
+
+          <!-- RECURRING TRANSACTIONS -->
+          <section class="analytics-section" id="analyticsRecurring">
+            <div class="section-header">
+              <h3>🔄 Recurring Expenses</h3>
+              <button id="refreshRecurring" class="btn-sm">Refresh</button>
+            </div>
+            <div class="recurring-list" id="recurringList">
+              <div class="empty-state">Loading recurring patterns...</div>
             </div>
           </section>
         </div>
@@ -782,6 +820,59 @@
               </div>
             </div>
 
+            <!-- Manual Transactions -->
+            <div class="help-card">
+              <h3>➕ Manual Transaction Entry</h3>
+              <p>Add transactions manually for cash expenses or items not captured in bank statements.</p>
+              <ul class="metric-list">
+                <li><strong>Click "➕ Add"</strong> in the top bar to add a manual transaction</li>
+                <li><strong>Fill in details:</strong> Date, amount, merchant, category, and optional notes</li>
+                <li><strong>Payment mode:</strong> Choose Cash, UPI, Card, or Other</li>
+                <li><strong>Manual badge:</strong> Manual transactions show a purple "MANUAL" badge in the table</li>
+              </ul>
+              <p class="note">Manual transactions are automatically marked as reviewed.</p>
+            </div>
+
+            <!-- Notes & Recurring -->
+            <div class="help-card">
+              <h3>🔄 Recurring Detection & Notes</h3>
+              <p>FIE automatically detects recurring expenses and lets you add notes to transactions.</p>
+              
+              <div class="rule-types">
+                <div class="rule-type">
+                  <h4>Transaction Notes</h4>
+                  <ul class="metric-list">
+                    <li><strong>Add notes</strong> via the Edit modal to remember context</li>
+                    <li><strong>📝 indicator</strong> shows in the table for transactions with notes</li>
+                    <li>Notes are saved with the transaction and preserved across sessions</li>
+                  </ul>
+                </div>
+                
+                <div class="rule-type">
+                  <h4>Recurring Expenses</h4>
+                  <ul class="metric-list">
+                    <li><strong>Auto-detection:</strong> Finds patterns in your spending (weekly, monthly, etc.)</li>
+                    <li><strong>Next expected:</strong> Shows when you'll likely see the charge again</li>
+                    <li><strong>Confidence score:</strong> How sure the system is about the pattern</li>
+                  </ul>
+                  <p class="note">Needs at least 3 transactions from the same merchant to detect patterns.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Month-over-Month -->
+            <div class="help-card">
+              <h3>📈 Month-over-Month Comparison</h3>
+              <p>Compare your spending between any two months to track progress and identify changes.</p>
+              <ul class="metric-list">
+                <li><strong>Select months:</strong> Choose any two months from the last year to compare</li>
+                <li><strong>Category breakdown:</strong> See which categories increased or decreased</li>
+                <li><strong>Visual bars:</strong> Quick visual comparison of spending amounts</li>
+                <li><strong>Percentage change:</strong> Track if spending went up (red) or down (green)</li>
+              </ul>
+              <p class="note">Found in the Analytics tab, below the Scope Comparison section.</p>
+            </div>
+
             <!-- Tips -->
             <div class="help-card highlight-tip">
               <h3>Pro Tips</h3>
@@ -792,6 +883,8 @@
                 <li><strong>Export data:</strong> Click "Export CSV" to download all transactions</li>
                 <li><strong>Split tracking:</strong> Categorize friend paybacks as "split" to see true net spending</li>
                 <li><strong>Activity log:</strong> All changes are logged — track what was modified and when</li>
+                <li><strong>Manual entries:</strong> Track cash expenses by clicking "➕ Add" in the top bar</li>
+                <li><strong>Notes:</strong> Add notes to any transaction via the Edit modal</li>
               </ul>
             </div>
 
@@ -860,9 +953,57 @@
           <input id="modalCategories" placeholder="food, coffee">
         </label>
       </div>
+      <div class="modal-row">
+        <label>Notes
+          <textarea id="modalNotes" placeholder="Add notes about this transaction..." rows="2"></textarea>
+        </label>
+      </div>
       <div class="modal-actions">
         <button id="modalSave" class="btn-accent">Save</button>
         <button id="modalCancel" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Notes Modal -->
+  <div id="noteModal" class="modal" style="display:none;">
+    <div class="modal-content modal-sm">
+      <h3>📝 Quick Note</h3>
+      <div id="noteModalInfo" class="modal-txn-info"></div>
+      <input id="noteModalId" type="hidden">
+      <div class="modal-row">
+        <label>Note
+          <textarea id="noteModalText" placeholder="Add a note about this transaction..." rows="3"></textarea>
+        </label>
+        <span class="hint">Press <kbd>Ctrl+Enter</kbd> to save, <kbd>Esc</kbd> to cancel</span>
+      </div>
+      <div class="modal-actions">
+        <button id="noteModalSave" class="btn-accent">Save Note</button>
+        <button id="noteModalCancel" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard Shortcuts Help Modal -->
+  <div id="shortcutsModal" class="modal shortcuts-modal" style="display:none;">
+    <div class="modal-content">
+      <button class="btn-close" onclick="this.closest('.modal').style.display='none'">×</button>
+      <h3>⌨️ Keyboard Shortcuts</h3>
+      <div class="shortcuts-grid">
+        <div class="shortcut-item"><span class="shortcut-desc">Dashboard</span><span class="shortcut-key">1</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Transactions</span><span class="shortcut-key">2</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Analytics</span><span class="shortcut-key">3</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Rules</span><span class="shortcut-key">4</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Settings</span><span class="shortcut-key">5</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Search</span><span class="shortcut-key">/</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">New Transaction</span><span class="shortcut-key">N</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Close Modal</span><span class="shortcut-key">Esc</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Navigate Down</span><span class="shortcut-key">J</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Navigate Up</span><span class="shortcut-key">K</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Edit Selected</span><span class="shortcut-key">E</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Delete Selected</span><span class="shortcut-key">D</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">Toggle Select</span><span class="shortcut-key">X</span></div>
+        <div class="shortcut-item"><span class="shortcut-desc">This Help</span><span class="shortcut-key">?</span></div>
       </div>
     </div>
   </div>
@@ -875,6 +1016,70 @@
       <div class="modal-actions">
         <button id="confirmDelete" class="btn-danger">Delete</button>
         <button id="cancelDelete" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manual Transaction Entry Modal -->
+  <div id="manualEntryModal" class="modal" style="display:none;">
+    <div class="modal-content modal-wide">
+      <h3>➕ Add Manual Transaction</h3>
+      <p class="hint">Add cash expenses or transactions not captured in bank statements</p>
+      
+      <div class="modal-row modal-row-2col">
+        <label>Date & Time
+          <input type="datetime-local" id="manualDateTime" required>
+        </label>
+        <label>Amount (₹)
+          <input type="number" id="manualAmount" placeholder="0.00" step="0.01" min="0.01" required>
+        </label>
+      </div>
+      
+      <div class="modal-row modal-row-2col">
+        <label>Type
+          <select id="manualDirection">
+            <option value="debit">Expense (Debit)</option>
+            <option value="credit">Income (Credit)</option>
+          </select>
+        </label>
+        <label>Payment Mode
+          <select id="manualMode">
+            <option value="CASH">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="CARD">Card</option>
+            <option value="OTHER">Other</option>
+          </select>
+        </label>
+      </div>
+      
+      <div class="modal-row">
+        <label>Merchant / Description
+          <input type="text" id="manualCounterparty" placeholder="e.g., Street vendor, Auto fare, etc." required>
+        </label>
+      </div>
+      
+      <div class="modal-row modal-row-2col">
+        <label>Scope
+          <select id="manualScope">
+            <option value="personal">Personal</option>
+            <option value="business">Business</option>
+            <option value="ignored">Ignored</option>
+          </select>
+        </label>
+        <label>Category
+          <input type="text" id="manualCategory" placeholder="e.g., food, transport">
+        </label>
+      </div>
+      
+      <div class="modal-row">
+        <label>Notes (optional)
+          <textarea id="manualNotes" placeholder="Additional details about this transaction..." rows="2"></textarea>
+        </label>
+      </div>
+      
+      <div class="modal-actions">
+        <button id="manualEntrySave" class="btn-accent">Add Transaction</button>
+        <button id="manualEntryCancel" class="btn-outline">Cancel</button>
       </div>
     </div>
   </div>
@@ -1013,6 +1218,9 @@
             <span class="stat-label">Transactions</span>
           </div>
         </div>
+        <button class="btn-accent drilldown-filter-btn" id="drilldownFilterBtn" onclick="filterFromDrilldown()">
+          🔍 View All Transactions
+        </button>
         <div class="drilldown-section">
           <h4>Top Merchants</h4>
           <div id="drilldownMerchants" class="merchant-breakdown"></div>
@@ -1035,6 +1243,54 @@
       <div class="modal-actions">
         <button onclick="confirmSaveFilter()" class="btn-accent">Save</button>
         <button onclick="document.getElementById('saveFilterModal').style.display='none'" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome Modal for First-Time Users -->
+  <div id="welcomeModal" class="modal" style="display:none;">
+    <div class="modal-content welcome-modal">
+      <div class="welcome-header">
+        <span class="welcome-icon">🎉</span>
+        <h2>Welcome to FIE!</h2>
+        <p class="welcome-subtitle">Your personal finance intelligence engine</p>
+      </div>
+      <div class="welcome-body">
+        <div class="welcome-step">
+          <span class="step-num">1</span>
+          <div class="step-content">
+            <strong>Upload your bank statement</strong>
+            <p>Click "Upload PDF" to import transactions from your bank</p>
+          </div>
+        </div>
+        <div class="welcome-step">
+          <span class="step-num">2</span>
+          <div class="step-content">
+            <strong>Set up auto-tagging rules</strong>
+            <p>Go to Auto-Tagging to create rules that categorize transactions automatically</p>
+          </div>
+        </div>
+        <div class="welcome-step">
+          <span class="step-num">3</span>
+          <div class="step-content">
+            <strong>Track your spending</strong>
+            <p>View insights on Dashboard and Analytics to understand your habits</p>
+          </div>
+        </div>
+        <div class="welcome-tips">
+          <h4>💡 Quick Tips</h4>
+          <ul>
+            <li>Press <kbd>?</kbd> anytime to see keyboard shortcuts</li>
+            <li>Use ⚡ button on transactions to quickly create tagging rules</li>
+            <li>Filter by scope to separate personal vs family expenses</li>
+          </ul>
+        </div>
+      </div>
+      <div class="welcome-actions">
+        <label class="dont-show-again">
+          <input type="checkbox" id="dontShowWelcome"> Don't show this again
+        </label>
+        <button onclick="dismissWelcome()" class="btn-accent btn-lg">Get Started →</button>
       </div>
     </div>
   </div>

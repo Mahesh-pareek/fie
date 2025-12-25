@@ -12,29 +12,100 @@ let merchantChart = null;
 let statsCatChart = null;
 let trendsData = null;  // Cache for trend toggle
 let allTransactions = [];  // Cache for edit lookup
+let dashboardPeriod = 'month';  // month, quarter, year, all
+let searchDebounceTimer = null;  // For search-as-you-type
+let undoDeleteTimer = null;  // For undo functionality
+let lastDeletedIds = [];  // For undo restore
+let txnOffset = 0;  // Pagination offset
+let txnPageSize = 200;  // Transactions per page
+let hasMoreTxns = false;  // Whether more transactions available
+let totalTxnCount = 0;  // Total transaction count from server
+
+// ============ WELCOME/ONBOARDING ============
+function checkFirstTimeUser() {
+  const hideWelcome = localStorage.getItem('fie_hide_welcome');
+  if (!hideWelcome) {
+    document.getElementById('welcomeModal').style.display = 'flex';
+  }
+}
+
+function dismissWelcome() {
+  const dontShow = document.getElementById('dontShowWelcome').checked;
+  if (dontShow) {
+    localStorage.setItem('fie_hide_welcome', 'true');
+  }
+  document.getElementById('welcomeModal').style.display = 'none';
+}
+
+// ============ UTILITY FUNCTIONS ============
+function escapeHtml(text) {
+  if (!text) return '';
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
 
 // ============ TOAST NOTIFICATIONS ============
-function showToast(message, type = 'success') {
+function showToast(message, type = 'success', action = null) {
   // Remove existing toast
   const existing = document.querySelector('.toast');
   if (existing) existing.remove();
   
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
+  
+  let actionHtml = '';
+  if (action) {
+    actionHtml = `<button class="toast-action" onclick="${action.callback}">${action.text}</button>`;
+  }
+  
   toast.innerHTML = `
     <span class="toast-icon">${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}</span>
     <span class="toast-message">${message}</span>
+    ${actionHtml}
   `;
   document.body.appendChild(toast);
   
   // Trigger animation
   requestAnimationFrame(() => toast.classList.add('show'));
   
-  // Auto remove
+  // Auto remove (longer if there's an action)
+  const duration = action ? 5000 : 3000;
   setTimeout(() => {
     toast.classList.remove('show');
     setTimeout(() => toast.remove(), 300);
-  }, 3000);
+  }, duration);
+  
+  return toast;
+}
+
+// Undo-enabled delete toast
+function showUndoToast(message, undoCallback) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  
+  const toast = document.createElement('div');
+  toast.className = 'toast toast-undo show';
+  toast.innerHTML = `
+    <span class="toast-icon">🗑️</span>
+    <span class="toast-message">${message}</span>
+    <button class="toast-undo-btn" id="undoBtn">Undo</button>
+    <div class="toast-countdown"><div class="toast-countdown-fill"></div></div>
+  `;
+  document.body.appendChild(toast);
+  
+  // Wire undo button
+  document.getElementById('undoBtn').onclick = () => {
+    clearTimeout(undoDeleteTimer);
+    toast.remove();
+    undoCallback();
+  };
+  
+  // Auto-dismiss after 5 seconds
+  undoDeleteTimer = setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 5000);
 }
 
 // ============ API HELPERS ============
@@ -111,13 +182,12 @@ function switchView(view) {
 async function renderDashboard() {
   showLoading('dashboard');
   try {
-    // Fetch all data in parallel
-    const [summary, trends, stats, recentTxns, health] = await Promise.all([
-      fetchJSON('/api/summary?scope=personal'),
+    // Fetch all data in parallel with selected period
+    const [summary, trends, stats, recentTxns] = await Promise.all([
+      fetchJSON(`/api/summary?scope=personal&period=${dashboardPeriod}`),
       fetchJSON('/api/trends?scope=personal'),
-      fetchJSON('/api/stats'),
-      fetchJSON('/api/transactions?limit=5&sort=datetime&order=desc'),
-      fetchJSON('/api/health')
+      fetchJSON(`/api/stats?period=${dashboardPeriod}`),
+      fetchJSON('/api/transactions?limit=5&sort=datetime&order=desc')
     ]);
     
     renderSummaryData(summary, stats);
@@ -125,12 +195,31 @@ async function renderDashboard() {
     renderBudgetData(stats);
     renderInsights(stats);
     renderRecentTransactions(recentTxns);
-    renderHealthBanner(health);
+    updatePeriodLabel();
   } catch (e) {
     console.error('Dashboard error:', e);
   } finally {
     hideLoading('dashboard');
   }
+}
+
+function updatePeriodLabel() {
+  const labels = {
+    'month': 'This Month',
+    'quarter': 'Last 3 Months', 
+    'year': 'This Year',
+    'all': 'All Time'
+  };
+  const periodText = labels[dashboardPeriod] || 'This Month';
+  
+  // Update card labels to show period context
+  const spentLabel = document.getElementById('card-spent-label');
+  const incomeLabel = document.getElementById('card-income-label');
+  const totalSub = document.getElementById('card-total-sub');
+  
+  if (spentLabel) spentLabel.textContent = `Money Out`;
+  if (incomeLabel) incomeLabel.textContent = `Money In`;
+  if (totalSub) totalSub.textContent = periodText.toLowerCase();
 }
 
 function renderBudgetData(stats) {
@@ -169,42 +258,30 @@ function renderBudgetData(stats) {
   if (daysLeftEl) daysLeftEl.textContent = `• ${daysLeft} days remaining`;
 }
 
-// Render insights
+// Render insights (compact header version)
 function renderInsights(stats) {
   if (!stats) return;
   
-  // Vs Last Month comparison
+  // Vs Last Month comparison - now in header
   const thisMonth = stats.this_month_spent || 0;
   const lastMonth = stats.last_month_spent || 0;
   const vsLastEl = document.getElementById('insightVsLastMonth');
   
-  if (vsLastEl && lastMonth > 0) {
-    const diff = thisMonth - lastMonth;
-    const pct = Math.round(Math.abs(diff / lastMonth) * 100);
-    const isUp = diff > 0;
-    vsLastEl.querySelector('.insight-text').innerHTML = isUp 
-      ? `<strong class="insight-up">↑ ${pct}%</strong> more than last month`
-      : `<strong class="insight-down">↓ ${pct}%</strong> less than last month`;
+  if (vsLastEl) {
+    if (lastMonth > 0) {
+      const diff = thisMonth - lastMonth;
+      const pct = Math.round(Math.abs(diff / lastMonth) * 100);
+      const isUp = diff > 0;
+      vsLastEl.innerHTML = isUp 
+        ? `<span class="insight-text">📈 <strong class="insight-up">↑${pct}%</strong> vs last month</span>`
+        : `<span class="insight-text">📉 <strong class="insight-down">↓${pct}%</strong> vs last month</span>`;
+    } else {
+      vsLastEl.innerHTML = `<span class="insight-text">📊 First month tracking</span>`;
+    }
   }
   
-  // Savings rate
-  const income = stats.total_income || 0;
-  const spent = stats.total_spent || 0;
-  const savingsEl = document.getElementById('savingsRate');
-  if (savingsEl && income > 0) {
-    const savingsRate = Math.round(((income - spent) / income) * 100);
-    const isGood = savingsRate > 0;
-    savingsEl.innerHTML = isGood 
-      ? `Savings rate: <strong class="insight-up">${savingsRate}%</strong>`
-      : `Overspent by: <strong class="insight-down">${Math.abs(savingsRate)}%</strong>`;
-  }
-  
-  // Transaction count this month
-  const monthTxnsEl = document.getElementById('monthTxnsCount');
-  if (monthTxnsEl) {
-    const count = stats.this_month_transactions || stats.total_transactions || 0;
-    monthTxnsEl.innerHTML = `<strong>${count}</strong> transactions this month`;
-  }
+  // Render mini comparison chart
+  renderMiniComparison(thisMonth, lastMonth);
 }
 
 // Render recent transactions
@@ -339,14 +416,17 @@ function renderSummaryData(s, stats) {
         if (elements.length > 0) {
           const idx = elements[0].index;
           const category = labels[idx];
-          openCategoryDrilldown(category);
+          openCategoryDrilldown(category);  // Open drawer with details
         }
+      },
+      onHover: (event, elements) => {
+        event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
       },
       plugins: {
         legend: {display: true, position: 'bottom', labels: {color: '#cfcfcf', font: {size: 10}}},
         tooltip: {
           callbacks: {
-            label: (ctx) => `${ctx.label}: ₹${ctx.raw.toLocaleString('en-IN')} (click for details)`
+            label: (ctx) => `${ctx.label}: ₹${ctx.raw.toLocaleString('en-IN')} (click to filter)`
           }
         }
       }
@@ -494,32 +574,93 @@ function createStripePattern(ctx, color) {
 }
 
 // Render transactions table
-async function loadTable() {
+async function loadTable(append = false) {
   const search = document.getElementById('filterSearch').value || '';
   const scope = document.getElementById('filterScope').value || '';
   const category = document.getElementById('filterCategory').value || '';
   const direction = document.getElementById('filterDirection').value || '';
   
+  // Reset offset if not appending
+  if (!append) {
+    txnOffset = 0;
+    allTransactions = [];
+  }
+  
   const params = new URLSearchParams({
-    limit: 500,
+    limit: txnPageSize,
+    offset: txnOffset,
     sort: currentSort,
-    order: currentOrder
+    order: currentOrder,
+    count: 'true'  // Request total count
   });
   if (scope) params.set('scope', scope);
   if (category) params.set('category', category);
   if (direction) params.set('direction', direction);
   if (search) params.set('search', search);
   
-  const txs = await fetchJSON('/api/transactions?' + params.toString());
+  // Show loading state for load more
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  if (append && loadMoreBtn) {
+    loadMoreBtn.textContent = 'Loading...';
+    loadMoreBtn.disabled = true;
+  }
+  
+  // Fetch transactions and health data
+  const [response, health] = await Promise.all([
+    fetchJSON('/api/transactions?' + params.toString()),
+    append ? Promise.resolve(null) : fetchJSON('/api/health')
+  ]);
+  
+  // Handle both array (old) and object (new with count) response
+  let txs;
+  if (Array.isArray(response)) {
+    txs = response;
+    totalTxnCount = response.length;
+  } else if (response && response.transactions) {
+    txs = response.transactions;
+    totalTxnCount = response.total || txs.length;
+  } else {
+    txs = response || [];
+    totalTxnCount = txs.length;
+  }
+  
   if (!txs) return;
   
-  allTransactions = txs;  // Cache for edit modal lookup
+  // Update health banner on transactions page (only on fresh load)
+  if (!append && health) renderHealthBanner(health);
+  
+  // Append or replace transactions cache
+  if (append) {
+    allTransactions = allTransactions.concat(txs);
+  } else {
+    allTransactions = txs;
+  }
   
   const tbody = document.querySelector('#txTable tbody');
-  tbody.innerHTML = '';
+  if (!append) {
+    tbody.innerHTML = '';
+    selectedTxIds.clear();
+    updateBulkDeleteBtn();
+    showBatchActions();
+  }
   
-  selectedTxIds.clear();
-  updateBulkDeleteBtn();
+  // Update pagination state
+  txnOffset += txs.length;
+  hasMoreTxns = allTransactions.length < totalTxnCount;
+  
+  // Handle empty states (only on fresh load)
+  if (txs.length === 0 && !append) {
+    const hasFilters = search || scope || category || direction;
+    if (hasFilters) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-cell"></td></tr>';
+      renderEmptyState(tbody.querySelector('.empty-cell'), 'no-results');
+    } else {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-cell"></td></tr>';
+      renderEmptyState(tbody.querySelector('.empty-cell'), 'no-transactions');
+    }
+    document.getElementById('rowCount').textContent = '0 transactions';
+    return;
+  }
   
   txs.forEach((t, idx) => {
     const tr = document.createElement('tr');
@@ -529,35 +670,74 @@ async function loadTable() {
     const cats = (t.category || []).join(', ') || '—';
     const dateStr = formatDate(t.datetime);
     const dirIcon = t.direction === 'debit' ? '↑' : '↓';
-    const reviewedBadge = t.reviewed ? '<span class="status-badge status-reviewed">✓</span>' : '';
+    
+    // Badges
+    let badges = '';
+    if (t.is_manual) badges += '<span class="manual-badge">Manual</span>';
+    if (t.reviewed) badges += '<span class="status-badge status-reviewed">✓</span>';
+    
+    // Notes preview (truncate to 15 chars)
+    let notePreview = '';
+    if (t.notes) {
+      const truncated = t.notes.length > 15 ? t.notes.substring(0, 15) + '…' : t.notes;
+      notePreview = `<span class="note-preview" title="${escapeHtml(t.notes)}">${escapeHtml(truncated)}</span>`;
+    }
+    
+    // Truncate counterparty
+    const counterpartyDisplay = t.counterparty.length > 20 ? t.counterparty.substring(0, 20) + '…' : t.counterparty;
     
     tr.innerHTML = `
       <td><input type="checkbox" class="txCheckbox" data-id="${t.id}"></td>
       <td class="date-cell">${dateStr}</td>
       <td class="amount-cell ${t.direction}">${humanAmount(amt)}</td>
       <td><span class="scope-tag">${t.scope}</span></td>
-      <td class="category-cell">${cats}</td>
+      <td class="category-cell" title="${escapeHtml(cats)}">${cats}</td>
       <td class="counterparty-cell">
-        <span class="dir-badge ${t.direction}">${dirIcon}</span>
-        <span>${t.counterparty}</span>
-        ${reviewedBadge}
+        <div class="counterparty-info">
+          <span class="dir-badge ${t.direction}">${dirIcon}</span>
+          <span title="${escapeHtml(t.counterparty)}">${escapeHtml(counterpartyDisplay)}</span>
+          <span class="txn-badges">${badges}</span>
+        </div>
+        ${notePreview}
       </td>
       <td class="actions-cell">
-        <button class="editBtn" data-id="${t.id}">Edit</button>
-        <button class="ruleBtn" data-id="${t.id}" title="Create rule from this">⚡</button>
-        <button class="btn-danger btn-sm deleteBtn" data-id="${t.id}">✕</button>
+        <div class="action-group">
+          <button class="editBtn" data-id="${t.id}" title="Edit transaction">Edit</button>
+          <button class="noteBtn ${t.notes ? 'has-note' : ''}" data-id="${t.id}" title="${t.notes ? 'Edit note' : 'Add note'}">📝</button>
+          <button class="ruleBtn" data-id="${t.id}" title="Create rule from this">⚡</button>
+          <button class="deleteBtn" data-id="${t.id}" title="Delete">✕</button>
+        </div>
       </td>
     `;
     tbody.appendChild(tr);
   });
 
-  document.getElementById('rowCount').textContent = `${txs.length} transactions`;
+  // Update row count - show loaded vs total
+  const rowCountEl = document.getElementById('rowCount');
+  if (totalTxnCount > allTransactions.length) {
+    rowCountEl.textContent = `${allTransactions.length} of ${totalTxnCount} transactions`;
+  } else {
+    rowCountEl.textContent = `${allTransactions.length} transactions`;
+  }
+  
+  // Update Load More button
+  updateLoadMoreButton();
   
   // Wire edit buttons
   document.querySelectorAll('.editBtn').forEach(b => {
     b.addEventListener('click', (e) => {
       e.stopPropagation();
-      openModal(e.target.dataset.id);
+      e.preventDefault();
+      openModal(b.dataset.id);
+    });
+  });
+  
+  // Wire note buttons - opens modal focused on notes
+  document.querySelectorAll('.noteBtn').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      openNoteModal(b.dataset.id);
     });
   });
   
@@ -565,7 +745,8 @@ async function loadTable() {
   document.querySelectorAll('.ruleBtn').forEach(b => {
     b.addEventListener('click', (e) => {
       e.stopPropagation();
-      createRuleFromTransaction(e.target.dataset.id);
+      e.preventDefault();
+      createRuleFromTransaction(b.dataset.id);
     });
   });
   
@@ -573,7 +754,8 @@ async function loadTable() {
   document.querySelectorAll('.deleteBtn').forEach(b => {
     b.addEventListener('click', (e) => {
       e.stopPropagation();
-      confirmDelete([e.target.dataset.id]);
+      e.preventDefault();
+      confirmDelete([b.dataset.id]);
     });
   });
   
@@ -584,6 +766,7 @@ async function loadTable() {
       if (e.target.checked) selectedTxIds.add(id);
       else selectedTxIds.delete(id);
       updateBulkDeleteBtn();
+      showBatchActions();
     });
   });
   
@@ -607,6 +790,31 @@ function updateBulkDeleteBtn() {
   }
 }
 
+function updateLoadMoreButton() {
+  const btn = document.getElementById('loadMoreBtn');
+  if (!btn) return;
+  
+  if (hasMoreTxns) {
+    const remaining = totalTxnCount - allTransactions.length;
+    btn.textContent = `Load More (${remaining} remaining)`;
+    btn.disabled = false;
+    btn.style.display = 'inline-block';
+  } else {
+    btn.style.display = 'none';
+  }
+}
+
+async function loadMoreTransactions() {
+  await loadTable(true);  // append mode
+}
+
+function toggleSelect(id, checked) {
+  if (checked) selectedTxIds.add(id);
+  else selectedTxIds.delete(id);
+  updateBulkDeleteBtn();
+  showBatchActions();
+}
+
 function toggleSelectAll(checked) {
   document.querySelectorAll('.txCheckbox').forEach(cb => {
     cb.checked = checked;
@@ -615,6 +823,7 @@ function toggleSelectAll(checked) {
     else selectedTxIds.delete(id);
   });
   updateBulkDeleteBtn();
+  showBatchActions();
 }
 
 function selectRow(idx) {
@@ -667,13 +876,21 @@ async function openModal(id) {
   // Show current values
   if (txn) {
     document.getElementById('modalCategories').value = (txn.category || []).join(', ');
+    // Show notes
+    const notesEl = document.getElementById('modalNotes');
+    if (notesEl) {
+      notesEl.value = txn.notes || '';
+    }
     // Show transaction info in modal header
     const infoEl = document.getElementById('modalTxnInfo');
     if (infoEl) {
-      infoEl.innerHTML = `<strong>${txn.counterparty}</strong> · ₹${txn.amount} · ${txn.datetime?.split('T')[0] || ''}`;
+      const manualBadge = txn.is_manual ? '<span class="manual-badge">MANUAL</span>' : '';
+      infoEl.innerHTML = `<strong>${txn.counterparty}</strong>${manualBadge} · ₹${txn.amount} · ${txn.datetime?.split('T')[0] || ''}`;
     }
   } else {
     document.getElementById('modalCategories').value = '';
+    const notesEl = document.getElementById('modalNotes');
+    if (notesEl) notesEl.value = '';
   }
   
   document.getElementById('editModal').style.display = 'flex';
@@ -687,8 +904,9 @@ async function saveModal() {
   const id = document.getElementById('modalId').value;
   const scope = document.getElementById('modalScope').value;
   const cats = document.getElementById('modalCategories').value.split(',').map(x => x.trim()).filter(x => x);
+  const notes = document.getElementById('modalNotes')?.value || '';
   
-  const payload = {id, scope, category: cats};
+  const payload = {id, scope, category: cats, notes};
   const result = await postJSON('/api/tag', payload);
   
   if (result && result.ok) {
@@ -718,6 +936,9 @@ function closeDeleteModal() {
 async function executeDelete() {
   if (pendingDeleteIds.length === 0) return;
   
+  // Store for undo
+  lastDeletedIds = [...pendingDeleteIds];
+  
   let result;
   if (pendingDeleteIds.length === 1) {
     result = await deleteJSON('/api/transaction/' + pendingDeleteIds[0]);
@@ -729,10 +950,32 @@ async function executeDelete() {
   
   if (result && result.ok) {
     selectedTxIds.clear();
-    showToast('Moved to trash');
+    showBatchActions();
+    
+    // Show undo toast
+    const count = lastDeletedIds.length;
+    showUndoToast(
+      `Deleted ${count} transaction${count > 1 ? 's' : ''}`,
+      undoLastDelete
+    );
+    
     render();
   } else {
     showToast('Delete failed: ' + (result?.error || 'unknown error'), 'error');
+  }
+}
+
+async function undoLastDelete() {
+  if (lastDeletedIds.length === 0) return;
+  
+  const result = await postJSON('/api/trash/restore', { ids: lastDeletedIds });
+  
+  if (result && result.ok) {
+    showToast(`Restored ${result.restored} transaction${result.restored > 1 ? 's' : ''}`);
+    lastDeletedIds = [];
+    render();
+  } else {
+    showToast('Failed to restore', 'error');
   }
 }
 
@@ -757,6 +1000,10 @@ async function renderStats() {
     ]);
     if (!data) return;
     renderAnalyticsData(data, trends);
+    
+    // Load recurring and MoM comparison
+    loadRecurring();
+    initMoMComparison();
   } finally {
     hideLoading('stats');
   }
@@ -1430,9 +1677,12 @@ function openRuleModal(rule = null) {
   const modal = document.getElementById('ruleModal');
   const title = document.getElementById('ruleModalTitle');
   
+  // Check if this is an existing rule (has id) vs new rule with prefilled data
+  const isEdit = rule && rule.id;
+  
   if (rule) {
-    title.textContent = '✏️ Edit Rule';
-    document.getElementById('ruleId').value = rule.id;
+    title.textContent = isEdit ? '✏️ Edit Rule' : '🤖 Create Rule';
+    document.getElementById('ruleId').value = rule.id || '';  // Empty string for new rules
     document.getElementById('ruleName').value = rule.name || '';
     document.getElementById('ruleType').value = rule.type || 'amount';
     document.getElementById('ruleAmountMin').value = rule.conditions?.amount_min ?? '';
@@ -1970,11 +2220,28 @@ async function render() {
 document.addEventListener('DOMContentLoaded', () => {
   render();
   
+  // Initialize new features
+  initKeyboardShortcuts();
+  initSearchAsYouType();
+  
+  // Show welcome modal for first-time users
+  checkFirstTimeUser();
+  
   // Sidebar navigation
   document.querySelectorAll('.sidebar a[data-view]').forEach(a => {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       switchView(a.dataset.view);
+    });
+  });
+  
+  // Period selector for dashboard
+  document.querySelectorAll('.period-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      dashboardPeriod = btn.dataset.period;
+      renderDashboard();
     });
   });
   
@@ -2079,6 +2346,18 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('modalCancel').addEventListener('click', closeModal);
   document.getElementById('modalSave').addEventListener('click', saveModal);
   
+  // Note modal
+  const noteModalCancel = document.getElementById('noteModalCancel');
+  if (noteModalCancel) noteModalCancel.addEventListener('click', closeNoteModal);
+  const noteModalSave = document.getElementById('noteModalSave');
+  if (noteModalSave) noteModalSave.addEventListener('click', saveNoteModal);
+  const noteModal = document.getElementById('noteModal');
+  if (noteModal) {
+    noteModal.addEventListener('click', (e) => {
+      if (e.target === noteModal) closeNoteModal();
+    });
+  }
+  
   // Delete modal
   document.getElementById('cancelDelete').addEventListener('click', closeDeleteModal);
   document.getElementById('confirmDelete').addEventListener('click', executeDelete);
@@ -2143,6 +2422,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Global keyboard
   document.addEventListener('keydown', handleKeyboard);
+  
+  // Initialize manual entry modal
+  initManualEntry();
+  
+  // Refresh recurring button
+  const refreshRecurringBtn = document.getElementById('refreshRecurring');
+  if (refreshRecurringBtn) refreshRecurringBtn.addEventListener('click', loadRecurring);
 });
 
 // ============ ACTIVITY LOGS ============
@@ -2401,6 +2687,9 @@ async function openCategoryDrilldown(category) {
   const data = await fetchJSON(`/api/categories/${encodeURIComponent(category)}/drilldown?scope=personal`);
   if (!data) return;
   
+  // Store current category for filter button
+  document.getElementById('drilldownDrawer').dataset.category = category;
+  
   // Update drawer content
   document.getElementById('drilldownTitle').textContent = `📊 ${category.charAt(0).toUpperCase() + category.slice(1)}`;
   document.getElementById('drilldownTotal').textContent = humanAmount(-data.total_spent);
@@ -2436,6 +2725,13 @@ async function openCategoryDrilldown(category) {
 
 function closeDrilldown() {
   document.getElementById('drilldownDrawer').style.display = 'none';
+}
+
+function filterFromDrilldown() {
+  const drawer = document.getElementById('drilldownDrawer');
+  const category = drawer.dataset.category;
+  closeDrilldown();
+  filterByCategory(category);
 }
 
 // ============ SAVED FILTERS ============
@@ -2514,4 +2810,725 @@ async function deleteSavedFilter(filterId) {
     showToast('Filter deleted');
     loadSavedFilters();
   }
+}
+// ============ MANUAL TRANSACTION ENTRY ============
+
+function initManualEntry() {
+  const btn = document.getElementById('showManualEntry');
+  const modal = document.getElementById('manualEntryModal');
+  const saveBtn = document.getElementById('manualEntrySave');
+  const cancelBtn = document.getElementById('manualEntryCancel');
+  
+  if (!btn || !modal) return;
+  
+  btn.addEventListener('click', () => {
+    // Set default datetime to now
+    const now = new Date();
+    const localISO = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
+    document.getElementById('manualDateTime').value = localISO;
+    document.getElementById('manualAmount').value = '';
+    document.getElementById('manualCounterparty').value = '';
+    document.getElementById('manualCategory').value = '';
+    document.getElementById('manualNotes').value = '';
+    document.getElementById('manualDirection').value = 'debit';
+    document.getElementById('manualMode').value = 'CASH';
+    document.getElementById('manualScope').value = 'personal';
+    modal.style.display = 'flex';
+  });
+  
+  cancelBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+  
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+  
+  saveBtn.addEventListener('click', saveManualTransaction);
+}
+
+async function saveManualTransaction() {
+  const datetime = document.getElementById('manualDateTime').value;
+  const amount = parseFloat(document.getElementById('manualAmount').value);
+  const counterparty = document.getElementById('manualCounterparty').value.trim();
+  const direction = document.getElementById('manualDirection').value;
+  const mode = document.getElementById('manualMode').value;
+  const scope = document.getElementById('manualScope').value;
+  const category = document.getElementById('manualCategory').value.trim();
+  const notes = document.getElementById('manualNotes').value.trim();
+  
+  if (!datetime || !amount || !counterparty) {
+    showToast('Please fill in date, amount and merchant', 'error');
+    return;
+  }
+  
+  if (amount <= 0) {
+    showToast('Amount must be positive', 'error');
+    return;
+  }
+  
+  const data = {
+    datetime: datetime,
+    amount: amount,
+    direction: direction,
+    counterparty: counterparty,
+    mode: mode,
+    scope: scope,
+    category: category,
+    notes: notes
+  };
+  
+  const result = await postJSON('/api/transactions/manual', data);
+  if (result && result.ok) {
+    showToast('Transaction added successfully!');
+    document.getElementById('manualEntryModal').style.display = 'none';
+    refreshData();
+  } else {
+    showToast(result?.error || 'Failed to add transaction', 'error');
+  }
+}
+
+// ============ NOTES ON TRANSACTIONS ============
+
+function openEditModalWithNotes(txn) {
+  // This extends the existing edit modal to include notes
+  const modal = document.getElementById('editModal');
+  const notesField = document.getElementById('modalNotes');
+  
+  if (notesField) {
+    notesField.value = txn.notes || '';
+  }
+}
+
+// Extend modal save to include notes
+function enhanceModalSaveWithNotes() {
+  const saveBtn = document.getElementById('modalSave');
+  if (!saveBtn) return;
+  
+  // Store original handler and enhance it
+  const originalClick = saveBtn.onclick;
+  saveBtn.onclick = null;
+  
+  saveBtn.addEventListener('click', async () => {
+    const id = document.getElementById('modalId').value;
+    const scope = document.getElementById('modalScope').value;
+    const catStr = document.getElementById('modalCategories').value;
+    const notes = document.getElementById('modalNotes')?.value || '';
+    const cats = catStr.split(',').map(s => s.trim()).filter(Boolean);
+    
+    const payload = { id, scope, category: cats, notes };
+    const res = await postJSON('/api/tag', payload);
+    
+    if (res && res.ok) {
+      showToast('Saved!');
+      document.getElementById('editModal').style.display = 'none';
+      refreshData();
+    } else {
+      showToast(res?.error || 'Failed to save', 'error');
+    }
+  });
+}
+
+// ============ RECURRING TRANSACTIONS ============
+
+async function loadRecurring() {
+  const container = document.getElementById('recurringList');
+  if (!container) return;
+  
+  container.innerHTML = '<div class="empty-state">Loading recurring patterns...</div>';
+  
+  try {
+    const data = await fetch('/api/recurring').then(r => r.json());
+    
+    // Check for errors or empty array
+    if (!data || data.error || !Array.isArray(data) || data.length === 0) {
+      container.innerHTML = '<div class="empty-state">No recurring patterns detected yet. Need at least 3 transactions from the same merchant.</div>';
+      return;
+    }
+    
+    container.innerHTML = data.map(r => {
+      const confidenceClass = r.confidence >= 80 ? 'high' : r.confidence >= 60 ? 'medium' : 'low';
+      const nextDate = new Date(r.next_expected);
+      const isOverdue = nextDate < new Date();
+      
+      return `
+        <div class="recurring-item">
+          <div class="recurring-header">
+            <span class="recurring-merchant">${escapeHtml(r.merchant)}</span>
+            <span class="recurring-pattern ${r.pattern}">${r.pattern}</span>
+          </div>
+          <div class="recurring-stats">
+            <div class="recurring-stat">
+              <span class="recurring-stat-value">${CURRENCY}${formatAmount(r.avg_amount)}</span>
+              <span class="recurring-stat-label">Avg Amount</span>
+            </div>
+            <div class="recurring-stat">
+              <span class="recurring-stat-value">${r.occurrences}</span>
+              <span class="recurring-stat-label">Times</span>
+            </div>
+            <div class="recurring-stat">
+              <span class="recurring-stat-value">${r.category && r.category.length ? r.category.join(', ') : 'uncategorized'}</span>
+              <span class="recurring-stat-label">Category</span>
+            </div>
+          </div>
+          <div class="recurring-next">
+            <span class="icon">${isOverdue ? '⚠️' : '📅'}</span>
+            <span class="label">Next expected:</span>
+            <span class="date" style="${isOverdue ? 'color:var(--orange)' : ''}">${nextDate.toLocaleDateString()} ${isOverdue ? '(overdue)' : ''}</span>
+          </div>
+          <div class="recurring-confidence">
+            <span>Confidence:</span>
+            <div class="confidence-bar">
+              <div class="confidence-fill ${confidenceClass}" style="width:${r.confidence}%"></div>
+            </div>
+            <span>${r.confidence}%</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+    
+  } catch (e) {
+    console.error('Recurring error:', e);
+    container.innerHTML = '<div class="empty-state">No recurring patterns detected yet. Need at least 3 transactions from the same merchant.</div>';
+  }
+}
+
+// ============ MONTH-OVER-MONTH COMPARISON ============
+
+function initMoMComparison() {
+  const month1Select = document.getElementById('momMonth1');
+  const month2Select = document.getElementById('momMonth2');
+  const refreshBtn = document.getElementById('momRefresh');
+  
+  if (!month1Select || !month2Select) return;
+  
+  // Populate month dropdowns (last 12 months)
+  const months = [];
+  const now = new Date();
+  for (let i = 0; i < 12; i++) {
+    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    months.push({
+      value: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`,
+      label: d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+    });
+  }
+  
+  month1Select.innerHTML = months.map((m, i) => 
+    `<option value="${m.value}" ${i === 0 ? 'selected' : ''}>${m.label}</option>`
+  ).join('');
+  
+  month2Select.innerHTML = months.map((m, i) => 
+    `<option value="${m.value}" ${i === 1 ? 'selected' : ''}>${m.label}</option>`
+  ).join('');
+  
+  refreshBtn.addEventListener('click', loadMoMComparison);
+  
+  // Initial load
+  loadMoMComparison();
+}
+
+async function loadMoMComparison() {
+  const month1 = document.getElementById('momMonth1').value;
+  const month2 = document.getElementById('momMonth2').value;
+  const summaryDiv = document.getElementById('momSummary');
+  const gridDiv = document.getElementById('momGrid');
+  
+  if (!summaryDiv || !gridDiv) return;
+  
+  gridDiv.innerHTML = '<div class="empty-state">Loading comparison...</div>';
+  
+  try {
+    const data = await fetch(`/api/compare/months?month1=${month1}&month2=${month2}`).then(r => r.json());
+    
+    if (!data || data.error) {
+      gridDiv.innerHTML = `<div class="empty-state">${data?.error || 'Error loading comparison'}</div>`;
+      return;
+    }
+    
+    // Summary section
+    const changeClass = data.summary.total_change > 0 ? 'up' : data.summary.total_change < 0 ? 'down' : '';
+    const changeSymbol = data.summary.total_change > 0 ? '+' : '';
+    
+    summaryDiv.style.display = 'grid';
+    summaryDiv.innerHTML = `
+      <div class="mom-summary-item">
+        <span class="mom-summary-label">${data.month1.label}</span>
+        <span class="mom-summary-value">${CURRENCY}${formatAmount(data.month1.total_expense)}</span>
+        <span class="mom-summary-subtext">${data.month1.transaction_count} transactions</span>
+      </div>
+      <div class="mom-summary-item">
+        <span class="mom-summary-label">${data.month2.label}</span>
+        <span class="mom-summary-value">${CURRENCY}${formatAmount(data.month2.total_expense)}</span>
+        <span class="mom-summary-subtext">${data.month2.transaction_count} transactions</span>
+      </div>
+      <div class="mom-summary-item">
+        <span class="mom-summary-label">Change</span>
+        <span class="mom-summary-value ${changeClass}">${changeSymbol}${CURRENCY}${formatAmount(Math.abs(data.summary.total_change))}</span>
+        <span class="mom-summary-subtext">${changeSymbol}${data.summary.total_change_percent}%</span>
+      </div>
+    `;
+    
+    // Category comparison grid
+    const maxAmount = Math.max(
+      ...data.comparison.map(c => Math.max(c.month1_amount, c.month2_amount))
+    );
+    
+    let gridHTML = `
+      <div class="mom-row header">
+        <span>Category</span>
+        <span style="text-align:right">${data.month1.label.split(' ')[0]}</span>
+        <span style="text-align:right">${data.month2.label.split(' ')[0]}</span>
+        <span style="text-align:right">Change</span>
+        <span>Comparison</span>
+      </div>
+    `;
+    
+    data.comparison.forEach(c => {
+      const changeClass = c.change > 0 ? 'positive' : c.change < 0 ? 'negative' : 'neutral';
+      const changeSymbol = c.change > 0 ? '+' : '';
+      const bar1Width = maxAmount > 0 ? (c.month1_amount / maxAmount) * 100 : 0;
+      const bar2Width = maxAmount > 0 ? (c.month2_amount / maxAmount) * 100 : 0;
+      
+      gridHTML += `
+        <div class="mom-row">
+          <span class="mom-category">${escapeHtml(c.category)}</span>
+          <span class="mom-amount">${CURRENCY}${formatAmount(c.month1_amount)}</span>
+          <span class="mom-amount">${CURRENCY}${formatAmount(c.month2_amount)}</span>
+          <span class="mom-change ${changeClass}">${changeSymbol}${c.change_percent}%</span>
+          <div class="mom-bar">
+            <div class="mom-bar-fill month1" style="width:${bar1Width}%"></div>
+            <div class="mom-bar-fill month2" style="width:${bar2Width}%"></div>
+          </div>
+        </div>
+      `;
+    });
+    
+    gridDiv.innerHTML = gridHTML;
+    
+  } catch (e) {
+    console.error('MoM error:', e);
+    summaryDiv.style.display = 'none';
+    gridDiv.innerHTML = '<div class="empty-state">No data available for comparison. Add more transactions to see month-over-month trends.</div>';
+  }
+}
+
+// ============ QUICK NOTES MODAL ============
+
+function openNoteModal(id) {
+  const txn = allTransactions.find(t => t.id === id);
+  if (!txn) return;
+  
+  document.getElementById('noteModalId').value = id;
+  const textarea = document.getElementById('noteModalText');
+  textarea.value = txn.notes || '';
+  document.getElementById('noteModalInfo').innerHTML = `
+    <strong>${escapeHtml(txn.counterparty)}</strong> · ${CURRENCY}${txn.amount} · ${txn.datetime?.split('T')[0] || ''}
+  `;
+  document.getElementById('noteModal').style.display = 'flex';
+  textarea.focus();
+  
+  // Ctrl+Enter to save
+  textarea.onkeydown = (e) => {
+    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      saveNoteModal();
+    }
+    if (e.key === 'Escape') {
+      closeNoteModal();
+    }
+  };
+}
+
+function closeNoteModal() {
+  document.getElementById('noteModal').style.display = 'none';
+}
+
+async function saveNoteModal() {
+  const id = document.getElementById('noteModalId').value;
+  const note = document.getElementById('noteModalText').value.trim();
+  const txn = allTransactions.find(t => t.id === id);
+  
+  if (!txn) return;
+  
+  const result = await postJSON('/api/tag', { 
+    id: id, 
+    scope: txn.scope, 
+    category: txn.category,
+    notes: note 
+  });
+  
+  if (result && result.ok) {
+    showToast(note ? 'Note saved!' : 'Note removed');
+    closeNoteModal();
+    refreshData();
+  } else {
+    showToast('Failed to save note', 'error');
+  }
+}
+
+// ============ KEYBOARD SHORTCUTS ============
+function initKeyboardShortcuts() {
+  document.addEventListener('keydown', (e) => {
+    // Don't trigger shortcuts when typing in inputs
+    const isInput = ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName);
+    const isModal = document.querySelector('.modal[style*="flex"]');
+    
+    // Escape always closes modals
+    if (e.key === 'Escape') {
+      closeAllModals();
+      return;
+    }
+    
+    // If in input or modal, don't process other shortcuts
+    if (isInput || isModal) return;
+    
+    // ? - Show shortcuts help
+    if (e.key === '?') {
+      e.preventDefault();
+      showShortcutsHelp();
+      return;
+    }
+    
+    // View switching: 1-5
+    if (e.key >= '1' && e.key <= '5') {
+      const views = ['dashboard', 'transactions', 'stats', 'rules', 'settings'];
+      const idx = parseInt(e.key) - 1;
+      if (views[idx]) {
+        e.preventDefault();
+        switchView(views[idx]);
+      }
+      return;
+    }
+    
+    // / - Focus search (in transactions view)
+    if (e.key === '/') {
+      e.preventDefault();
+      switchView('transactions');
+      setTimeout(() => document.getElementById('filterSearch')?.focus(), 100);
+      return;
+    }
+    
+    // n - New transaction
+    if (e.key === 'n') {
+      e.preventDefault();
+      openManualEntryModal();
+      return;
+    }
+    
+    // Transaction-specific shortcuts (only in transactions view)
+    if (currentView === 'transactions') {
+      const rows = document.querySelectorAll('#txTable tbody tr');
+      
+      // j/k - Navigate rows
+      if (e.key === 'j' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectRow(Math.min(selectedRowIdx + 1, rows.length - 1));
+        return;
+      }
+      if (e.key === 'k' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectRow(Math.max(selectedRowIdx - 1, 0));
+        return;
+      }
+      
+      // e - Edit selected
+      if (e.key === 'e' && selectedRowIdx >= 0) {
+        e.preventDefault();
+        const row = rows[selectedRowIdx];
+        if (row) openModal(row.dataset.id);
+        return;
+      }
+      
+      // d - Delete selected
+      if (e.key === 'd' && selectedRowIdx >= 0) {
+        e.preventDefault();
+        const row = rows[selectedRowIdx];
+        if (row) confirmDelete([row.dataset.id]);
+        return;
+      }
+      
+      // x - Toggle selection
+      if (e.key === 'x' && selectedRowIdx >= 0) {
+        e.preventDefault();
+        const row = rows[selectedRowIdx];
+        if (row) {
+          const cb = row.querySelector('input[type="checkbox"]');
+          if (cb) {
+            cb.checked = !cb.checked;
+            toggleSelect(row.dataset.id, cb.checked);
+          }
+        }
+        return;
+      }
+      
+      // Enter - Edit selected
+      if (e.key === 'Enter' && selectedRowIdx >= 0) {
+        e.preventDefault();
+        const row = rows[selectedRowIdx];
+        if (row) openModal(row.dataset.id);
+        return;
+      }
+    }
+  });
+}
+
+function selectRow(idx) {
+  const rows = document.querySelectorAll('#txTable tbody tr');
+  
+  // Remove previous selection
+  rows.forEach(r => r.classList.remove('keyboard-selected'));
+  
+  // Set new selection
+  selectedRowIdx = idx;
+  if (rows[idx]) {
+    rows[idx].classList.add('keyboard-selected');
+    rows[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function closeAllModals() {
+  document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+  document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
+}
+
+function showShortcutsHelp() {
+  const modal = document.getElementById('shortcutsModal');
+  if (modal) {
+    modal.style.display = 'flex';
+  }
+}
+
+// ============ SEARCH AS YOU TYPE ============
+function initSearchAsYouType() {
+  const searchInput = document.getElementById('filterSearch');
+  if (!searchInput) return;
+  
+  // Add clear button
+  const wrapper = searchInput.parentElement;
+  if (wrapper && !wrapper.querySelector('.search-clear')) {
+    const clearBtn = document.createElement('button');
+    clearBtn.className = 'search-clear';
+    clearBtn.innerHTML = '×';
+    clearBtn.style.display = 'none';
+    clearBtn.onclick = () => {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      loadTable();
+    };
+    wrapper.style.position = 'relative';
+    wrapper.appendChild(clearBtn);
+  }
+  
+  searchInput.addEventListener('input', (e) => {
+    const clearBtn = wrapper?.querySelector('.search-clear');
+    if (clearBtn) {
+      clearBtn.style.display = e.target.value ? 'block' : 'none';
+    }
+    
+    // Debounced search
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => {
+      loadTable();
+    }, 300);
+  });
+}
+
+// ============ CHART CLICK TO FILTER ============
+function setupChartClickFilter() {
+  // Will be called after chart is created
+  if (catChart) {
+    catChart.options.onClick = (event, elements) => {
+      if (elements.length > 0) {
+        const idx = elements[0].index;
+        const category = catChart.data.labels[idx];
+        filterByCategory(category);
+      }
+    };
+    catChart.options.onHover = (event, elements) => {
+      event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
+    };
+    catChart.update();
+  }
+}
+
+function filterByCategory(category) {
+  switchView('transactions');
+  setTimeout(() => {
+    const catSelect = document.getElementById('filterCategory');
+    if (catSelect) {
+      catSelect.value = category;
+      loadTable();
+      showToast(`Filtering by: ${category}`, 'info');
+    }
+  }, 100);
+}
+
+// ============ BATCH QUICK TAG ============
+function showBatchActions() {
+  const count = selectedTxIds.size;
+  let bar = document.getElementById('batchActionBar');
+  
+  if (count === 0) {
+    if (bar) bar.classList.remove('visible');
+    return;
+  }
+  
+  if (!bar) {
+    bar = document.createElement('div');
+    bar.id = 'batchActionBar';
+    bar.className = 'batch-action-bar';
+    bar.innerHTML = `
+      <span class="batch-count"><span id="batchCount">0</span> selected</span>
+      <div class="batch-actions">
+        <select id="batchCategory" class="batch-select">
+          <option value="">Set Category...</option>
+        </select>
+        <select id="batchScope" class="batch-select">
+          <option value="">Set Scope...</option>
+          <option value="personal">Personal</option>
+          <option value="family">Family</option>
+          <option value="business">Business</option>
+        </select>
+        <button class="batch-btn batch-btn-danger" onclick="confirmDelete(Array.from(selectedTxIds))">
+          🗑️ Delete
+        </button>
+      </div>
+      <button class="batch-close" onclick="clearSelection()">×</button>
+    `;
+    document.body.appendChild(bar);
+    
+    // Populate categories
+    populateBatchCategories();
+    
+    // Wire up batch actions
+    document.getElementById('batchCategory').onchange = (e) => {
+      if (e.target.value) applyBatchTag('category', e.target.value);
+    };
+    document.getElementById('batchScope').onchange = (e) => {
+      if (e.target.value) applyBatchTag('scope', e.target.value);
+    };
+  }
+  
+  document.getElementById('batchCount').textContent = count;
+  bar.classList.add('visible');
+}
+
+async function populateBatchCategories() {
+  const select = document.getElementById('batchCategory');
+  if (!select) return;
+  
+  try {
+    const categories = await fetchJSON('/api/categories');
+    if (categories && categories.length) {
+      categories.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        select.appendChild(opt);
+      });
+    }
+  } catch (e) {}
+}
+
+async function applyBatchTag(field, value) {
+  const ids = Array.from(selectedTxIds);
+  let success = 0;
+  
+  for (const id of ids) {
+    const txn = allTransactions.find(t => t.id === id);
+    if (!txn) continue;
+    
+    const payload = { id };
+    if (field === 'category') {
+      payload.category = [value];
+      payload.scope = txn.scope;
+    } else {
+      payload.scope = value;
+      payload.category = txn.category;
+    }
+    
+    const result = await postJSON('/api/tag', payload);
+    if (result?.ok) success++;
+  }
+  
+  showToast(`Updated ${success} transactions`);
+  clearSelection();
+  loadTable();
+  
+  // Reset selects
+  document.getElementById('batchCategory').value = '';
+  document.getElementById('batchScope').value = '';
+}
+
+function clearSelection() {
+  selectedTxIds.clear();
+  document.querySelectorAll('#txTable tbody input[type="checkbox"]').forEach(cb => cb.checked = false);
+  document.getElementById('selectAll').checked = false;
+  showBatchActions();
+  updateBulkDeleteBtn();
+}
+
+// ============ MINI COMPARISON CHART ============
+function renderMiniComparison(thisMonth, lastMonth) {
+  const container = document.getElementById('miniCompare');
+  if (!container) return;
+  
+  const diff = lastMonth > 0 ? Math.round(((thisMonth - lastMonth) / lastMonth) * 100) : 0;
+  const isUp = diff > 0;
+  
+  container.innerHTML = `
+    <span class="mc-item"><span class="mc-label">This</span><span class="mc-value">${humanAmount(-thisMonth)}</span></span>
+    <span class="mc-item"><span class="mc-label">Last</span><span class="mc-value muted">${humanAmount(-lastMonth)}</span></span>
+    <span class="mc-diff ${isUp ? 'diff-up' : 'diff-down'}">${isUp ? '↑' : '↓'}${Math.abs(diff)}%</span>
+  `;
+}
+
+// ============ EMPTY STATES ============
+function renderEmptyState(container, type) {
+  const states = {
+    'no-transactions': {
+      icon: '📭',
+      title: 'No transactions yet',
+      message: 'Upload a bank statement to get started',
+      action: { text: 'Upload PDF', onclick: "document.getElementById('uploadPdfBtn').click()" }
+    },
+    'no-results': {
+      icon: '🔍',
+      title: 'No matches found',
+      message: 'Try adjusting your filters',
+      action: { text: 'Clear Filters', onclick: 'clearAllFilters()' }
+    },
+    'all-categorized': {
+      icon: '🎉',
+      title: 'All caught up!',
+      message: 'Every transaction is categorized',
+      action: null
+    },
+    'no-duplicates': {
+      icon: '✨',
+      title: 'No duplicates',
+      message: 'Your data is clean',
+      action: null
+    }
+  };
+  
+  const state = states[type];
+  if (!state || !container) return;
+  
+  container.innerHTML = `
+    <div class="empty-state">
+      <div class="empty-icon">${state.icon}</div>
+      <h3 class="empty-title">${state.title}</h3>
+      <p class="empty-message">${state.message}</p>
+      ${state.action ? `<button class="btn-accent" onclick="${state.action.onclick}">${state.action.text}</button>` : ''}
+    </div>
+  `;
+}
+
+function clearAllFilters() {
+  document.getElementById('filterScope').value = '';
+  document.getElementById('filterCategory').value = '';
+  document.getElementById('filterDirection').value = '';
+  document.getElementById('filterSearch').value = '';
+  loadTable();
 }

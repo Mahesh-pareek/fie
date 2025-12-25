@@ -1,6 +1,54 @@
-fie.egg-info/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
 .env
 .venv/
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# FIE data files (keep templates, ignore user data)
+fie/transactions.json
+fie/auto_rules.json
+fie/activity_logs.json
+fie/settings.json
+fie/trash.json
 ~/.fie/
+
+# Debug files
+debug_dump/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+/tmp/

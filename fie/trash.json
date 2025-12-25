@@ -1,1313 +1,557 @@
 [
   {
-    "id": "5d0e77ef0057447acf368086025bbe002bbafc860936f2c4cf3457228796f401",
-    "deleted_at": "2025-12-24T21:55:14.687652",
+    "id": "2e1f8ded3d3ae43ceb13e5d6d6b942bab0e100968e1be58ced76c405be3dd7d5",
+    "deleted_at": "2025-12-24T23:47:30.442956",
     "transaction": {
-      "id": "5d0e77ef0057447acf368086025bbe002bbafc860936f2c4cf3457228796f401",
-      "datetime": "2025-11-22T19:32:57",
-      "amount": 20.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "RAJESHKU",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "a67f13055a6cd1cfb01eae266df55eacc61c0604134097373ab63d5c5168e17b",
-    "deleted_at": "2025-12-24T21:55:14.687644",
-    "transaction": {
-      "id": "a67f13055a6cd1cfb01eae266df55eacc61c0604134097373ab63d5c5168e17b",
-      "datetime": "2025-11-23T13:02:00",
-      "amount": 904.0,
+      "id": "2e1f8ded3d3ae43ceb13e5d6d6b942bab0e100968e1be58ced76c405be3dd7d5",
+      "datetime": "2025-10-31T22:27:59",
+      "amount": 199.0,
       "direction": "debit",
       "scope": "unknown",
       "category": [],
-      "counterparty": "JIORECHA",
+      "counterparty": "DELHIVERY",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "1c190fd3b40f1575beeab2bfa66800734f4f997791bbdf97de377aa6c27988a8",
-    "deleted_at": "2025-12-24T21:55:14.687636",
+    "id": "6d80fac11c90d2aa627cf0571ff5ed9b24b77689b2efd43820719804d633a6ef",
+    "deleted_at": "2025-12-24T23:47:30.442941",
     "transaction": {
-      "id": "1c190fd3b40f1575beeab2bfa66800734f4f997791bbdf97de377aa6c27988a8",
-      "datetime": "2025-11-24T00:04:27",
-      "amount": 20.0,
+      "id": "6d80fac11c90d2aa627cf0571ff5ed9b24b77689b2efd43820719804d633a6ef",
+      "datetime": "2025-10-31T22:46:03",
+      "amount": 40.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
-        "coffee"
+        "food"
       ],
-      "counterparty": "YULUBIKES",
+      "counterparty": "HOLISTIC",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "e7d7b845c28638e30061355fde80a6a1392d378e2771baaa237ee316c86b63aa",
-    "deleted_at": "2025-12-24T21:55:14.687628",
+    "id": "0a981f768a44e253ad869d83b1a61216d210952c1ec9bc0b34935bd47e302270",
+    "deleted_at": "2025-12-24T23:47:30.442926",
     "transaction": {
-      "id": "e7d7b845c28638e30061355fde80a6a1392d378e2771baaa237ee316c86b63aa",
-      "datetime": "2025-11-24T00:33:51",
-      "amount": 249.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "REBELMAR",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "9a95327d910917eba577a1a5529a9126db82149634a837e92dbc6ee8d63c4e16",
-    "deleted_at": "2025-12-24T21:55:14.687620",
-    "transaction": {
-      "id": "9a95327d910917eba577a1a5529a9126db82149634a837e92dbc6ee8d63c4e16",
-      "datetime": "2025-11-24T05:56:31",
-      "amount": 125.0,
+      "id": "0a981f768a44e253ad869d83b1a61216d210952c1ec9bc0b34935bd47e302270",
+      "datetime": "2025-10-31T23:02:11",
+      "amount": 199.0,
       "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "VAIBHAVI",
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "counterparty": "RAZORPAY",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "99f848050af12126b4a80276f7df0bad296e1ba5c9927cb0d727d683cd0f0b60",
-    "deleted_at": "2025-12-24T21:55:14.687612",
+    "id": "ff7f7c688faedab395cf667d46173f68fd7a6864f210149a4b44646a85daf26e",
+    "deleted_at": "2025-12-24T23:47:30.442911",
     "transaction": {
-      "id": "99f848050af12126b4a80276f7df0bad296e1ba5c9927cb0d727d683cd0f0b60",
-      "datetime": "2025-11-25T05:18:42",
-      "amount": 255.2,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "ETERNALL",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "896bbaf444ba6a58eb57a7b1813e969c0ac3a4023fc1a535e72e3c879a0bf470",
-    "deleted_at": "2025-12-24T21:55:14.687605",
-    "transaction": {
-      "id": "896bbaf444ba6a58eb57a7b1813e969c0ac3a4023fc1a535e72e3c879a0bf470",
-      "datetime": "2025-11-25T10:05:57",
-      "amount": 15.0,
+      "id": "ff7f7c688faedab395cf667d46173f68fd7a6864f210149a4b44646a85daf26e",
+      "datetime": "2025-11-01T02:01:26",
+      "amount": 365.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
-        "coffee"
+        "utilities",
+        "recharge"
       ],
-      "counterparty": "SHEELUKU",
+      "counterparty": "VODAFONEI",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "85d22ac4672eb90352f4e2149abdd74db83c190390537e0a17db3319cdcc19d1",
-    "deleted_at": "2025-12-24T21:55:14.687597",
+    "id": "a919b421c10b3e729cc6b7e03b44ff89c892ce3daf48391b357673b8b734e488",
+    "deleted_at": "2025-12-24T23:47:30.442896",
     "transaction": {
-      "id": "85d22ac4672eb90352f4e2149abdd74db83c190390537e0a17db3319cdcc19d1",
-      "datetime": "2025-11-25T17:15:25",
-      "amount": 10.0,
+      "id": "a919b421c10b3e729cc6b7e03b44ff89c892ce3daf48391b357673b8b734e488",
+      "datetime": "2025-11-01T03:37:11",
+      "amount": 55.0,
       "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "noise"
-      ],
-      "counterparty": "RAJESHKU",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "916ac3df6ffb89a9808236c78f6f267938b8a3ad3f9f0a8cecdd2e9d0efcb08b",
-    "deleted_at": "2025-12-24T21:55:14.687589",
-    "transaction": {
-      "id": "916ac3df6ffb89a9808236c78f6f267938b8a3ad3f9f0a8cecdd2e9d0efcb08b",
-      "datetime": "2025-11-25T18:43:16",
-      "amount": 15.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "ROHITKUM",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "a937c4b9272b0324870fe32a55c8ee8554ba951c286f7a7284fdb3f88cfcc624",
-    "deleted_at": "2025-12-24T21:55:14.687581",
-    "transaction": {
-      "id": "a937c4b9272b0324870fe32a55c8ee8554ba951c286f7a7284fdb3f88cfcc624",
-      "datetime": "2025-11-26T07:56:06",
-      "amount": 15.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "VINODKUM",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "86a11edbc7f88b79430fccbd7426a181428a0724b4fd86ffa1bf5580d887d051",
-    "deleted_at": "2025-12-24T21:55:14.687574",
-    "transaction": {
-      "id": "86a11edbc7f88b79430fccbd7426a181428a0724b4fd86ffa1bf5580d887d051",
-      "datetime": "2025-11-26T07:56:36",
-      "amount": 5.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "noise"
-      ],
-      "counterparty": "VINODKUM",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "ed94e0bdbe7ad4a52dd902014cb84efe80f761d4e7e8f55ee0b75f07379fb4d9",
-    "deleted_at": "2025-12-24T21:55:14.687566",
-    "transaction": {
-      "id": "ed94e0bdbe7ad4a52dd902014cb84efe80f761d4e7e8f55ee0b75f07379fb4d9",
-      "datetime": "2025-11-26T08:43:32",
-      "amount": 30.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "snacks"
-      ],
-      "counterparty": "SHEELUKU",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "79b7d7fc97a3962171e75dae6915a1d3a4610898817c36ef5c0a83c008bbeb27",
-    "deleted_at": "2025-12-24T21:55:14.687558",
-    "transaction": {
-      "id": "79b7d7fc97a3962171e75dae6915a1d3a4610898817c36ef5c0a83c008bbeb27",
-      "datetime": "2025-11-26T08:50:03",
-      "amount": 70.0,
-      "direction": "credit",
       "scope": "personal",
       "category": [
         "daily"
       ],
-      "counterparty": "VAIBHAVI",
+      "counterparty": "RAMBABU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "d92d04bc01411e1503280dc51a2ce297627a9b7cb6f4743de15cf3bfe00a88c4",
-    "deleted_at": "2025-12-24T21:55:14.687550",
+    "id": "caa7eb0db1f7f1ef94faecefb2353c05090413834f189de638cceadf26a896ad",
+    "deleted_at": "2025-12-24T23:47:30.442881",
     "transaction": {
-      "id": "d92d04bc01411e1503280dc51a2ce297627a9b7cb6f4743de15cf3bfe00a88c4",
-      "datetime": "2025-11-26T09:02:56",
-      "amount": 40.0,
+      "id": "caa7eb0db1f7f1ef94faecefb2353c05090413834f189de638cceadf26a896ad",
+      "datetime": "2025-11-01T15:52:35",
+      "amount": 689.85,
       "direction": "debit",
       "scope": "personal",
       "category": [
-        "snacks"
+        "food"
       ],
-      "counterparty": "DEEPAKGA",
+      "counterparty": "DOMINOSP",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "5421218a3a4a07c4b9d38c8e6a86c576d777b2a28c45df07de051463474350eb",
-    "deleted_at": "2025-12-24T21:55:14.687542",
+    "id": "c1286112c85b53c4d41d64a0449aaf025e8e88f01c892f11223d65f41f52e1bf",
+    "deleted_at": "2025-12-24T23:47:30.442865",
     "transaction": {
-      "id": "5421218a3a4a07c4b9d38c8e6a86c576d777b2a28c45df07de051463474350eb",
-      "datetime": "2025-11-26T14:14:13",
-      "amount": 40.0,
-      "direction": "debit",
+      "id": "c1286112c85b53c4d41d64a0449aaf025e8e88f01c892f11223d65f41f52e1bf",
+      "datetime": "2025-11-01T16:24:19",
+      "amount": 10.0,
+      "direction": "credit",
       "scope": "personal",
       "category": [
-        "snacks"
+        "noise"
       ],
-      "counterparty": "RAJESHKU",
+      "counterparty": "ARPITGO",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "0a684f5193a0e5a2931a0f7d8137e0f7197295e05c13edf263b661dc62526fb5",
-    "deleted_at": "2025-12-24T21:55:14.687535",
+    "id": "1ef0d34682a7b2fd0e01eca1b8a9dc9be1e6964b4feb5f4c108c61db03a448ae",
+    "deleted_at": "2025-12-24T23:47:30.442850",
     "transaction": {
-      "id": "0a684f5193a0e5a2931a0f7d8137e0f7197295e05c13edf263b661dc62526fb5",
-      "datetime": "2025-11-27T01:34:13",
+      "id": "1ef0d34682a7b2fd0e01eca1b8a9dc9be1e6964b4feb5f4c108c61db03a448ae",
+      "datetime": "2025-11-02T20:31:36",
       "amount": 25.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "coffee"
       ],
-      "counterparty": "BRAJNATH",
+      "counterparty": "RAMBABU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "4d8204fc45828c0d1c3ab7b60d8cae5eaf2b40e580565bbbb9d114d85380fe2e",
-    "deleted_at": "2025-12-24T21:55:14.687527",
+    "id": "b8a66ebd210f4f2ff43cd3450cdd1d59d872b427a5e6ff78a54987664eeef324",
+    "deleted_at": "2025-12-24T23:47:30.442835",
     "transaction": {
-      "id": "4d8204fc45828c0d1c3ab7b60d8cae5eaf2b40e580565bbbb9d114d85380fe2e",
-      "datetime": "2025-11-27T01:45:27",
-      "amount": 200.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "CHARANSI",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "f48d876be4085e70324c3c771cd2c0f5d083eead2996c0a2753d37583e0b7366",
-    "deleted_at": "2025-12-24T21:55:14.687518",
-    "transaction": {
-      "id": "f48d876be4085e70324c3c771cd2c0f5d083eead2996c0a2753d37583e0b7366",
-      "datetime": "2025-11-27T16:04:14",
-      "amount": 43.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "snacks"
-      ],
-      "counterparty": "DMRCLIMI",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "ef44a3d700d70b981693d825462a1c4f66d0a017e0849556578417c370a5717d",
-    "deleted_at": "2025-12-24T21:55:14.687510",
-    "transaction": {
-      "id": "ef44a3d700d70b981693d825462a1c4f66d0a017e0849556578417c370a5717d",
-      "datetime": "2025-11-27T18:00:54",
-      "amount": 500.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "LAKSHYA",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "49ccdd4790e682cbdec257e6a1534d0a752118252c07091cb17c265019d40d7b",
-    "deleted_at": "2025-12-24T21:55:14.687503",
-    "transaction": {
-      "id": "49ccdd4790e682cbdec257e6a1534d0a752118252c07091cb17c265019d40d7b",
-      "datetime": "2025-11-27T19:40:04",
-      "amount": 43.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "snacks"
-      ],
-      "counterparty": "DMRCLIMI",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "05bbb0070fff3709f8a94138d38ecfe1d86f271e143a6953c00b946becb6c79e",
-    "deleted_at": "2025-12-24T21:55:14.687494",
-    "transaction": {
-      "id": "05bbb0070fff3709f8a94138d38ecfe1d86f271e143a6953c00b946becb6c79e",
-      "datetime": "2025-11-28T13:45:34",
-      "amount": 20.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "RAJESHKU",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "7ee77feb84921bcacd4ee8b0d5bd81196954cef208a5fe374d412917b4190f41",
-    "deleted_at": "2025-12-24T21:55:14.687487",
-    "transaction": {
-      "id": "7ee77feb84921bcacd4ee8b0d5bd81196954cef208a5fe374d412917b4190f41",
-      "datetime": "2025-11-28T14:42:25",
-      "amount": 101.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "YULUBIKES",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "b605561c114c52b452a2c6b3db1d6cc68cf57febe6ad9cc91e6f5beb4d95cf19",
-    "deleted_at": "2025-12-24T21:55:14.687479",
-    "transaction": {
-      "id": "b605561c114c52b452a2c6b3db1d6cc68cf57febe6ad9cc91e6f5beb4d95cf19",
-      "datetime": "2025-11-28T20:02:21",
-      "amount": 10.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "noise"
-      ],
-      "counterparty": "ARJUN",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "3e887e751ba41680b86274939f1aac533eb71933ebfc24b51fbba2b1af3c16fa",
-    "deleted_at": "2025-12-24T21:55:14.687471",
-    "transaction": {
-      "id": "3e887e751ba41680b86274939f1aac533eb71933ebfc24b51fbba2b1af3c16fa",
-      "datetime": "2025-11-29T13:58:03",
-      "amount": 40.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "snacks"
-      ],
-      "counterparty": "RAJESHKU",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "e5ca8db8b35d77be8b7029bd977eea1ae17533641939fb164498f8f6a8a026d6",
-    "deleted_at": "2025-12-24T21:55:14.687463",
-    "transaction": {
-      "id": "e5ca8db8b35d77be8b7029bd977eea1ae17533641939fb164498f8f6a8a026d6",
-      "datetime": "2025-12-01T20:51:23",
-      "amount": 20.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "RAJESHKU",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "2fb584c9244a4f462693e96533ef91d70aaba1cc021ee13c671463cce027a112",
-    "deleted_at": "2025-12-24T21:55:14.687456",
-    "transaction": {
-      "id": "2fb584c9244a4f462693e96533ef91d70aaba1cc021ee13c671463cce027a112",
-      "datetime": "2025-12-02T11:19:16",
-      "amount": 2000.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "MANOJKUM",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "6e7cde8d537ff2445e15065bf6fb7d4911b31e48b53b82122b21a94b422c2bed",
-    "deleted_at": "2025-12-24T21:55:14.687447",
-    "transaction": {
-      "id": "6e7cde8d537ff2445e15065bf6fb7d4911b31e48b53b82122b21a94b422c2bed",
-      "datetime": "2025-12-02T11:20:37",
-      "amount": 10900.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "MANOJKUM",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "40ffb69b3181e5b7f316d293e2d3ec40103dc84a3dbea9bf4d9f9dca45d69dae",
-    "deleted_at": "2025-12-24T21:55:14.687434",
-    "transaction": {
-      "id": "40ffb69b3181e5b7f316d293e2d3ec40103dc84a3dbea9bf4d9f9dca45d69dae",
-      "datetime": "2025-12-02T14:09:54",
-      "amount": 5.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "noise"
-      ],
-      "counterparty": "RAJESHKU",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "a1408470e0d1350023d5c2f75b566ef906ff91b21c219e6482730a6c6c832571",
-    "deleted_at": "2025-12-24T21:55:14.687421",
-    "transaction": {
-      "id": "a1408470e0d1350023d5c2f75b566ef906ff91b21c219e6482730a6c6c832571",
-      "datetime": "2025-12-02T18:09:17",
-      "amount": 95.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "daily"
-      ],
-      "counterparty": "UMESHKUM",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "1385303080674ec125fad375c2ef8c921da0eaec1544ac628b43cdca52d6060e",
-    "deleted_at": "2025-12-24T21:55:14.687408",
-    "transaction": {
-      "id": "1385303080674ec125fad375c2ef8c921da0eaec1544ac628b43cdca52d6060e",
-      "datetime": "2025-12-03T01:08:52",
-      "amount": 125.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "HOLISTIC",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "a59b5a433aabd27121e8eb638d57b31a7ba627970246a297a15204aa36bae04b",
-    "deleted_at": "2025-12-24T21:55:14.687395",
-    "transaction": {
-      "id": "a59b5a433aabd27121e8eb638d57b31a7ba627970246a297a15204aa36bae04b",
-      "datetime": "2025-12-03T16:52:34",
-      "amount": 40.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "snacks"
-      ],
-      "counterparty": "RAJESHKU",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "4407eaac6297736e02c940bcba0a0f9bcbacc302000dab62a3242b20928306c4",
-    "deleted_at": "2025-12-24T21:55:14.687381",
-    "transaction": {
-      "id": "4407eaac6297736e02c940bcba0a0f9bcbacc302000dab62a3242b20928306c4",
-      "datetime": "2025-12-04T20:29:20",
-      "amount": 115.76,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "YULUBIKES",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "193851269de98bbe082f356077fce345c991e6e8245d7c09140a04d0cea95cde",
-    "deleted_at": "2025-12-24T21:55:14.687368",
-    "transaction": {
-      "id": "193851269de98bbe082f356077fce345c991e6e8245d7c09140a04d0cea95cde",
-      "datetime": "2025-12-04T20:35:15",
-      "amount": 35.16,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "snacks"
-      ],
-      "counterparty": "APO",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "0c542993d051a7e18d61479544dca1ce0cc8b03cb3b8da14fdb59aee5ea2e056",
-    "deleted_at": "2025-12-24T21:55:14.687354",
-    "transaction": {
-      "id": "0c542993d051a7e18d61479544dca1ce0cc8b03cb3b8da14fdb59aee5ea2e056",
-      "datetime": "2025-12-05T03:46:06",
-      "amount": 506.1,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "DOMINOSPI",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "21ecd3bec2d02d9a94ec3798ae5c805f83af563c02cc1eea4ae7f5f183f5c9af",
-    "deleted_at": "2025-12-24T21:55:14.687341",
-    "transaction": {
-      "id": "21ecd3bec2d02d9a94ec3798ae5c805f83af563c02cc1eea4ae7f5f183f5c9af",
-      "datetime": "2025-12-05T14:31:24",
+      "id": "b8a66ebd210f4f2ff43cd3450cdd1d59d872b427a5e6ff78a54987664eeef324",
+      "datetime": "2025-11-03T01:24:09",
       "amount": 30.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "snacks"
       ],
-      "counterparty": "HOLISTIC",
+      "counterparty": "RAMBABU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "96bc9747e7241fdd2ff4b5265ffdb8ed7d885a0bc1724352878f834a9f90b6df",
-    "deleted_at": "2025-12-24T21:55:14.687327",
+    "id": "b2eed3f4debc88fc1a1f9d7a4cb84d93e30ad76c72f3f8c866d303b40d265017",
+    "deleted_at": "2025-12-24T23:47:30.442820",
     "transaction": {
-      "id": "96bc9747e7241fdd2ff4b5265ffdb8ed7d885a0bc1724352878f834a9f90b6df",
-      "datetime": "2025-12-06T10:32:56",
-      "amount": 201.0,
+      "id": "b2eed3f4debc88fc1a1f9d7a4cb84d93e30ad76c72f3f8c866d303b40d265017",
+      "datetime": "2025-11-03T01:34:01",
+      "amount": 10.0,
       "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "BLINKIT",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "d33d4bdac98bcb0e086df8cf7f36d840c4f63de9b4a416a9809ef044712b19d2",
-    "deleted_at": "2025-12-24T21:55:14.687314",
-    "transaction": {
-      "id": "d33d4bdac98bcb0e086df8cf7f36d840c4f63de9b4a416a9809ef044712b19d2",
-      "datetime": "2025-12-06T14:35:41",
-      "amount": 2000.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "RAMLAL",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "bb71ac54083d88afd2439a94452bbc3e17cd83f57b5103339876549c28366f09",
-    "deleted_at": "2025-12-24T21:55:14.687299",
-    "transaction": {
-      "id": "bb71ac54083d88afd2439a94452bbc3e17cd83f57b5103339876549c28366f09",
-      "datetime": "2025-12-08T04:11:10",
-      "amount": 200.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "CHARANSI",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "e8add7fb5d9f35854aadc14b68046c922dda1cf56c214f560d5660dc9945bd1b",
-    "deleted_at": "2025-12-24T21:55:14.687284",
-    "transaction": {
-      "id": "e8add7fb5d9f35854aadc14b68046c922dda1cf56c214f560d5660dc9945bd1b",
-      "datetime": "2025-12-08T04:12:56",
-      "amount": 100.0,
-      "direction": "credit",
       "scope": "personal",
       "category": [
-        "daily"
+        "noise"
       ],
-      "counterparty": "ADHEESHP",
+      "counterparty": "RAMBABU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "330d1ce84bca0f4a19358a488d04b0e5e691d6ba487dcad8a1dc3c1216bddeaa",
-    "deleted_at": "2025-12-24T21:55:14.687269",
+    "id": "f5e9f1085064f3a56fdbb5e7ccccef697c3e7e3f2d95af49b56e6faf5e485f71",
+    "deleted_at": "2025-12-24T23:47:30.442804",
     "transaction": {
-      "id": "330d1ce84bca0f4a19358a488d04b0e5e691d6ba487dcad8a1dc3c1216bddeaa",
-      "datetime": "2025-12-08T14:24:01",
-      "amount": 100.0,
+      "id": "f5e9f1085064f3a56fdbb5e7ccccef697c3e7e3f2d95af49b56e6faf5e485f71",
+      "datetime": "2025-11-03T03:37:34",
+      "amount": 25.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "RAMBABU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "5400b945038ed00902a11a18cfef3eafbe54c37833fd62980469b6c5ffdaa7f6",
+    "deleted_at": "2025-12-24T23:47:30.442789",
+    "transaction": {
+      "id": "5400b945038ed00902a11a18cfef3eafbe54c37833fd62980469b6c5ffdaa7f6",
+      "datetime": "2025-11-03T06:51:35",
+      "amount": 75.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "daily"
       ],
-      "counterparty": "MDKONEN",
+      "counterparty": "CAFECOFF",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "9d7c01cdf4ef1e1c94854b3564287ff96779f8248a85bd4e19f45fb740efa85f",
-    "deleted_at": "2025-12-24T21:55:14.687254",
+    "id": "ad044eea2b85b79965bef6b6bf0384782cdea518635248a7331d19118e250374",
+    "deleted_at": "2025-12-24T23:47:30.442773",
     "transaction": {
-      "id": "9d7c01cdf4ef1e1c94854b3564287ff96779f8248a85bd4e19f45fb740efa85f",
-      "datetime": "2025-12-08T16:33:10",
+      "id": "ad044eea2b85b79965bef6b6bf0384782cdea518635248a7331d19118e250374",
+      "datetime": "2025-11-03T09:28:59",
       "amount": 15.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "coffee"
       ],
-      "counterparty": "ROHITKUM",
+      "counterparty": "MRKAMLES",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "4a0d6d9fbc82dfe44d42d830422973695c185945664c6d7f3aa8c9ef26324432",
-    "deleted_at": "2025-12-24T21:55:14.687239",
+    "id": "8cb455e60cda937ba5117966dca5e581af8cfe0dafbbca0718deb090a47a6c95",
+    "deleted_at": "2025-12-24T23:47:30.442758",
     "transaction": {
-      "id": "4a0d6d9fbc82dfe44d42d830422973695c185945664c6d7f3aa8c9ef26324432",
-      "datetime": "2025-12-08T16:38:39",
-      "amount": 80.0,
+      "id": "8cb455e60cda937ba5117966dca5e581af8cfe0dafbbca0718deb090a47a6c95",
+      "datetime": "2025-11-03T14:11:17",
+      "amount": 20.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
-        "daily"
+        "coffee"
       ],
       "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "de0dc7bd96bcd50cc1360882eb166bd96ea6edbe4840d803b03b8dbab6230075",
-    "deleted_at": "2025-12-24T21:55:14.687225",
+    "id": "8f8d86941df536230e1a9933aad310b81c38f769801084f4c826e56cd59f7b01",
+    "deleted_at": "2025-12-24T23:47:30.442743",
     "transaction": {
-      "id": "de0dc7bd96bcd50cc1360882eb166bd96ea6edbe4840d803b03b8dbab6230075",
-      "datetime": "2025-12-08T20:19:15",
-      "amount": 20.0,
+      "id": "8f8d86941df536230e1a9933aad310b81c38f769801084f4c826e56cd59f7b01",
+      "datetime": "2025-11-03T20:25:51",
+      "amount": 25.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "coffee"
       ],
-      "counterparty": "HOLISTIC",
+      "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "1354211507223fe3be199784f274ccf1b7efc8971a73dc0fdbf0f390e948d270",
-    "deleted_at": "2025-12-24T21:55:14.687210",
+    "id": "3b6d2694fc59a82d42b62b4d1d603f3240a8d41bf4bf5a9c439107e0e34adaaf",
+    "deleted_at": "2025-12-24T23:47:30.442728",
     "transaction": {
-      "id": "1354211507223fe3be199784f274ccf1b7efc8971a73dc0fdbf0f390e948d270",
-      "datetime": "2025-12-09T00:00:00",
-      "amount": 49000.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "DR",
-      "mode": "CASH",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "92fd1202b41083517609a067f3055bf23b0c136e1d53ac9c1853262c0d035a6e",
-    "deleted_at": "2025-12-24T21:55:14.687195",
-    "transaction": {
-      "id": "92fd1202b41083517609a067f3055bf23b0c136e1d53ac9c1853262c0d035a6e",
-      "datetime": "2025-12-09T12:43:31",
-      "amount": 32.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "snacks"
-      ],
-      "counterparty": "DMRCLIMI",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "b1724d7096f91453b685645075bdab13080114a217561f9c3d9c471f54d80cfc",
-    "deleted_at": "2025-12-24T21:55:14.687179",
-    "transaction": {
-      "id": "b1724d7096f91453b685645075bdab13080114a217561f9c3d9c471f54d80cfc",
-      "datetime": "2025-12-09T13:25:08",
-      "amount": 300.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "ABHISHEK",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "0b7f38304edd0bc7d9522111d40baefc455b71dda6e088963c7b4377732c4a60",
-    "deleted_at": "2025-12-24T21:55:14.687164",
-    "transaction": {
-      "id": "0b7f38304edd0bc7d9522111d40baefc455b71dda6e088963c7b4377732c4a60",
-      "datetime": "2025-12-09T13:35:39",
-      "amount": 76.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "daily"
-      ],
-      "counterparty": "HALDIRAM",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "3c6efff1187946ffdfd3a321bee34d32e901a3b36b3b7f42aa5560a79bc4259a",
-    "deleted_at": "2025-12-24T21:55:14.687152",
-    "transaction": {
-      "id": "3c6efff1187946ffdfd3a321bee34d32e901a3b36b3b7f42aa5560a79bc4259a",
-      "datetime": "2025-12-09T14:13:07",
-      "amount": 32.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "snacks"
-      ],
-      "counterparty": "UNKNOWN",
-      "mode": "UNKNOWN",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "90a70db690a590b9c31d23bb1472068cf8bac233666aab01ee2795ab8100701e",
-    "deleted_at": "2025-12-24T21:55:14.687144",
-    "transaction": {
-      "id": "90a70db690a590b9c31d23bb1472068cf8bac233666aab01ee2795ab8100701e",
-      "datetime": "2025-12-09T18:10:10",
-      "amount": 200.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "KRISHANTH",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "2753af923aae9cc93436a7090394eda36fc55123340499f9067b66dfb873a974",
-    "deleted_at": "2025-12-24T21:55:14.687135",
-    "transaction": {
-      "id": "2753af923aae9cc93436a7090394eda36fc55123340499f9067b66dfb873a974",
-      "datetime": "2025-12-09T20:46:39",
-      "amount": 60.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "daily"
-      ],
-      "counterparty": "RAJDHANI",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "122d418fac8c88b278c293e68bf1e8f85addd391faa356c115632c3f0c654d79",
-    "deleted_at": "2025-12-24T21:55:14.687126",
-    "transaction": {
-      "id": "122d418fac8c88b278c293e68bf1e8f85addd391faa356c115632c3f0c654d79",
-      "datetime": "2025-12-10T02:42:30",
-      "amount": 20.0,
+      "id": "3b6d2694fc59a82d42b62b4d1d603f3240a8d41bf4bf5a9c439107e0e34adaaf",
+      "datetime": "2025-11-03T23:41:42",
+      "amount": 25.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "coffee"
       ],
-      "counterparty": "HOLISTIC",
+      "counterparty": "RAMBABU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "e2c34f4b4abc774784499b9da2ecf2bf1088b47cdca706b8e2a4e351d9c66dd2",
-    "deleted_at": "2025-12-24T21:55:14.687117",
+    "id": "cb81ba71e916aa039bad9358abb8d69ff91e2044296a4e98c60720951f0a9299",
+    "deleted_at": "2025-12-24T23:47:30.442712",
     "transaction": {
-      "id": "e2c34f4b4abc774784499b9da2ecf2bf1088b47cdca706b8e2a4e351d9c66dd2",
-      "datetime": "2025-12-10T10:37:53",
-      "amount": 625.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "BLINKIT",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "0a8e21df78f8e752e785743f939a4fc9e31253a37658a69839e3bb0bf2664ff3",
-    "deleted_at": "2025-12-24T21:55:14.687109",
-    "transaction": {
-      "id": "0a8e21df78f8e752e785743f939a4fc9e31253a37658a69839e3bb0bf2664ff3",
-      "datetime": "2025-12-11T14:35:48",
-      "amount": 59.0,
+      "id": "cb81ba71e916aa039bad9358abb8d69ff91e2044296a4e98c60720951f0a9299",
+      "datetime": "2025-11-04T09:55:04",
+      "amount": 15.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
-        "daily"
+        "coffee"
       ],
-      "counterparty": "SPOTIFYI",
+      "counterparty": "SURESHKU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "140c1b03651c1d14af224227bab2127fa1a72325debc58c1859e4068fc89f895",
-    "deleted_at": "2025-12-24T21:55:14.687100",
+    "id": "ef801fd087ad911057f1bdc2789e9e3b38d42ebac03455c7c3b891524e0edbec",
+    "deleted_at": "2025-12-24T23:47:30.442697",
     "transaction": {
-      "id": "140c1b03651c1d14af224227bab2127fa1a72325debc58c1859e4068fc89f895",
-      "datetime": "2025-12-12T09:55:37",
+      "id": "ef801fd087ad911057f1bdc2789e9e3b38d42ebac03455c7c3b891524e0edbec",
+      "datetime": "2025-11-04T10:26:08",
+      "amount": 2.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "GOOGLE",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "e03a9a116b912e6416d4dc5c23e60f6d5909e2030f9ccf80ede27c876ab1ea7e",
+    "deleted_at": "2025-12-24T23:47:30.442681",
+    "transaction": {
+      "id": "e03a9a116b912e6416d4dc5c23e60f6d5909e2030f9ccf80ede27c876ab1ea7e",
+      "datetime": "2025-11-04T10:26:37",
+      "amount": 2.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "GOOGLEPAY",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "c3c2f37c0a2f20abf72f708dafcb76daf6a17d9e50167f6493ebbe94c36e357c",
+    "deleted_at": "2025-12-24T23:47:30.442666",
+    "transaction": {
+      "id": "c3c2f37c0a2f20abf72f708dafcb76daf6a17d9e50167f6493ebbe94c36e357c",
+      "datetime": "2025-11-04T16:28:38",
+      "amount": 15.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "JOGPAL",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "bb7d4bb0639a9140a64beafbba8a3b12ca1ac27d821fac5e1e844ed00b457ddd",
+    "deleted_at": "2025-12-24T23:47:30.442651",
+    "transaction": {
+      "id": "bb7d4bb0639a9140a64beafbba8a3b12ca1ac27d821fac5e1e844ed00b457ddd",
+      "datetime": "2025-11-04T18:19:31",
       "amount": 40.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "snacks"
       ],
-      "counterparty": "KHUSHBUD",
+      "counterparty": "VAIBHAVI",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "c60e761d4ae24ee21d0f8638c5846c7ab0a3ab164060a1746c927ac6ad72da56",
-    "deleted_at": "2025-12-24T21:55:14.687092",
+    "id": "62c0290cf9596c26f64edfbf43591d8d256a40078622a81c3f8e95a8302bdc98",
+    "deleted_at": "2025-12-24T23:47:30.442636",
     "transaction": {
-      "id": "c60e761d4ae24ee21d0f8638c5846c7ab0a3ab164060a1746c927ac6ad72da56",
-      "datetime": "2025-12-12T13:00:41",
-      "amount": 799.0,
+      "id": "62c0290cf9596c26f64edfbf43591d8d256a40078622a81c3f8e95a8302bdc98",
+      "datetime": "2025-11-04T22:03:32",
+      "amount": 25.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "RAMBABU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "1540ff59aab8e83a42830c5a8865c837f9ece728117e6740ad258f3f42b1eb07",
+    "deleted_at": "2025-12-24T23:47:30.442621",
+    "transaction": {
+      "id": "1540ff59aab8e83a42830c5a8865c837f9ece728117e6740ad258f3f42b1eb07",
+      "datetime": "2025-11-05T02:38:35",
+      "amount": 10.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "RAMBABU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "0cfa4fb3c18be502decc7925d262fa61ef7ac92ae09d3f6927ebea8fa5ff8730",
+    "deleted_at": "2025-12-24T23:47:30.442605",
+    "transaction": {
+      "id": "0cfa4fb3c18be502decc7925d262fa61ef7ac92ae09d3f6927ebea8fa5ff8730",
+      "datetime": "2025-11-05T15:28:57",
+      "amount": 260.0,
       "direction": "debit",
       "scope": "unknown",
       "category": [],
-      "counterparty": "BBPUBLIC",
+      "counterparty": "LAKSHYA",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "14024869f73318cee66f533c69b18a5757cab78d913e10b774f17b26ac8c9730",
-    "deleted_at": "2025-12-24T21:55:14.687085",
+    "id": "83a545de3655c78256aa0ee073b71831730181d4fe9030e1767542829a683ec4",
+    "deleted_at": "2025-12-24T23:47:30.442589",
     "transaction": {
-      "id": "14024869f73318cee66f533c69b18a5757cab78d913e10b774f17b26ac8c9730",
-      "datetime": "2025-12-12T13:59:50",
-      "amount": 100.0,
+      "id": "83a545de3655c78256aa0ee073b71831730181d4fe9030e1767542829a683ec4",
+      "datetime": "2025-11-06T00:00:00",
+      "amount": 1.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "OPENAILLC",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "732e8b6f573fb024634a5e890870a091bac7af9f654c8c12bca1ef366290d619",
+    "deleted_at": "2025-12-24T23:47:30.442574",
+    "transaction": {
+      "id": "732e8b6f573fb024634a5e890870a091bac7af9f654c8c12bca1ef366290d619",
+      "datetime": "2025-11-06T00:26:12",
+      "amount": 239.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "WWWEATSU",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "cf008004bfbb2cfb6060c64e77e3a62ff9ba1b185b6d8e823c286113e49144ce",
+    "deleted_at": "2025-12-24T23:47:30.442559",
+    "transaction": {
+      "id": "cf008004bfbb2cfb6060c64e77e3a62ff9ba1b185b6d8e823c286113e49144ce",
+      "datetime": "2025-11-06T13:34:03",
+      "amount": 95.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "daily"
       ],
-      "counterparty": "SANIDHYA",
+      "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "3ca960a7dc4bdc7d0ca651bd58e73ecc8979352d2d75fa95e9a0c4a01bb8e6ca",
-    "deleted_at": "2025-12-24T21:55:14.687077",
+    "id": "5e1567358fb4465062861e45e1c0929b15ff2e10c358b861ddfa495cf8e147b3",
+    "deleted_at": "2025-12-24T23:47:30.442544",
     "transaction": {
-      "id": "3ca960a7dc4bdc7d0ca651bd58e73ecc8979352d2d75fa95e9a0c4a01bb8e6ca",
-      "datetime": "2025-12-12T14:00:08",
-      "amount": 50.0,
+      "id": "5e1567358fb4465062861e45e1c0929b15ff2e10c358b861ddfa495cf8e147b3",
+      "datetime": "2025-11-06T17:21:52",
+      "amount": 40.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "snacks"
       ],
-      "counterparty": "MANASHVI",
+      "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "34f81540a40600fb1be36b5e12eb5b5913d805b6a224fb84d9a65d9a1a92bbda",
-    "deleted_at": "2025-12-24T21:55:14.687069",
+    "id": "9018692fd0398f47161b0fb28644a0ba83f620f303f3a560cce876f2cd8ccb3e",
+    "deleted_at": "2025-12-24T23:47:30.442529",
     "transaction": {
-      "id": "34f81540a40600fb1be36b5e12eb5b5913d805b6a224fb84d9a65d9a1a92bbda",
-      "datetime": "2025-12-13T01:26:25",
-      "amount": 39997.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "IITDELHI",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "9891607dacb09bc299765b2e59b5a25fd4ee511754280389956818f72a5580f4",
-    "deleted_at": "2025-12-24T21:55:14.687058",
-    "transaction": {
-      "id": "9891607dacb09bc299765b2e59b5a25fd4ee511754280389956818f72a5580f4",
-      "datetime": "2025-12-13T17:37:43",
-      "amount": 250.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "SONALSIN",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "af3cc5a032a1848f9af9f76768d8b9c6a53afa740eb750913fa641e4e5afdfe5",
-    "deleted_at": "2025-12-24T21:55:14.687050",
-    "transaction": {
-      "id": "af3cc5a032a1848f9af9f76768d8b9c6a53afa740eb750913fa641e4e5afdfe5",
-      "datetime": "2025-12-13T19:35:08",
-      "amount": 2488.79,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "ZOMATO",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "29746132e192d5fe7fe750483075cb99b32f47ab7ce89d40200110e7764a1749",
-    "deleted_at": "2025-12-24T21:55:14.687043",
-    "transaction": {
-      "id": "29746132e192d5fe7fe750483075cb99b32f47ab7ce89d40200110e7764a1749",
-      "datetime": "2025-12-13T19:37:17",
-      "amount": 415.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "SANIDHYA",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "3e9b7aca4d1a314d44bc701790653edd2fca705eb9a9338ebfb0617fc85b9109",
-    "deleted_at": "2025-12-24T21:55:14.687035",
-    "transaction": {
-      "id": "3e9b7aca4d1a314d44bc701790653edd2fca705eb9a9338ebfb0617fc85b9109",
-      "datetime": "2025-12-14T19:14:03",
-      "amount": 882.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "SUBWAY",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "dac20044f37541a319a6c6e20569143c443c36af6ef57193ff4f8b861246c54b",
-    "deleted_at": "2025-12-24T21:55:14.687027",
-    "transaction": {
-      "id": "dac20044f37541a319a6c6e20569143c443c36af6ef57193ff4f8b861246c54b",
-      "datetime": "2025-12-14T19:24:03",
-      "amount": 415.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "NITYEGUP",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "b50d55190befe40c611a7f82a724aa55498343d46ab42ea1a639abcb2b692aee",
-    "deleted_at": "2025-12-24T21:55:14.687019",
-    "transaction": {
-      "id": "b50d55190befe40c611a7f82a724aa55498343d46ab42ea1a639abcb2b692aee",
-      "datetime": "2025-12-14T19:34:58",
-      "amount": 389.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "BARISTAP",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "fe9f0796a75058bd390b3bb5bb859ef39904dd7c541a9cd207e114750a9541be",
-    "deleted_at": "2025-12-24T21:55:14.687011",
-    "transaction": {
-      "id": "fe9f0796a75058bd390b3bb5bb859ef39904dd7c541a9cd207e114750a9541be",
-      "datetime": "2025-12-15T14:09:39",
-      "amount": 444.15,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "DOMINOS",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "079b6785c12ce94b4743d1c8a29e6dcd1e7e12c827694507f5795aa4b8898bb6",
-    "deleted_at": "2025-12-24T21:55:14.687004",
-    "transaction": {
-      "id": "079b6785c12ce94b4743d1c8a29e6dcd1e7e12c827694507f5795aa4b8898bb6",
-      "datetime": "2025-12-15T14:46:43",
-      "amount": 700.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "MANASHVI",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "afa76cb6346b331c556e2d25e46449b4d756442c8668cf9476c4e01c515eb3f3",
-    "deleted_at": "2025-12-24T21:55:14.686996",
-    "transaction": {
-      "id": "afa76cb6346b331c556e2d25e46449b4d756442c8668cf9476c4e01c515eb3f3",
-      "datetime": "2025-12-15T18:38:32",
-      "amount": 20.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "VAIBHAVI",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "c0252029c7a6f58100f6f979ce35611c967b86399ea4f2cd29fa8293be70dcb2",
-    "deleted_at": "2025-12-24T21:55:14.686988",
-    "transaction": {
-      "id": "c0252029c7a6f58100f6f979ce35611c967b86399ea4f2cd29fa8293be70dcb2",
-      "datetime": "2025-12-15T19:11:45",
-      "amount": 60.0,
-      "direction": "credit",
-      "scope": "personal",
-      "category": [
-        "daily"
-      ],
-      "counterparty": "VAIBHAVI",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "97bb889b4aab508aaa04de4a19327224293a8b7290450e0d934010aa40c9d29e",
-    "deleted_at": "2025-12-24T21:55:14.686980",
-    "transaction": {
-      "id": "97bb889b4aab508aaa04de4a19327224293a8b7290450e0d934010aa40c9d29e",
-      "datetime": "2025-12-15T19:14:12",
-      "amount": 150.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "VAIBHAVI",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "da9927476c1796077846e67ed5e16cafed1966a2cc76dae4beffc5f7f9df93be",
-    "deleted_at": "2025-12-24T21:55:14.686973",
-    "transaction": {
-      "id": "da9927476c1796077846e67ed5e16cafed1966a2cc76dae4beffc5f7f9df93be",
-      "datetime": "2025-12-15T19:14:14",
-      "amount": 305.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "AMMYSAUN",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "fc6a86caafce87e73241abd5ce9d83b5fef37e0b126baa4621fe7c27a2e9928b",
-    "deleted_at": "2025-12-24T21:55:14.686965",
-    "transaction": {
-      "id": "fc6a86caafce87e73241abd5ce9d83b5fef37e0b126baa4621fe7c27a2e9928b",
-      "datetime": "2025-12-16T03:32:11",
-      "amount": 20.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "UMESHKUM",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "d5aad0b80426c6af8153b59769a36a718c86f41de48def94cbc551f33bcf6bcc",
-    "deleted_at": "2025-12-24T21:55:14.686957",
-    "transaction": {
-      "id": "d5aad0b80426c6af8153b59769a36a718c86f41de48def94cbc551f33bcf6bcc",
-      "datetime": "2025-12-16T15:06:55",
+      "id": "9018692fd0398f47161b0fb28644a0ba83f620f303f3a560cce876f2cd8ccb3e",
+      "datetime": "2025-11-06T17:23:01",
       "amount": 15.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "coffee"
       ],
-      "counterparty": "SHEELUKU",
+      "counterparty": "TULARAM",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "9c52192b463e38fd76122e8cbadeb375c1542c684d632991304914915e74b2cc",
-    "deleted_at": "2025-12-24T21:55:14.686950",
+    "id": "f59f36ef9fd86336f7abc96014f110db42c7a99385d8209668d2fa5b103beb57",
+    "deleted_at": "2025-12-24T23:47:30.442514",
     "transaction": {
-      "id": "9c52192b463e38fd76122e8cbadeb375c1542c684d632991304914915e74b2cc",
-      "datetime": "2025-12-16T17:53:58",
-      "amount": 20.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "BANWARI",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "628c67c7bb4fd84dce5f65f6410c6ddeea2e431d0aee80a88aa41d826c3571ab",
-    "deleted_at": "2025-12-24T21:55:14.686942",
-    "transaction": {
-      "id": "628c67c7bb4fd84dce5f65f6410c6ddeea2e431d0aee80a88aa41d826c3571ab",
-      "datetime": "2025-12-16T17:55:24",
-      "amount": 70.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "daily"
-      ],
-      "counterparty": "SAJID",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "d8de932ca11fb7615bf5fa6ab22269592efaa02b8e8bad80a73655ce22c120fd",
-    "deleted_at": "2025-12-24T21:55:14.686929",
-    "transaction": {
-      "id": "d8de932ca11fb7615bf5fa6ab22269592efaa02b8e8bad80a73655ce22c120fd",
-      "datetime": "2025-12-16T22:47:03",
-      "amount": 369.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "EATSUREF",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "305829d4111f8df0120891393e79b47fb71e46c3226656f2817025fe10bba2b6",
-    "deleted_at": "2025-12-24T21:55:14.686910",
-    "transaction": {
-      "id": "305829d4111f8df0120891393e79b47fb71e46c3226656f2817025fe10bba2b6",
-      "datetime": "2025-12-17T02:57:02",
-      "amount": 20.0,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "coffee"
-      ],
-      "counterparty": "VAIBHAVI",
-      "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "91660d09b01430a5a575efdf51bc18439516fcd9dbad7ff263a66e97b02d4305",
-    "deleted_at": "2025-12-24T21:55:14.686891",
-    "transaction": {
-      "id": "91660d09b01430a5a575efdf51bc18439516fcd9dbad7ff263a66e97b02d4305",
-      "datetime": "2025-12-17T13:38:19",
-      "amount": 985.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "PHONEPE",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "70c52816c233b635a7001913cd18f21877fdfc18d3817b9323eb9febd1b58237",
-    "deleted_at": "2025-12-24T21:55:14.686872",
-    "transaction": {
-      "id": "70c52816c233b635a7001913cd18f21877fdfc18d3817b9323eb9febd1b58237",
-      "datetime": "2025-12-17T13:38:42",
-      "amount": 414.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "PHONEPE",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "768ef3a3c33b02ddc12cbb520dc0d37dd7db0337d02d6bf20a321a780e6c1fc1",
-    "deleted_at": "2025-12-24T21:55:14.686852",
-    "transaction": {
-      "id": "768ef3a3c33b02ddc12cbb520dc0d37dd7db0337d02d6bf20a321a780e6c1fc1",
-      "datetime": "2025-12-17T18:37:49",
-      "amount": 152.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "RAJESHKU",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "59f8cbcbbaca7abc32c49d57e03d42497c3e60192b9457327ee9ddcc502602c5",
-    "deleted_at": "2025-12-24T21:55:14.686833",
-    "transaction": {
-      "id": "59f8cbcbbaca7abc32c49d57e03d42497c3e60192b9457327ee9ddcc502602c5",
-      "datetime": "2025-12-17T19:04:20",
-      "amount": 370.18,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "YULICIOUS",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "b85cbe068128191c6bbfe8eae8dd8e17b889e394e6f33e26a464cfc1eb1b3a83",
-    "deleted_at": "2025-12-24T21:55:14.686814",
-    "transaction": {
-      "id": "b85cbe068128191c6bbfe8eae8dd8e17b889e394e6f33e26a464cfc1eb1b3a83",
-      "datetime": "2025-12-17T19:27:35",
-      "amount": 190.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "VAIBHAVI",
-      "mode": "UPI",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "471f0d244a3e10ba8d9ce872a07865eed5ed7308b789faf29c7c67c2b496f47f",
-    "deleted_at": "2025-12-24T21:55:14.686795",
-    "transaction": {
-      "id": "471f0d244a3e10ba8d9ce872a07865eed5ed7308b789faf29c7c67c2b496f47f",
-      "datetime": "2025-12-17T20:13:20",
+      "id": "f59f36ef9fd86336f7abc96014f110db42c7a99385d8209668d2fa5b103beb57",
+      "datetime": "2025-11-06T20:54:55",
       "amount": 20.0,
       "direction": "debit",
       "scope": "personal",
@@ -1316,200 +560,1232 @@
       ],
       "counterparty": "MOTHERDA",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "6d8bcda428845e14006b10ee83e6010daf738862cb236da491bb3fa77855acf6",
-    "deleted_at": "2025-12-24T21:55:14.686775",
+    "id": "b41e3b14af5ca17b9b265608d26ba56abdb5ae4b10f70e415abeb4963ce02167",
+    "deleted_at": "2025-12-24T23:47:30.442499",
     "transaction": {
-      "id": "6d8bcda428845e14006b10ee83e6010daf738862cb236da491bb3fa77855acf6",
-      "datetime": "2025-12-17T23:10:07",
-      "amount": 178.0,
+      "id": "b41e3b14af5ca17b9b265608d26ba56abdb5ae4b10f70e415abeb4963ce02167",
+      "datetime": "2025-11-07T00:42:43",
+      "amount": 90.0,
       "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "RAMKRISH",
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "counterparty": "HARSHALL",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "99659e3e7891101b8877d8a9bf34515fb1dc679dbb6d59249b55f44c404ab060",
-    "deleted_at": "2025-12-24T21:55:14.686756",
+    "id": "1796cde8a77a88a2fff7ae0d286516c624aa15df55be695db736fd2d23428575",
+    "deleted_at": "2025-12-24T23:47:30.442484",
     "transaction": {
-      "id": "99659e3e7891101b8877d8a9bf34515fb1dc679dbb6d59249b55f44c404ab060",
-      "datetime": "2025-12-17T23:15:48",
+      "id": "1796cde8a77a88a2fff7ae0d286516c624aa15df55be695db736fd2d23428575",
+      "datetime": "2025-11-07T14:02:39",
+      "amount": 20.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "818a53fc8777fad8b219169b5183ca6083ba19a5681998c819dbcc56b406762a",
+    "deleted_at": "2025-12-24T23:47:30.442468",
+    "transaction": {
+      "id": "818a53fc8777fad8b219169b5183ca6083ba19a5681998c819dbcc56b406762a",
+      "datetime": "2025-11-07T15:00:11",
+      "amount": 741.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "BLINKITC",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "2fe181c3b643ad5e9e5f6356af741f5a16db329d7d467d3e1a68910af90a8033",
+    "deleted_at": "2025-12-24T23:47:30.442453",
+    "transaction": {
+      "id": "2fe181c3b643ad5e9e5f6356af741f5a16db329d7d467d3e1a68910af90a8033",
+      "datetime": "2025-11-07T15:46:26",
+      "amount": 5.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "d7cbe7ea907d2e3be9b899c88d7513461e0aedb5e4335c80b0ef22d675efba2f",
+    "deleted_at": "2025-12-24T23:47:30.442437",
+    "transaction": {
+      "id": "d7cbe7ea907d2e3be9b899c88d7513461e0aedb5e4335c80b0ef22d675efba2f",
+      "datetime": "2025-11-07T18:10:05",
+      "amount": 10.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "RAMBABU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "ea0af90f7732df5ac945c56153b7aac1d492cf1f87e5b42dd54ae32df612aae9",
+    "deleted_at": "2025-12-24T23:47:30.442422",
+    "transaction": {
+      "id": "ea0af90f7732df5ac945c56153b7aac1d492cf1f87e5b42dd54ae32df612aae9",
+      "datetime": "2025-11-07T19:34:28",
+      "amount": 50.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "counterparty": "SEEMA",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "acc2403d4daf4937fec8f73c2a24cc0a9ebef682b0aaddc6db1693f8f8eac0ac",
+    "deleted_at": "2025-12-24T23:47:30.442407",
+    "transaction": {
+      "id": "acc2403d4daf4937fec8f73c2a24cc0a9ebef682b0aaddc6db1693f8f8eac0ac",
+      "datetime": "2025-11-07T20:21:28",
+      "amount": 5.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "f951087ad17d15e4bf73343809a709795fe04d22df04c728ed751b16482f5391",
+    "deleted_at": "2025-12-24T23:47:30.442392",
+    "transaction": {
+      "id": "f951087ad17d15e4bf73343809a709795fe04d22df04c728ed751b16482f5391",
+      "datetime": "2025-11-08T00:57:46",
       "amount": 15.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "coffee"
       ],
-      "counterparty": "MRARJUN",
+      "counterparty": "RAMBABU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "97f40efad452c5db01a6a50f18663b2e3a04530c9252302ba9f9964eb5d7c641",
-    "deleted_at": "2025-12-24T21:55:14.686736",
+    "id": "cafe09de0b10a7c0c714f219a189a7ec75717f7d2e08794d15af6a5673794156",
+    "deleted_at": "2025-12-24T23:47:30.442376",
     "transaction": {
-      "id": "97f40efad452c5db01a6a50f18663b2e3a04530c9252302ba9f9964eb5d7c641",
-      "datetime": "2025-12-18T07:56:43",
-      "amount": 30.0,
+      "id": "cafe09de0b10a7c0c714f219a189a7ec75717f7d2e08794d15af6a5673794156",
+      "datetime": "2025-11-08T14:04:58",
+      "amount": 15.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "VINODKUM",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "b88034cc2b59efb3437d782bbea5f37f9cecc610beee96cf8078cf87a6d3b212",
+    "deleted_at": "2025-12-24T23:47:30.442361",
+    "transaction": {
+      "id": "b88034cc2b59efb3437d782bbea5f37f9cecc610beee96cf8078cf87a6d3b212",
+      "datetime": "2025-11-08T17:09:08",
+      "amount": 140.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "SHREYANS",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "21143053461158f9694daa92d9e329bd868a6d6ce33b6d6b61847baf4d1c67ae",
+    "deleted_at": "2025-12-24T23:47:30.442346",
+    "transaction": {
+      "id": "21143053461158f9694daa92d9e329bd868a6d6ce33b6d6b61847baf4d1c67ae",
+      "datetime": "2025-11-08T18:36:07",
+      "amount": 1830.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "counterparty": "MADANSIN",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "a5f40c1ad6fa2c5d96ace5979d3aa80f2a6d779fa13da9c48461c7b66fce5f5e",
+    "deleted_at": "2025-12-24T23:47:30.442331",
+    "transaction": {
+      "id": "a5f40c1ad6fa2c5d96ace5979d3aa80f2a6d779fa13da9c48461c7b66fce5f5e",
+      "datetime": "2025-11-09T00:43:55",
+      "amount": 120.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "SHYAMKUM",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "3527d3520629c0b531c621da30d5453f791594499b961f70ab9e4e5f9dde0863",
+    "deleted_at": "2025-12-24T23:47:30.442315",
+    "transaction": {
+      "id": "3527d3520629c0b531c621da30d5453f791594499b961f70ab9e4e5f9dde0863",
+      "datetime": "2025-11-09T13:24:49",
+      "amount": 230.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "VAIBHAVI",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "f301a06c81edb5def5c9791ff6507f551b7965fa9d4262de88999dc532a23599",
+    "deleted_at": "2025-12-24T23:47:30.442300",
+    "transaction": {
+      "id": "f301a06c81edb5def5c9791ff6507f551b7965fa9d4262de88999dc532a23599",
+      "datetime": "2025-11-09T17:55:06",
+      "amount": 835.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "ZEPTO",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "fc6b73cf9c7a1e074ec956492b1c6cc438942dd30200c19fe13843b73d64cceb",
+    "deleted_at": "2025-12-24T23:47:30.442284",
+    "transaction": {
+      "id": "fc6b73cf9c7a1e074ec956492b1c6cc438942dd30200c19fe13843b73d64cceb",
+      "datetime": "2025-11-09T17:58:11",
+      "amount": 192.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "BLINKIT",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "4d0b22b8355a07fa9e85de84de84f81c6e49b2696bc6a09fdc11d1e39e93ee2a",
+    "deleted_at": "2025-12-24T23:47:30.442269",
+    "transaction": {
+      "id": "4d0b22b8355a07fa9e85de84de84f81c6e49b2696bc6a09fdc11d1e39e93ee2a",
+      "datetime": "2025-11-09T19:30:50",
+      "amount": 279.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "BLINKITC",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "e190156a60babec92cb2992b9f430165aaa33196cc19dcdcaa2bc103a36cf4b7",
+    "deleted_at": "2025-12-24T23:47:30.442253",
+    "transaction": {
+      "id": "e190156a60babec92cb2992b9f430165aaa33196cc19dcdcaa2bc103a36cf4b7",
+      "datetime": "2025-11-10T03:16:56",
+      "amount": 100.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "counterparty": "RAMBABU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "fd4a04487ea5f1c36a48de6cf8adcd514c80d0e3169dbd2bcd75069e5e3d5d06",
+    "deleted_at": "2025-12-24T23:47:30.442238",
+    "transaction": {
+      "id": "fd4a04487ea5f1c36a48de6cf8adcd514c80d0e3169dbd2bcd75069e5e3d5d06",
+      "datetime": "2025-11-10T03:46:22",
+      "amount": 466.25,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "counterparty": "ZOMATOLI",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "cd5671f22862fb5d87664527bb59ff64ee68fd5bd6957a4e5abfab92c6f14401",
+    "deleted_at": "2025-12-24T23:47:30.442222",
+    "transaction": {
+      "id": "cd5671f22862fb5d87664527bb59ff64ee68fd5bd6957a4e5abfab92c6f14401",
+      "datetime": "2025-11-10T07:42:06",
+      "amount": 2000.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "counterparty": "MAHESHP",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "1c8c2e7b84b82cc983fff55c4df20d453feab8b8f9df681f29bb2f633ea55318",
+    "deleted_at": "2025-12-24T23:47:30.442207",
+    "transaction": {
+      "id": "1c8c2e7b84b82cc983fff55c4df20d453feab8b8f9df681f29bb2f633ea55318",
+      "datetime": "2025-11-10T07:42:31",
+      "amount": 500.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "MAHESHP",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "04602753de9d21003c2dbb70df573f1541aee8e4f78ae7d3fbffbc8a60ec631d",
+    "deleted_at": "2025-12-24T23:47:30.442192",
+    "transaction": {
+      "id": "04602753de9d21003c2dbb70df573f1541aee8e4f78ae7d3fbffbc8a60ec631d",
+      "datetime": "2025-11-10T14:03:11",
+      "amount": 1710.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "counterparty": "SHANKARL",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "0b147f450232a9eca6e1f930a5caaf61b6a0a15effbf2eb621dc4bf256563c18",
+    "deleted_at": "2025-12-24T23:47:30.442177",
+    "transaction": {
+      "id": "0b147f450232a9eca6e1f930a5caaf61b6a0a15effbf2eb621dc4bf256563c18",
+      "datetime": "2025-11-10T14:37:42",
+      "amount": 1680.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "splits",
+        "refund"
+      ],
+      "counterparty": "MAINADE",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "45ba3abda3728d9bb11d5ba0cd01a494566548fe6b3a5acf7371e4906a962fc6",
+    "deleted_at": "2025-12-24T23:47:30.442162",
+    "transaction": {
+      "id": "45ba3abda3728d9bb11d5ba0cd01a494566548fe6b3a5acf7371e4906a962fc6",
+      "datetime": "2025-11-11T14:35:47",
+      "amount": 59.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "counterparty": "SPOTIFYI",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "9361f8dd2a9cfa0e666ffece0a3654cf6ab01549bdf71d82aac1be9503bc798d",
+    "deleted_at": "2025-12-24T23:47:30.442147",
+    "transaction": {
+      "id": "9361f8dd2a9cfa0e666ffece0a3654cf6ab01549bdf71d82aac1be9503bc798d",
+      "datetime": "2025-11-11T16:42:57",
+      "amount": 2700.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "ICAIEXAM",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "789de919e4d50e5e71b097525a7f25319f0ff2de9c3904d9971505ab207416ce",
+    "deleted_at": "2025-12-24T23:47:30.442132",
+    "transaction": {
+      "id": "789de919e4d50e5e71b097525a7f25319f0ff2de9c3904d9971505ab207416ce",
+      "datetime": "2025-11-11T16:44:25",
+      "amount": 3000.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ],
+      "counterparty": "SUBHASH",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "0e0652fa6bead885de68abdc802daa4bb03c8d4e7c0afdbcbc12cb79c290109c",
+    "deleted_at": "2025-12-24T23:47:30.442117",
+    "transaction": {
+      "id": "0e0652fa6bead885de68abdc802daa4bb03c8d4e7c0afdbcbc12cb79c290109c",
+      "datetime": "2025-11-11T16:51:48",
+      "amount": 649.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "BHARTIHE",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "b888480de26775fa35cb483baf11ebb343d894e2e10072d175865d32603a5a61",
+    "deleted_at": "2025-12-24T23:47:30.442102",
+    "transaction": {
+      "id": "b888480de26775fa35cb483baf11ebb343d894e2e10072d175865d32603a5a61",
+      "datetime": "2025-11-12T17:34:50",
+      "amount": 120.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "e53125aac498e7695c6e581d28ccfcef8448c035e0aa7962efb1500200f65274",
+    "deleted_at": "2025-12-24T23:47:30.442086",
+    "transaction": {
+      "id": "e53125aac498e7695c6e581d28ccfcef8448c035e0aa7962efb1500200f65274",
+      "datetime": "2025-11-13T00:28:42",
+      "amount": 350.95,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "counterparty": "ZOMATOLI",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "c7173a6639572a729df6125e32fa4e4c476b897230c3c1159e938e28a7d7789b",
+    "deleted_at": "2025-12-24T23:47:30.442068",
+    "transaction": {
+      "id": "c7173a6639572a729df6125e32fa4e4c476b897230c3c1159e938e28a7d7789b",
+      "datetime": "2025-11-14T01:14:29",
+      "amount": 74.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "counterparty": "STARENTE",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "86dfb12e3ae38d7eea8b501cb8a446dd2c9729f6a37be1abb2c25f4246e8d892",
+    "deleted_at": "2025-12-24T23:47:30.442051",
+    "transaction": {
+      "id": "86dfb12e3ae38d7eea8b501cb8a446dd2c9729f6a37be1abb2c25f4246e8d892",
+      "datetime": "2025-11-14T11:29:21",
+      "amount": 6000.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ],
+      "counterparty": "NARSEERAM",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "5b2cdb3099ab2f295c48f97b34e5a43af77abc8a0197e780797aab6d4d4e0eb4",
+    "deleted_at": "2025-12-24T23:47:30.442036",
+    "transaction": {
+      "id": "5b2cdb3099ab2f295c48f97b34e5a43af77abc8a0197e780797aab6d4d4e0eb4",
+      "datetime": "2025-11-14T15:13:27",
+      "amount": 603.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "TANISHR",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "3e0a778e7a74a6b694884e68a7cb409f32558a8aa36c670ee8529f98da34cb6b",
+    "deleted_at": "2025-12-24T23:47:30.442021",
+    "transaction": {
+      "id": "3e0a778e7a74a6b694884e68a7cb409f32558a8aa36c670ee8529f98da34cb6b",
+      "datetime": "2025-11-14T20:22:13",
+      "amount": 40.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "snacks"
       ],
-      "counterparty": "ESHITAC",
+      "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "7fb9adc04446619b6391e919d298412b0fb36b89a9759452c6a474dcc04adfca",
-    "deleted_at": "2025-12-24T21:55:14.686716",
+    "id": "011df8564824a5b38fe046e59c7026b75b1b81ea3e6658e8b1ba1490f3aac626",
+    "deleted_at": "2025-12-24T23:47:30.442006",
     "transaction": {
-      "id": "7fb9adc04446619b6391e919d298412b0fb36b89a9759452c6a474dcc04adfca",
-      "datetime": "2025-12-18T10:12:00",
-      "amount": 150.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "ESHITAC",
+      "id": "011df8564824a5b38fe046e59c7026b75b1b81ea3e6658e8b1ba1490f3aac626",
+      "datetime": "2025-11-15T02:46:13",
+      "amount": 45.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "counterparty": "UMESHKUM",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "41e169ed7eabd572190415ead44b4eb2ca2c58496733facd97e66255adf9c4e0",
-    "deleted_at": "2025-12-24T21:55:14.686696",
+    "id": "78a2e6246554af20c9bde610eb5a1443d8e071837fa5fad61c2a9d812c98cb34",
+    "deleted_at": "2025-12-24T23:47:30.441990",
     "transaction": {
-      "id": "41e169ed7eabd572190415ead44b4eb2ca2c58496733facd97e66255adf9c4e0",
-      "datetime": "2025-12-18T21:55:29",
-      "amount": 2379.95,
+      "id": "78a2e6246554af20c9bde610eb5a1443d8e071837fa5fad61c2a9d812c98cb34",
+      "datetime": "2025-11-15T15:59:37",
+      "amount": 165.0,
       "direction": "debit",
       "scope": "unknown",
       "category": [],
-      "counterparty": "IRCTCRAI",
+      "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "6a345c2d991c0f7ed018112d971e3c6ea0629eb69941585292961fca9721246b",
-    "deleted_at": "2025-12-24T21:55:14.686676",
+    "id": "f651e5e4e6695192a5e50029ef21247caab3c5910992b30a2c0722988547d0fd",
+    "deleted_at": "2025-12-24T23:47:30.441975",
     "transaction": {
-      "id": "6a345c2d991c0f7ed018112d971e3c6ea0629eb69941585292961fca9721246b",
-      "datetime": "2025-12-18T21:58:39",
-      "amount": 2379.95,
+      "id": "f651e5e4e6695192a5e50029ef21247caab3c5910992b30a2c0722988547d0fd",
+      "datetime": "2025-11-15T18:39:35",
+      "amount": 559.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "BLINKIT",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "21c1e3aeefc8f941553b9e20e1f63ea7044b513a20e6083b4e2e06537b61ecf7",
+    "deleted_at": "2025-12-24T23:47:30.441960",
+    "transaction": {
+      "id": "21c1e3aeefc8f941553b9e20e1f63ea7044b513a20e6083b4e2e06537b61ecf7",
+      "datetime": "2025-11-15T18:47:55",
+      "amount": 100.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "daily"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "f0bd91130ff648fe17fbaaff3473c7ffce814d2fd2b42b4b959b1998313368fb",
+    "deleted_at": "2025-12-24T23:47:30.441945",
+    "transaction": {
+      "id": "f0bd91130ff648fe17fbaaff3473c7ffce814d2fd2b42b4b959b1998313368fb",
+      "datetime": "2025-11-16T01:15:28",
+      "amount": 574.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "BLINKIT",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "68a51e4780c0040add8799799e20d778cf1b737400509f00e353052968c22803",
+    "deleted_at": "2025-12-24T23:47:30.441930",
+    "transaction": {
+      "id": "68a51e4780c0040add8799799e20d778cf1b737400509f00e353052968c22803",
+      "datetime": "2025-11-16T01:37:34",
+      "amount": 50.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "counterparty": "HOLISTIC",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "95333757f5b7a940ef33a0e4dab12fb3615c34feca23cdc5becba5b92fe65fdd",
+    "deleted_at": "2025-12-24T23:47:30.441915",
+    "transaction": {
+      "id": "95333757f5b7a940ef33a0e4dab12fb3615c34feca23cdc5becba5b92fe65fdd",
+      "datetime": "2025-11-17T02:10:19",
+      "amount": 50.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "food"
+      ],
+      "counterparty": "HOLISTIC",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "782a61e7d23af8231e234f9ed7eefaff719e3e3214136f051e98c6739814a501",
+    "deleted_at": "2025-12-24T23:47:30.441900",
+    "transaction": {
+      "id": "782a61e7d23af8231e234f9ed7eefaff719e3e3214136f051e98c6739814a501",
+      "datetime": "2025-11-17T14:08:38",
+      "amount": 20.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "aa99675ffcdda08c3b4678b217827f3a3b1da162533daf097490438b011d3676",
+    "deleted_at": "2025-12-24T23:47:30.441885",
+    "transaction": {
+      "id": "aa99675ffcdda08c3b4678b217827f3a3b1da162533daf097490438b011d3676",
+      "datetime": "2025-11-17T15:37:39",
+      "amount": 14000.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "deposit",
+        "income"
+      ],
+      "counterparty": "KAMLA",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "125c9f71d14fd7ee9372d81709b7e58384c0e4769907c728eb5fb20249b03549",
+    "deleted_at": "2025-12-24T23:47:30.441870",
+    "transaction": {
+      "id": "125c9f71d14fd7ee9372d81709b7e58384c0e4769907c728eb5fb20249b03549",
+      "datetime": "2025-11-17T15:45:50",
+      "amount": 2212.0,
       "direction": "debit",
       "scope": "unknown",
       "category": [],
-      "counterparty": "IRCTCRAI",
+      "counterparty": "PHONEPE",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "ba9f1595929d2bff61d88a5f42d1234949881c1c6fbff5a880959ca2fe1e3298",
-    "deleted_at": "2025-12-24T21:55:14.686649",
+    "id": "a08d8e13b86be22c06835fe95f75561bf64a0c5f5d97704d6a4337c9b75d9ad3",
+    "deleted_at": "2025-12-24T23:47:30.441855",
     "transaction": {
-      "id": "ba9f1595929d2bff61d88a5f42d1234949881c1c6fbff5a880959ca2fe1e3298",
-      "datetime": "2025-12-19T22:15:09",
-      "amount": 50000.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "MAHESHPAR",
-      "mode": "IMPS",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "4cf34b1c8892a08314b2748615ed78447a3b1e58835695f2022f5613710910c7",
-    "deleted_at": "2025-12-24T21:55:14.685767",
-    "transaction": {
-      "id": "4cf34b1c8892a08314b2748615ed78447a3b1e58835695f2022f5613710910c7",
-      "datetime": "2025-12-19T22:17:00",
-      "amount": 50000.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "MAHESHPAR",
-      "mode": "IMPS",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "1b94d976e25c4db4437773be3dbad945166bf98c94a43469493de06ed84b4a44",
-    "deleted_at": "2025-12-24T21:55:14.685746",
-    "transaction": {
-      "id": "1b94d976e25c4db4437773be3dbad945166bf98c94a43469493de06ed84b4a44",
-      "datetime": "2025-12-19T22:17:39",
-      "amount": 15000.0,
-      "direction": "credit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "MAHESHPAR",
-      "mode": "IMPS",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "db376c38612bf49af0162ddd8378902803337cfa6ec73fa8a0147f437ea338fb",
-    "deleted_at": "2025-12-24T21:55:14.685723",
-    "transaction": {
-      "id": "db376c38612bf49af0162ddd8378902803337cfa6ec73fa8a0147f437ea338fb",
-      "datetime": "2025-12-19T22:18:58",
-      "amount": 114350.0,
+      "id": "a08d8e13b86be22c06835fe95f75561bf64a0c5f5d97704d6a4337c9b75d9ad3",
+      "datetime": "2025-11-17T15:51:21",
+      "amount": 3500.0,
       "direction": "debit",
       "scope": "unknown",
       "category": [],
-      "counterparty": "IITDSETTLEMENTACCOUNDEL HIDLIN-",
-      "mode": "INTERNAL",
-      "reviewed": false
-    }
-  },
-  {
-    "id": "903bcc7879208e73f602ed8d4050bf3d899de42ceda3345333ee58b2500d5a1b",
-    "deleted_at": "2025-12-24T21:55:14.685698",
-    "transaction": {
-      "id": "903bcc7879208e73f602ed8d4050bf3d899de42ceda3345333ee58b2500d5a1b",
-      "datetime": "2025-12-20T13:39:06",
-      "amount": 3600.0,
-      "direction": "debit",
-      "scope": "unknown",
-      "category": [],
-      "counterparty": "KAMLAMED",
+      "counterparty": "GROWWINV",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "71c7c74f770f5061b6e32bd1c5d6c3c645aa20692dde11913b95cc9db302c8f0",
-    "deleted_at": "2025-12-24T21:55:14.685649",
+    "id": "9de321be6680f87ed3761e5e26ca58743a6cd3adea26d89ab40f3083484fc9f7",
+    "deleted_at": "2025-12-24T23:47:30.441840",
     "transaction": {
-      "id": "71c7c74f770f5061b6e32bd1c5d6c3c645aa20692dde11913b95cc9db302c8f0",
-      "datetime": "2025-12-23T12:16:05",
-      "amount": 1.0,
+      "id": "9de321be6680f87ed3761e5e26ca58743a6cd3adea26d89ab40f3083484fc9f7",
+      "datetime": "2025-11-17T16:50:45",
+      "amount": 10.0,
       "direction": "debit",
       "scope": "personal",
       "category": [
         "noise"
       ],
-      "counterparty": "TANISHR",
+      "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "706ca1331bcef516025dd06d5b15985ee9ea3af33db3050b24970fb67367cd82",
-    "deleted_at": "2025-12-24T21:47:27.094254",
+    "id": "3c017897e56f15372f7ae6e3198ef18f04dbf38fe2605b0d0c7cb215f5f1830c",
+    "deleted_at": "2025-12-24T23:47:30.441824",
     "transaction": {
-      "id": "706ca1331bcef516025dd06d5b15985ee9ea3af33db3050b24970fb67367cd82",
+      "id": "3c017897e56f15372f7ae6e3198ef18f04dbf38fe2605b0d0c7cb215f5f1830c",
+      "datetime": "2025-11-17T19:22:24",
+      "amount": 11000.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "POOJAJOS",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "bf44b25cd87ad1416dadac50041c58dad91b025724893a81bf9b72c3bcb027f1",
+    "deleted_at": "2025-12-24T23:47:30.441809",
+    "transaction": {
+      "id": "bf44b25cd87ad1416dadac50041c58dad91b025724893a81bf9b72c3bcb027f1",
+      "datetime": "2025-11-18T08:49:22",
+      "amount": 15.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "MRKAMLES",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "e5bc617756771be769e005aeecf866663c694c9f8566f6c2440372b25cc6a576",
+    "deleted_at": "2025-12-24T23:47:30.441794",
+    "transaction": {
+      "id": "e5bc617756771be769e005aeecf866663c694c9f8566f6c2440372b25cc6a576",
+      "datetime": "2025-11-18T15:19:21",
+      "amount": 1900.0,
+      "direction": "debit",
+      "scope": "unknown",
+      "category": [],
+      "counterparty": "GROWWINV",
+      "mode": "UPI",
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "f1fcafa2fbcd094ef408216cda83e927fda4f478654c03ae5c1ab019f081e24b",
+    "deleted_at": "2025-12-24T23:47:30.441779",
+    "transaction": {
+      "id": "f1fcafa2fbcd094ef408216cda83e927fda4f478654c03ae5c1ab019f081e24b",
+      "datetime": "2025-11-18T16:57:21",
+      "amount": 10.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "ee06e78bef8d592c562e1e1d6c6876f1d9896f422da293c8bcd789c7ad4748be",
+    "deleted_at": "2025-12-24T23:47:30.441764",
+    "transaction": {
+      "id": "ee06e78bef8d592c562e1e1d6c6876f1d9896f422da293c8bcd789c7ad4748be",
+      "datetime": "2025-11-18T20:06:20",
+      "amount": 20.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "cf6b74e2f00d9743a529779bfe140c2ddb74f8f86bad9fee81ebdf77c62a173a",
+    "deleted_at": "2025-12-24T23:47:30.441749",
+    "transaction": {
+      "id": "cf6b74e2f00d9743a529779bfe140c2ddb74f8f86bad9fee81ebdf77c62a173a",
+      "datetime": "2025-11-19T02:16:00",
+      "amount": 20.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "BRAJNATH",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "a931894ce88fa789a36de599c55fa20c0977b95bbc994cff966dd28596295c2d",
+    "deleted_at": "2025-12-24T23:47:30.441734",
+    "transaction": {
+      "id": "a931894ce88fa789a36de599c55fa20c0977b95bbc994cff966dd28596295c2d",
+      "datetime": "2025-11-19T09:59:44",
+      "amount": 15.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "MRKAMLES",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "607c18e1d530ed0eefeb5a1926c68f05a0a3a6f794e5d50513e270bf4f0a1a20",
+    "deleted_at": "2025-12-24T23:47:30.441719",
+    "transaction": {
+      "id": "607c18e1d530ed0eefeb5a1926c68f05a0a3a6f794e5d50513e270bf4f0a1a20",
+      "datetime": "2025-11-19T15:19:07",
+      "amount": 1.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "MAHESHP",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "cd361f7bfc223590f3be6abc0ab7ee0fce123110558ae128c9f64561f5593e26",
+    "deleted_at": "2025-12-24T23:47:30.441704",
+    "transaction": {
+      "id": "cd361f7bfc223590f3be6abc0ab7ee0fce123110558ae128c9f64561f5593e26",
+      "datetime": "2025-11-19T15:37:11",
+      "amount": 559.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "BLINKIT",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "e7b1cb4839102c776ccbaecce586d9217feb7e865ec6ee46c0799a5ebdaa5a6f",
+    "deleted_at": "2025-12-24T23:47:30.441689",
+    "transaction": {
+      "id": "e7b1cb4839102c776ccbaecce586d9217feb7e865ec6ee46c0799a5ebdaa5a6f",
+      "datetime": "2025-11-19T19:41:18",
+      "amount": 20.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "f0221dc297be2c5aea6a0e5a42f8d5acd7c3846c28b88b83a8723364e7fb5787",
+    "deleted_at": "2025-12-24T23:47:30.441674",
+    "transaction": {
+      "id": "f0221dc297be2c5aea6a0e5a42f8d5acd7c3846c28b88b83a8723364e7fb5787",
+      "datetime": "2025-11-19T19:53:00",
+      "amount": 623.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "BLINKIT",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "837687ca19886c5dc4a91c7d2c32b302cb2e0e01e6bf306c92abb318004ce617",
+    "deleted_at": "2025-12-24T23:47:30.441659",
+    "transaction": {
+      "id": "837687ca19886c5dc4a91c7d2c32b302cb2e0e01e6bf306c92abb318004ce617",
+      "datetime": "2025-11-19T19:57:18",
+      "amount": 230.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "groceries"
+      ],
+      "counterparty": "BLINKIT",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "09d2810b8ed248d60e4b4d4df5a3aedbee717c031b37155546711c16e43a7056",
+    "deleted_at": "2025-12-24T23:47:30.441643",
+    "transaction": {
+      "id": "09d2810b8ed248d60e4b4d4df5a3aedbee717c031b37155546711c16e43a7056",
+      "datetime": "2025-11-20T03:20:54",
+      "amount": 40.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "counterparty": "BRAJNATH",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "b0889939215d5616c4650389a5654f98466a039b4f3033bd6c0b4ddfb09d5768",
+    "deleted_at": "2025-12-24T23:47:30.441628",
+    "transaction": {
+      "id": "b0889939215d5616c4650389a5654f98466a039b4f3033bd6c0b4ddfb09d5768",
+      "datetime": "2025-11-20T07:38:26",
+      "amount": 15.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "RINKOOK",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "50d9142a22a4c3dbdbcd140470852051aba7cc35e562e62a1b586e0d3bacb43b",
+    "deleted_at": "2025-12-24T23:47:30.441613",
+    "transaction": {
+      "id": "50d9142a22a4c3dbdbcd140470852051aba7cc35e562e62a1b586e0d3bacb43b",
+      "datetime": "2025-11-20T21:31:37",
+      "amount": 20.76,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "YULUBIKES",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "3283aabeabcf9f5dd1d86f1e67b9722a72092e500f180e3b17f2a67a1b99d8c9",
+    "deleted_at": "2025-12-24T23:47:30.441598",
+    "transaction": {
+      "id": "3283aabeabcf9f5dd1d86f1e67b9722a72092e500f180e3b17f2a67a1b99d8c9",
+      "datetime": "2025-11-20T21:49:56",
+      "amount": 40.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "counterparty": "RAMBABU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "b41c9dacc3fb0698c3e0beb0d52e36b6c0b9a6dd0ec02b7396dc70345869e9b6",
+    "deleted_at": "2025-12-24T23:47:30.441583",
+    "transaction": {
+      "id": "b41c9dacc3fb0698c3e0beb0d52e36b6c0b9a6dd0ec02b7396dc70345869e9b6",
+      "datetime": "2025-11-21T01:25:28",
+      "amount": 50.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "counterparty": "RAMBABU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "f9a4b2a9a7446af0a8ced1b69520af8e4bedcaed0986a2a08dbdcb7eba91ab2f",
+    "deleted_at": "2025-12-24T23:47:30.441568",
+    "transaction": {
+      "id": "f9a4b2a9a7446af0a8ced1b69520af8e4bedcaed0986a2a08dbdcb7eba91ab2f",
+      "datetime": "2025-11-21T01:25:46",
+      "amount": 50.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "snacks"
+      ],
+      "counterparty": "VAIBHAVI",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "799938a6cf3813fcab4f36d6a3952cfb61c8f5d843dd104d773d3b2749defb51",
+    "deleted_at": "2025-12-24T23:47:30.441553",
+    "transaction": {
+      "id": "799938a6cf3813fcab4f36d6a3952cfb61c8f5d843dd104d773d3b2749defb51",
+      "datetime": "2025-11-21T01:28:14",
+      "amount": 24.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "STARENTE",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "c27aad991aac814e2f62f852b389cce5b93bb2d1035471d85a9eff70d8efd795",
+    "deleted_at": "2025-12-24T23:47:30.441538",
+    "transaction": {
+      "id": "c27aad991aac814e2f62f852b389cce5b93bb2d1035471d85a9eff70d8efd795",
+      "datetime": "2025-11-21T01:28:42",
+      "amount": 24.0,
+      "direction": "credit",
+      "scope": "personal",
+      "category": [
+        "coffee"
+      ],
+      "counterparty": "VAIBHAVI",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "6cdaf763b1a38b958cd8a5a33c3c709a18878f4c261ded339ec733a6d3c551e3",
+    "deleted_at": "2025-12-24T23:47:30.441523",
+    "transaction": {
+      "id": "6cdaf763b1a38b958cd8a5a33c3c709a18878f4c261ded339ec733a6d3c551e3",
+      "datetime": "2025-11-21T17:15:16",
+      "amount": 10.0,
+      "direction": "debit",
+      "scope": "personal",
+      "category": [
+        "noise"
+      ],
+      "counterparty": "RAJESHKU",
+      "mode": "UPI",
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
+    }
+  },
+  {
+    "id": "697d8a215611c51d494f5f7373ce8f7020cc143563b5fd96772b2e9cbe80e32e",
+    "deleted_at": "2025-12-24T23:47:30.441507",
+    "transaction": {
+      "id": "697d8a215611c51d494f5f7373ce8f7020cc143563b5fd96772b2e9cbe80e32e",
       "datetime": "2025-11-22T19:32:57",
       "amount": 20.0,
       "direction": "debit",
@@ -1519,14 +1795,16 @@
       ],
       "counterparty": "RAJESHKU",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "53cbdc08be45665c5760248b36d7fff6256e448bc072b55c99928ec9d1b84836",
-    "deleted_at": "2025-12-24T21:47:27.094232",
+    "id": "912065b562e2663f9de2337dc960fbea0fac26e893a701754a9a1bcfc555abb5",
+    "deleted_at": "2025-12-24T23:47:30.441492",
     "transaction": {
-      "id": "53cbdc08be45665c5760248b36d7fff6256e448bc072b55c99928ec9d1b84836",
+      "id": "912065b562e2663f9de2337dc960fbea0fac26e893a701754a9a1bcfc555abb5",
       "datetime": "2025-11-23T13:02:00",
       "amount": 904.0,
       "direction": "debit",
@@ -1537,14 +1815,16 @@
       ],
       "counterparty": "JIORECHA",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "851843260de2cf4aa9c8e8a4e6169506cb59c1f1db4d683629e610f9712d44b1",
-    "deleted_at": "2025-12-24T21:47:27.094210",
+    "id": "5fa6b40684509719f0d870cf84aae9feea860394b2a64498a2ca0b901b41d433",
+    "deleted_at": "2025-12-24T23:47:30.441476",
     "transaction": {
-      "id": "851843260de2cf4aa9c8e8a4e6169506cb59c1f1db4d683629e610f9712d44b1",
+      "id": "5fa6b40684509719f0d870cf84aae9feea860394b2a64498a2ca0b901b41d433",
       "datetime": "2025-11-24T00:04:27",
       "amount": 20.0,
       "direction": "debit",
@@ -1554,14 +1834,16 @@
       ],
       "counterparty": "YULUBIKES",
       "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "04c28b09605f7671797090a1cfea89176f33a367ebbe61541d7edb95b8d5dd10",
-    "deleted_at": "2025-12-24T21:47:27.094187",
+    "id": "2bb5eb4514b6d7952a81326d1e2709cd1c025c3e9d18180cacccecdf0ae7bd46",
+    "deleted_at": "2025-12-24T23:47:30.441461",
     "transaction": {
-      "id": "04c28b09605f7671797090a1cfea89176f33a367ebbe61541d7edb95b8d5dd10",
+      "id": "2bb5eb4514b6d7952a81326d1e2709cd1c025c3e9d18180cacccecdf0ae7bd46",
       "datetime": "2025-11-24T00:33:51",
       "amount": 249.0,
       "direction": "debit",
@@ -1569,14 +1851,16 @@
       "category": [],
       "counterparty": "REBELMAR",
       "mode": "UPI",
-      "reviewed": false
+      "reviewed": false,
+      "notes": "",
+      "is_manual": false
     }
   },
   {
-    "id": "e8600bf5d61709f22032dabb4349aa9c1480569559c1d1e61a6ce35ce8687c3a",
-    "deleted_at": "2025-12-24T21:47:27.094165",
+    "id": "4dd85165b75ea85ccb13cd407ea3995985074d89b717bd5a4ee107cb36feed53",
+    "deleted_at": "2025-12-24T23:47:30.441446",
     "transaction": {
-      "id": "e8600bf5d61709f22032dabb4349aa9c1480569559c1d1e61a6ce35ce8687c3a",
+      "id": "4dd85165b75ea85ccb13cd407ea3995985074d89b717bd5a4ee107cb36feed53",
       "datetime": "2025-11-24T05:56:31",
       "amount": 125.0,
       "direction": "credit",
@@ -1587,24 +1871,9 @@
       ],
       "counterparty": "VAIBHAVI",
       "mode": "UPI",
-      "reviewed": true
-    }
-  },
-  {
-    "id": "0ca5cedfc1930536bb745e3dd131bca2705f82778231bce0aff770ab9ad8a920",
-    "deleted_at": "2025-12-24T21:47:27.094142",
-    "transaction": {
-      "id": "0ca5cedfc1930536bb745e3dd131bca2705f82778231bce0aff770ab9ad8a920",
-      "datetime": "2025-11-25T05:18:42",
-      "amount": 255.2,
-      "direction": "debit",
-      "scope": "personal",
-      "category": [
-        "food"
-      ],
-      "counterparty": "ETERNALL",
-      "mode": "UPI",
-      "reviewed": true
+      "reviewed": true,
+      "notes": "",
+      "is_manual": false
     }
   }
 ]
